@@ -20,13 +20,14 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
+// Middleware Setup
 app.use(
   cors({
     credentials: true,
     origin: [process.env.FRONTENDPOINT]
   })
 );
-
 app.use(
   session({
     resave: false,
@@ -35,10 +36,8 @@ app.use(
     cookie: { maxAge: 1000 * 60 * 60 }
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

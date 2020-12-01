@@ -4,7 +4,6 @@ const PLM = require('passport-local-mongoose');
 const userSchema = new Schema(
   {
     email: String,
-    name: String
   },
   {
     timestamps: true,

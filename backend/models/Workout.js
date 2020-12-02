@@ -1,17 +1,22 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model, Mongoose } = require("mongoose")
 
 const workoutSchema = new Schema(
   {
-    exercies: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Exercise",
-      },
-    ],
-    createdby: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
+    name: String,
+    image: String,
+    description: String,
+    level: String,
+    workout: {
+      set: {
+        exercises: [{
+          type: Schema.Types.ObjectId,
+          ref: 'Exercise'
+        }],
+        round_rest: Number,
+        set_rest: Number,
+        repeat: Number
+      }
+    } 
   },
   {
     timestamps: {

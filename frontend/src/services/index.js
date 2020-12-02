@@ -12,13 +12,16 @@ const MY_SERVICE = {
     return await service.get('/');
   },
   signup: async (user) => {
-    return await SERVICE.post('/signup', user);
+    return await service.post('/signup', user);
   },
   login: async (user) => {
-    return await SERVICE.post('/login', user);
+    return await service.post('/login', user);
   },
   logOut: async () => {
-    return await SERVICE.get('/logout');
+    return await service.get('/logout');
+  },
+  isAuth: async () => {
+    return await service.get('/profile')
   }
 };
 

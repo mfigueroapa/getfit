@@ -2,7 +2,10 @@ const User = require("../models/User")
 
 exports.signup = async (req, res) => {
   User.register(req.body, req.body.password)
-    .then((user) => res.status(201).json({ user }))
+    .then((user) => {
+        console.log(user)
+        res.status(201).json({ user })
+    })
     .catch((err) => res.status(500).json({ err }))
 }
 exports.login = async (req, res) => {

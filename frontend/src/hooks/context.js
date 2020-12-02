@@ -9,8 +9,8 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-      const { data } = await MY_SERVICE.isAuth()
-      login(data)
+      const { user } = await MY_SERVICE.isAuth()
+      login(user)
     }
 
     getSessionData()
@@ -24,10 +24,9 @@ export const AppCtxProvider = (props) => {
 //     //   setUser({ ...user, img })
 //   }
 
-//   const logout = () => {
-//     // //TODO: Cerrar la sesion en el server y en el cliente
-//     // setUser(null)
-//   }
+  const logout = () => {
+    setUser(null)
+  }
 
 //   const updateUserCtx = (userInfo) => {
 //     // setUser(

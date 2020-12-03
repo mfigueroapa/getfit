@@ -9,6 +9,7 @@ import {
   Input,
   Button,
   Divider,
+  Select,
   message,
   DatePicker
 } from 'antd'
@@ -49,9 +50,19 @@ function Update() {
             <Form.Item name="email" label="Email:">
               <Input />
             </Form.Item>
-
+            
             <Form.Item name="exercise" label="Exercise:">
-              <Input />
+              <Select>
+                <Select.Option value="Begginer">
+                  Begginer
+                </Select.Option>
+                <Select.Option value="Intermediate">
+                  Intermediate
+                </Select.Option>
+                <Select.Option value="Advanced">
+                  Adavnced
+                </Select.Option>
+              </Select>
             </Form.Item>
 
             <Form.Item name="height" label="Height:">

@@ -5,19 +5,12 @@ import MY_SERVICE from "../services"
 export const AppContext = createContext()
 
 export const AppCtxProvider = (props) => {
-  const [user, setUser] = useState({
-    _id: "5fc848273bb8e007bb75d7dc",
-    workout: "advanced",
-    email: 'usuario@hotmail.com',
-    height: "170",
-    username: "pepito",
-    weight: "70"
-  })
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     async function getSessionData() {
-      const { user } = await MY_SERVICE.isAuth()
-      login(user)
+      const user = await MY_SERVICE.isAuth()
+      login(user.data.user)
     }
 
     getSessionData()

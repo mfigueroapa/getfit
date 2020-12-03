@@ -3,12 +3,14 @@ import { Card, Avatar, Row, Col, Typography  } from 'antd';
 import { EditOutlined, DeleteOutlined, ImportOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Info from './Info'
 import Update from './Update'
+import { useContextInfo } from '../../hooks/context'
+import MY_SERVICE from '../../services'
 
 
 const { Title, Text } = Typography;
 
 const Profile = () => {
-
+  const { logout } = useContextInfo()
   const [view, setView] = useState("info")
 
   function handleInfo() {
@@ -19,12 +21,17 @@ const Profile = () => {
     setView('update')
   }
 
+  async function handleLogout() {
+    await MY_SERVICE.logOut()
+    logout()
+  }
+
   return (
     <Row>
     <Col span={8}>
       <Card
         actions={[
-          <ImportOutlined key="signout"/>,
+          <ImportOutlined key="signout" onClick={handleLogout}/>,
           <InfoCircleOutlined key="info" onClick={handleInfo}/>,
           <EditOutlined key="edit" onClick={handleUpdate}/>,
           <DeleteOutlined Key="delete"/>

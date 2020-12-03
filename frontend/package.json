@@ -8,8 +8,10 @@
     "dotenv": "^8.2.0",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
+    "react-player": "^2.7.0",
     "react-router-dom": "^5.1.1",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "react-toastify": "^6.1.0"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",

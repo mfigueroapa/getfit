@@ -10,9 +10,13 @@ const Login = ({ history }) => {
   const [form] = Form.useForm()
 
   async function handleSubmit(userInput) {
-    const {data} = await MY_SERVICE.login(userInput)
+    const { data } = await MY_SERVICE.login(userInput)
     login(data.user)
-    history.push("/new-user-form")
+    if (data.user.exercise === "") {
+        history.push("/new-user-form")
+    } else {
+        history.push("/dashboard")
+    }
   }
 
   return (
@@ -23,10 +27,16 @@ const Login = ({ history }) => {
       <Divider />
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleSubmit}>
-          <Form.Item name="email" label="Email:">
+          <Form.Item 
+          rules={[{ required: true }]} 
+          name="email" label="Email">
             <Input />
           </Form.Item>
-          <Form.Item name="password" label="Password:">
+          <Form.Item
+            rules={[{ required: true }]}
+            name="password"
+            label="Password"
+          >
             <Input.Password />
           </Form.Item>
           <Button type="primary" block htmlType="submit">

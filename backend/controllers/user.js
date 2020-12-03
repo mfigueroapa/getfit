@@ -6,11 +6,21 @@ const Exercise = require("../models/Exercise")
 exports.editInfo = async (req, res) => {
   const { _id } = req.user
   const { username, weight, height, exercise } = req.body
-  await User.findByIdAndUpdate(
-    _id,
-    { username, weight, height, exercise }
-  )
-    res.status(200).json({ user: "Fields edited successfully" })
+  await User.findByIdAndUpdate(_id, {
+    username,
+    weight,
+    height,
+    exercise,
+  })
+    .then((user) =>
+      res.status(200).json({ data: { user: "Fields edited successfully" } })
+    )
+    .catch((error) => {
+      res
+      .status(500)
+      .json({ data: { msg: "You can only enter number on weight and height fields" } })
+    }
+    )
 }
 
 exports.updateProfile = async (req, res) => {

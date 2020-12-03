@@ -16,9 +16,8 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-        console.log("useEffect de context")
-    //   const { user } = await MY_SERVICE.isAuth()
-    //   login(user)
+      const { user } = await MY_SERVICE.isAuth()
+      login(user)
     }
 
     getSessionData()
@@ -27,11 +26,6 @@ export const AppCtxProvider = (props) => {
   const login = (userInfo) => {
     setUser(userInfo)
   }
-
-//   const addProfilePic = (img) => {
-//     //   setUser({ ...user, img })
-//   }
-
   const logout = () => {
     setUser(null)
   }
@@ -46,12 +40,10 @@ export const AppCtxProvider = (props) => {
     )
     console.log(user)
   }
-
-  const value = { user, login, updateUserCtx }
+  
+  const value = { user, login, updateUserCtx, logout}
 
   return <AppContext.Provider {...props} value={value} />
 }
-
-// Opcional: agregamos un custom hook para evitar consumir en cada componente nuestro ctx
-
+//hook
 export const useContextInfo = () => useContext(AppContext)

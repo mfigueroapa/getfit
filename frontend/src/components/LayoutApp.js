@@ -2,14 +2,8 @@ import { Layout, Menu } from "antd"
 import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
-import { logOut } from "../services"
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-} from "@ant-design/icons"
+import MY_SERVICE from "../services"
+
 
 const { Header, Content, Footer } = Layout
 
@@ -18,8 +12,8 @@ export default function LayoutApp({ children }) {
   
   async function handleLogout() {
     console.log("handleLogout")
-    // await logOut()
-    // logout()
+    await MY_SERVICE.logOut()
+    logout()
   }
  
   return (
@@ -53,7 +47,12 @@ export default function LayoutApp({ children }) {
           </Menu>
         </Header>
         <br />
-        <Content style={{ padding: "0 50px", height: "calc(100vh - 153.6px)" }}>
+        <Content
+          style={{
+            padding: "0 50px",
+            minHeight: "100vh",
+          }}
+        >
           <div className="site-layout-content">{children}</div>
         </Content>
         <Footer style={{ textAlign: "center" }}>

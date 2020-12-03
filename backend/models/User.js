@@ -5,17 +5,17 @@ const userSchema = new Schema(
   {
     email: String,
     username: String, 
-    weight: String,
-    height: String,
+    weight: Number,
+    height: Number,
     exercise: {
       type: String,
-      enum: ['Begginer', 'Intermediate', 'Avanzed'],
-      default: 'Begginer'
+      enum: ['Begginer', 'Intermediate', 'Avanzed',''],
+      default: ''
     },
-    workout: {
+    workout: [{
       type: Schema.Types.ObjectId,
       ref: 'Workout'
-    }
+    }]
   },
   {
     timestamps: true,

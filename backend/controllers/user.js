@@ -18,18 +18,9 @@ exports.editInfo = async (req, res) => {
     .catch((error) => {
       res
       .status(500)
-      .json({ data: { msg: "error con los datos no numerisocs" } })
+      .json({ data: { msg: "You can only enter number on weight and height fields" } })
     }
-      // res
-        // .status(500)
-        // .json({ data: { msg: "error con los datos no numerisocs" } })
     )
-  // try {
-  //   return res.status(200).json({ user: "Fields edited successfully" })
-  // }catch (error) {
-  //   console.log("error from editInfo ctl", error)
-  // }
-  
 }
 
 exports.createWorkout = async (req, res) => {

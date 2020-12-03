@@ -50,7 +50,6 @@ export default function LayoutApp({ children }) {
         <Content
           style={{
             padding: "0 50px",
-            height: "calc(100vh - 153.6px)",
             minHeight: "100vh",
           }}
         >

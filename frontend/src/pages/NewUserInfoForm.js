@@ -22,19 +22,16 @@ const NewUserInfoForm = ({ history }) => {
 
 
   async function handleSubmit(userInputValues) {
-    // console.log("usuario desde newuser ifno",user)
-    // console.log("inputttt",userInputValues)
     await MY_SERVICE.editInfo(userInputValues)
     .then(response => {
-      toast.success("bienvenido")
+      toast.success("Welcome to GetFit")
       console.log("esta fue la respuesta del server.. ,", response.data.data.user)
       login(response.data.data.user)
       updateUserCtx(userInputValues)
       history.push("/dashboard")
     }).catch(error => {
-      // const { msg } = MY_SERVICE.editInfo(userInputValues)
-      toast.error("el valor de weight y height debe ser en numero")
-      console.log("el errrrrrrror ", error.data)
+      toast.error("Weight and Height values must be number")
+      console.log("Error:  ", error.data)
     })
 
 

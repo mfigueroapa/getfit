@@ -1,20 +1,16 @@
 import React, { useState,useEffect } from "react"
-import { Typography, Row, Col } from "antd"
+import { Typography, Row, Col, Modal, Button } from "antd"
 import { useContextInfo } from "../hooks/context"
-import { Redirect } from "react-router-dom"
-import NewUserInfoForm from '../components/NewUserInfoForm'
+import Profile from "../components/profile/Profile"
 
 const Dashboard = () => {
+  
   const { user } = useContextInfo()
-  console.log(user)
 //   console.log(user.user, user.email)
 
-
- 
-
-  
   return (
     <>
+    <Profile/>
     <h1>Dashboard</h1>
     </>
   )

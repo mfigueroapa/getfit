@@ -22,6 +22,9 @@ const MY_SERVICE = {
   },
   isAuth: async () => {
     return await service.get('/profile')
+  },
+  updateUser: async (id, user) => {
+    return await service.post(`user/update/${id}`, user)
   }
 };
 

@@ -12,7 +12,7 @@ const Login = ({ history }) => {
   async function handleSubmit(userInput) {
     const {data} = await MY_SERVICE.login(userInput)
     login(data.user)
-    history.push("/profile")
+    history.push("/new-user-form")
   }
 
   return (

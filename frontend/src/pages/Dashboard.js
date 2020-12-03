@@ -4,7 +4,7 @@ import { useContextInfo } from "../hooks/context"
 import { Redirect } from "react-router-dom"
 import NewUserInfoForm from '../components/NewUserInfoForm'
 
-const Profile = () => {
+const Dashboard = () => {
   const { user } = useContextInfo()
   console.log(user)
 //   console.log(user.user, user.email)
@@ -13,11 +13,11 @@ const Profile = () => {
  
 
   
-  return user.exercise === '' ? (
-    <NewUserInfoForm />
-  ) : (
-    <div>Welcome to your profile</div>
+  return (
+    <>
+    <h1>Dashboard</h1>
+    </>
   )
 }
 
-export default Profile
+export default Dashboard

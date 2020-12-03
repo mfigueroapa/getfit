@@ -5,7 +5,7 @@ import NotFound from "./components/404/NotFound.js"
 import LayoutApp from "./components/LayoutApp"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
-import Profile from "./pages/Profile"
+import Dashboard from "./pages/Dashboard"
 
 const Router = () => (
   <BrowserRouter>
@@ -14,7 +14,8 @@ const Router = () => (
         <Route exact path="/" component={Home} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/profile" component={Profile} />
+        {/* <Route path="/new-user-form" component={NewUserForm} /> */}
+        <Route path="/dashboard" component={Dashboard} />
         <Route component={NotFound} />
       </Switch>
     </LayoutApp>

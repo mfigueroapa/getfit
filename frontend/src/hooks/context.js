@@ -9,8 +9,9 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-      const { user } = await MY_SERVICE.isAuth()
-      login(user)
+        console.log("useEffect de context")
+    //   const { user } = await MY_SERVICE.isAuth()
+    //   login(user)
     }
 
     getSessionData()

@@ -7,6 +7,7 @@ import Signup from "./pages/Signup"
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import NewUserInfoForm from './pages/NewUserInfoForm'
+import Exercises from './pages/Exercises'
 import { useContextInfo } from "./hooks/context"
 import MY_SERVICE from './services'
 
@@ -47,6 +48,7 @@ const Router = () => {
             <Route component={Home} />
           )}
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/exercises" component={Exercises} />
           <Route component={NotFound} />
         </Switch>
       </LayoutApp>

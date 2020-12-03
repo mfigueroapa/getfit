@@ -32,6 +32,9 @@ const MY_SERVICE = {
   getExercises: async () => {
     return await service.get("/getExercises")
   },
+  getWorkouts: async () => {
+    return await service.get("/getWorkouts")
+  },
 };
 
 export default MY_SERVICE;

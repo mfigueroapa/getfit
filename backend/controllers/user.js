@@ -13,6 +13,16 @@ exports.editInfo = async (req, res) => {
     res.status(200).json({ user: "Fields edited successfully" })
 }
 
+exports.updateProfile = async (req, res) => {
+  const { id } = req.params
+  const { username, weight, height, exercise, email } = req.body
+  await User.findByIdAndUpdate(
+    id,
+    { username, weight, height, exercise, email }
+  )
+    res.status(200).json({ user: "Fields edited successfully" })
+}
+
 exports.createWorkout = async (req, res) => {
   const {_id} = req.user
 

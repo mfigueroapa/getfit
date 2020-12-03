@@ -1,8 +1,10 @@
 const User = require("../models/User")
 const router = require("express").Router()
-const {editInfo} = require('../controllers/user')
+const {editInfo, updateProfile} = require('../controllers/user')
 
 router.post("/edit-info", editInfo)
+
+router.post("/update/:id", updateProfile)
 
 router.post('./create-workout')
 

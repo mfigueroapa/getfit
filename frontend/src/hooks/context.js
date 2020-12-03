@@ -9,9 +9,8 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-        console.log("useEffect de context")
-    //   const { user } = await MY_SERVICE.isAuth()
-    //   login(user)
+      const { user } = await MY_SERVICE.isAuth()
+      login(user)
     }
 
     getSessionData()
@@ -29,16 +28,17 @@ export const AppCtxProvider = (props) => {
     setUser(null)
   }
 
-//   const updateUserCtx = (userInfo) => {
-//     // setUser(
-//     //   (user.username = userInfo.user),
-//     //   (user.course = userInfo.course),
-//     //   (user.campus = userInfo.campus)
-//     // )
-//     // console.log(user)
-//   }
+  const updateUserCtx = (userInfo) => {
+    setUser(
+      (user.username = userInfo.username),
+      (user.weight = userInfo.weight),
+      (user.height = userInfo.height),
+      (user.exercise = userInfo.exercise)
+    )
+    // console.log("user del contexto despues del supuesto update",user)
+  }
 
-  const value = { user, login }
+  const value = { user, login, updateUserCtx, logout }
 
   return <AppContext.Provider {...props} value={value} />
 }

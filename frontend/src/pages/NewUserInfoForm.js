@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useEffect} from "react"
 import {
   Form,
   Button,
@@ -8,15 +8,34 @@ import {
   Select,
   Row,
   Typography,
+  InputNumber
 } from "antd"
+import MY_SERVICE from "../services"
+import { useContextInfo } from "../hooks/context"
 const { Title } = Typography
 
-const NewUserInfoForm = ({history}) => {
+
+const NewUserInfoForm = ({ history }) => {
   const [form] = Form.useForm()
-  async function handleSubmit(values) {
-    console.log("values from input: ", values)
+  const { updateUserCtx, user, login} = useContextInfo()
+
+    useEffect(() => {
+      console.log("useEff from newuserinfolala.")
+      async function getUser() {
+        try {
+          const { user } = await MY_SERVICE.isAuth()
+          console.log("esta fue la respuesta del server.. ,", user)
+          login(user)
+          console.log("meotodo getUser asincrono")
+        } catch {}
+      }
+      getUser()
+    }, [])
+
+  async function handleSubmit(userInputValues) {
+    console.log("usuario desde newuser ifno",user)
+    // updateUserCtx(userInputValues)
     // history.push("/dashboard")
-    
   }
 
   return (
@@ -36,10 +55,10 @@ const NewUserInfoForm = ({history}) => {
           >
             <Input />
           </Form.Item>
-          <Form.Item rules={[{ required: true }]} name="weight" label="Weight">
+          <Form.Item rules={[{ required: true }]} name="weight" label="Weight in kilos">
             <Input />
           </Form.Item>
-          <Form.Item rules={[{ required: true }]} name="height" label="Height">
+          <Form.Item rules={[{ required: true }]} name="height" label="Height in cms">
             <Input />
           </Form.Item>
           <Form.Item
@@ -54,7 +73,7 @@ const NewUserInfoForm = ({history}) => {
               <Select.Option value="Intermediate">
                 Been training less than 2 years
               </Select.Option>
-              <Select.Option value="Avanzed">
+              <Select.Option value="Advanced">
                 Been training for more than 2 years
               </Select.Option>
             </Select>

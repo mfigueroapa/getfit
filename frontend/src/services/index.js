@@ -9,20 +9,26 @@ const service = axios.create({ withCredentials: true, baseURL });
 
 const MY_SERVICE = {
   test: async () => {
-    return await service.get('/');
+    return await service.get("/")
   },
   signup: async (user) => {
-    return await service.post('/signup', user);
+    return await service.post("/signup", user)
   },
   login: async (user) => {
-    return await service.post('/login', user);
+    return await service.post("/login", user)
   },
   logOut: async () => {
-    return await service.get('/logout');
+    return await service.get("/logout")
   },
   isAuth: async () => {
-    return await service.get('/profile')
-  }
-};
+    return await service.get("/profile")
+  },
+  editInfo: async (userData) => {
+    return await service.post("/user/edit-info", userData)
+  },
+  getExercises: async () => {
+    return await service.get("/getExercises")
+  },
+}
 
 export default MY_SERVICE;

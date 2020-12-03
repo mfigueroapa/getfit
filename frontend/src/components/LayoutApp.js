@@ -3,13 +3,7 @@ import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-} from "@ant-design/icons"
+
 
 const { Header, Content, Footer } = Layout
 

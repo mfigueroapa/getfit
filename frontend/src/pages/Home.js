@@ -5,13 +5,13 @@ import MY_SERVICE from '../services'
 
 function Home() {
 const [exercises, setExercises] = useState(null)
-  useEffect(() => {
-    async function getData() {
-      const { data: allExercises } = await MY_SERVICE.getExercises()
-      setExercises(allExercises)
-    }
-    getData()
-  }, [])
+  // useEffect(() => {
+  //   async function getData() {
+  //     const { data: allExercises } = await MY_SERVICE.getExercises()
+  //     setExercises(allExercises)
+  //   }
+  //   getData()
+  // }, [])
   return (
     <>
       <Typography.Title level={1}>Exercises</Typography.Title>

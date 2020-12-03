@@ -35,12 +35,12 @@ const Router = () => {
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
-          {/* <Route path="/new-user-form" component={NewUserInfoForm} /> */}
-          {user ? (
+          <Route path="/new-user-form" component={NewUserInfoForm} />
+          {/* {user ? (
             <Route path="/new-user-form" component={NewUserInfoForm} />
           ) : (
             <Route component={Home} />
-          )}
+          )} */}
           {user ? (
             <Route path="/dashboard" component={Dashboard} />
           ) : (

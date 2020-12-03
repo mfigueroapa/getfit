@@ -19,11 +19,6 @@ export const AppCtxProvider = (props) => {
   const login = (userInfo) => {
     setUser(userInfo)
   }
-
-//   const addProfilePic = (img) => {
-//     //   setUser({ ...user, img })
-//   }
-
   const logout = () => {
     setUser(null)
   }
@@ -35,14 +30,10 @@ export const AppCtxProvider = (props) => {
       (user.height = userInfo.height),
       (user.exercise = userInfo.exercise)
     )
-    // console.log("user del contexto despues del supuesto update",user)
   }
 
-  const value = { user, login, updateUserCtx, logout }
-
+  const value = { user, login, updateUserCtx, logout}
   return <AppContext.Provider {...props} value={value} />
 }
-
-// Opcional: agregamos un custom hook para evitar consumir en cada componente nuestro ctx
-
+//hook
 export const useContextInfo = () => useContext(AppContext)

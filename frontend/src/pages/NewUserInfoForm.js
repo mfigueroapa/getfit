@@ -12,30 +12,33 @@ import {
 } from "antd"
 import MY_SERVICE from "../services"
 import { useContextInfo } from "../hooks/context"
+import { toast } from "react-toastify"
 const { Title } = Typography
 
 
 const NewUserInfoForm = ({ history }) => {
   const [form] = Form.useForm()
-  const { updateUserCtx, user, login} = useContextInfo()
+  const { updateUserCtx, user, login, msg} = useContextInfo()
 
-    useEffect(() => {
-      console.log("useEff from newuserinfolala.")
-      async function getUser() {
-        try {
-          const { user } = await MY_SERVICE.isAuth()
-          console.log("esta fue la respuesta del server.. ,", user)
-          login(user)
-          console.log("meotodo getUser asincrono")
-        } catch {}
-      }
-      getUser()
-    }, [])
 
   async function handleSubmit(userInputValues) {
-    console.log("usuario desde newuser ifno",user)
-    // updateUserCtx(userInputValues)
-    // history.push("/dashboard")
+    // console.log("usuario desde newuser ifno",user)
+    // console.log("inputttt",userInputValues)
+    await MY_SERVICE.editInfo(userInputValues)
+    .then(response => {
+      toast.success("bienvenido")
+      console.log("esta fue la respuesta del server.. ,", response.data.data.user)
+      login(response.data.data.user)
+      updateUserCtx(userInputValues)
+      history.push("/dashboard")
+    }).catch(error => {
+      // const { msg } = MY_SERVICE.editInfo(userInputValues)
+      toast.error("el valor de weight y height debe ser en numero")
+      console.log("el errrrrrrror ", error.data)
+    })
+
+
+    
   }
 
   return (

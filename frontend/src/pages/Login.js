@@ -12,7 +12,7 @@ const Login = ({ history }) => {
   async function handleSubmit(userInput) {
     const { data } = await MY_SERVICE.login(userInput)
     login(data.user)
-    console.log("data exercise: ", data.user.exercise)
+    // console.log("data exercise: ", data.user.exercise)
     if (data.user.exercise === "") {
         history.push("/new-user-form")
     } else {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { Row, Col, Card, Typography } from "antd"
+import { Row, Col, Card, Typography, Spin } from "antd"
 import ReactPlayer from "react-player"
 import MY_SERVICE from "../services"
+
 
 function Exercises() {
   const [exercises, setExercises] = useState(null)
@@ -26,15 +27,17 @@ function Exercises() {
             <Card title={ex.name}>
               <Card
                 type="inner"
-                title="How to perform"
+                title={ex.muscle_group}
                 // extra={<a href={ex.videoUrl}>YouTube</a>}
               >
-               <Typography.Title level={5}>{ex.muscle_group}</Typography.Title>
-                <ReactPlayer 
+               <Typography.Title level={5}>How to perform</Typography.Title>
+              {ex.videoUrl ? (<ReactPlayer 
                 url={ex.videoUrl} 
                 width='100%'
                 height='260px'
-                />
+                />) : 
+                (<Spin/>)}
+                
               </Card>
               {/* <Card
                 style={{ marginTop: 16 }}

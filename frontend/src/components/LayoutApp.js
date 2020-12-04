@@ -1,21 +1,20 @@
 import { Layout, Menu } from "antd"
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
 
-
 const { Header, Content, Footer } = Layout
 
 export default function LayoutApp({ children }) {
-  const {user, logout} = useContextInfo()
-  
+  const { user, logout } = useContextInfo()
+
   async function handleLogout() {
     console.log("handleLogout")
     await MY_SERVICE.logOut()
     logout()
   }
- 
+
   return (
     <>
       <Layout className="layout">
@@ -39,7 +38,10 @@ export default function LayoutApp({ children }) {
                 <Menu.Item key="4">
                   <Link to="/profile">Profile</Link>
                 </Menu.Item>
-                <Menu.Item key="5" onClick={handleLogout}>
+                <Menu.Item key="5">
+                  <Link to="/create-workout">Create Workout</Link>
+                </Menu.Item>
+                <Menu.Item key="6" onClick={handleLogout}>
                   Logout
                 </Menu.Item>
               </React.Fragment>
@@ -56,7 +58,7 @@ export default function LayoutApp({ children }) {
           <div className="site-layout-content">{children}</div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
+          GetFitTeam © Copyright 2020
         </Footer>
       </Layout>
     </>

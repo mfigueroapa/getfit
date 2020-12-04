@@ -23,7 +23,30 @@ function Main() {
     color: "#fff",
     lineHeight: "160px",
     textAlign: "center",
-    background: "#364d79",
+    backgroundImage: `url(https://static.nike.com/a/images/f_auto/dpr_1.0/w_1754,c_limit/c1d56631-94f2-4be4-be26-fa05b68a6234/nike-training-club-app-entrenamientos-en-casa-y-mucho-ms.jpg)`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }
+  const contentStyle2 = {
+    height: "300px",
+    color: "#fff",
+    lineHeight: "160px",
+    textAlign: "center",
+    backgroundImage: `url(https://d2z0k43lzfi12d.cloudfront.net/blog/vcdn314/wp-content/uploads/2020/11/thumbnail_1200x800-1-1024x683.jpg)`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }
+  const contentStyle3 = {
+    height: "300px",
+    color: "#fff",
+    lineHeight: "160px",
+    textAlign: "center",
+    backgroundImage: `url(https://ruizhealytimes.com/wp-content/uploads/2020/08/gym-coronavirus-1-2048x1365.jpg)`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
   }
 
   return (
@@ -38,24 +61,26 @@ function Main() {
             Try the workouts we already made for you!
           </Typography.Title>
           <Carousel autoplay>
-          {workouts?.map(workout => (
-            <div  key={workout._id} >
-              <h3 style={contentStyle1}>{workout.name}</h3>
-            </div>
-          ))}
+            {workouts?.map((workout) => (
+              <div key={workout._id}>
+                <h3 style={contentStyle1}>{workout.name}</h3>
+              </div>
+            ))}
           </Carousel>
           <br />
           <Typography.Title level={3}>Your customs Workouts</Typography.Title>
           <Carousel>
             <div>
-              <h3 style={contentStyle1}>Your workouts</h3>
+              <h3 style={contentStyle2}>Your workouts</h3>
             </div>
           </Carousel>
           <br />
-          <Typography.Title level={3}>Borowse your exercises!</Typography.Title>
+          <Typography.Title level={3}>Browse your exercises!</Typography.Title>
           <Carousel>
             <div>
-              <Link to='/exercises'><h3 style={contentStyle1}>Exercises</h3></Link>
+              <Link to="/exercises">
+                <h3 style={contentStyle3}>Exercises</h3>
+              </Link>
             </div>
           </Carousel>
         </Col>

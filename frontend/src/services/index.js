@@ -35,6 +35,9 @@ const MY_SERVICE = {
   getWorkouts: async () => {
     return await service.get("/getWorkouts")
   },
+  searchExercise: async (query) => {
+    return await service.get(`/getExercises/search?q=${query}`)
+  }
 };
 
 export default MY_SERVICE;

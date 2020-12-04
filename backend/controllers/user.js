@@ -33,6 +33,18 @@ exports.updateProfile = async (req, res) => {
     res.status(200).json({ user: "Fields edited successfully" })
 }
 
+exports.updatePic = async (req, res) => {
+  const { id } = req.params
+  const { profile_pic } = req.body
+  console.log(id)
+  const hello = await User.findByIdAndUpdate(
+    id,
+    { profile_pic: profile_pic }
+  )
+
+  res.status(200).json({ user: "Fields edited successfully" })
+}
+
 exports.createWorkout = async (req, res) => {
   const {_id} = req.user
 
@@ -43,4 +55,12 @@ exports.createWorkout = async (req, res) => {
   //push  de cada exericse al array 
   //
   
+}
+
+exports.deleteUser = async (req, res) => {
+  const { id } = req.params
+
+  await User.findByIdAndDelete(id)
+
+  res.status(200).json({ message: 'User Deleted' })
 }

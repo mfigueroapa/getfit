@@ -11,6 +11,7 @@ import Exercises from './pages/Exercises'
 import CreateWorkout from './pages/CreateWorkout'
 import { useContextInfo } from "./hooks/context"
 import MY_SERVICE from './services'
+import DisplayWorkout from "./pages/WorkoutDisplay"
 
 const Router = () => {
   const {login} = useContextInfo()
@@ -44,7 +45,10 @@ const Router = () => {
             <Route component={Home} />
           )} */}
           {user ? (
+            <>
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/workouts/:id" component={DisplayWorkout}/>
+            </>
           ) : (
             <Route component={Home} />
           )}

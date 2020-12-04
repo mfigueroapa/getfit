@@ -6,17 +6,16 @@ const workoutSchema = new Schema(
     image: String,
     description: String,
     level: String,
-    workout: {
-      set: {
-        exercises: [{
-          type: Schema.Types.ObjectId,
-          ref: 'Exercise'
-        }],
-        round_rest: Number,
-        set_rest: Number,
-        repeat: Number
-      }
-    } 
+    exercises: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Exercise'
+    }],
+    round_rest: Number,
+    set_rest: Number,
+    repeat: Number,
+    sets: Number,
+    exercises_per_set: Number,
+    created_by: String
   },
   {
     timestamps: {

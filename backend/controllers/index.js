@@ -14,3 +14,9 @@ exports.getWorkouts = async (req, res) => {
 //   console.log(workouts[0].workout.set.exercises)
   res.status(200).json(workouts)
 }
+
+exports.getWorkout = async (req, res) => {
+  const { id } = req.params
+  const workout =  await Workout.findById(id).populate('exercises')
+  res.status(200).json(workout)
+}

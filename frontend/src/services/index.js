@@ -29,6 +29,12 @@ const MY_SERVICE = {
   editInfo: async (userData) => {
     return await service.post("/user/edit-info", userData)
   },
+  deleteUser: async (id) => {
+    return await service.post(`user/delete/${id}`)
+  },
+  updatePic: async (id, image) => {
+    return await service.post(`user/update-pic/${id}`, image)
+  },
   getExercises: async () => {
     return await service.get("/getExercises")
   },
@@ -37,6 +43,9 @@ const MY_SERVICE = {
   },
   searchExercise: async (query) => {
     return await service.get(`/getExercises/search?q=${query}`)
+  },
+  getWorkout: async (id) => {
+    return await service.get(`workouts/${id}`)
   }
 };
 

@@ -10,3 +10,9 @@ exports.getWorkouts = async (req, res) => {
   const workouts = await Workout.find()
   res.status(200).json(workouts)
 }
+
+exports.getWorkout = async (req, res) => {
+  const { id } = req.params
+  const workout =  await Workout.findById(id).populate('exercises')
+  res.status(200).json(workout)
+}

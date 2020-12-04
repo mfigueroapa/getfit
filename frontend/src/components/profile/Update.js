@@ -18,12 +18,11 @@ const { Title } = Typography;
 
 function Update() {
 
-  const { user } = useContextInfo()
+  const { user, updateUserCtx } = useContextInfo()
   console.log(user)
   const [form] = Form.useForm()
 
   async function submitForm(data) {
-    console.log(data)
     // TODO: Enviar el proyecto al backend... mediante nuestro servicio y..... Redirigir al inicio.
     let send = true
     Object.entries(data).map(val => {
@@ -35,6 +34,7 @@ function Update() {
     if (send) {
       await MY_SERVICE.updateUser(user._id, data)
       form.resetFields()
+      updateUserCtx(data)
     }
   }
 

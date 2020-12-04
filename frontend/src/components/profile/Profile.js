@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
-import { Card, Avatar, Row, Col, Typography  } from 'antd';
+import { Card, Row, Col } from 'antd';
 import { EditOutlined, DeleteOutlined, ImportOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Info from './Info'
 import Update from './Update'
 import { useContextInfo } from '../../hooks/context'
 import MY_SERVICE from '../../services'
 
-
-const { Title, Text } = Typography;
-
 const Profile = () => {
-  const { logout } = useContextInfo()
+  const { user, logout } = useContextInfo()
   const [view, setView] = useState("info")
 
   function handleInfo() {
@@ -26,6 +23,11 @@ const Profile = () => {
     logout()
   }
 
+  async function handleDelete() {
+    await MY_SERVICE.deleteUser(user._id)
+    logout()
+  }
+
   return (
     <Row>
     <Col span={8}>
@@ -34,7 +36,7 @@ const Profile = () => {
           <ImportOutlined key="signout" onClick={handleLogout}/>,
           <InfoCircleOutlined key="info" onClick={handleInfo}/>,
           <EditOutlined key="edit" onClick={handleUpdate}/>,
-          <DeleteOutlined Key="delete"/>
+          <DeleteOutlined Key="delete" onClick={handleDelete}/>
         ]}
       >
       {view === "info" ? 

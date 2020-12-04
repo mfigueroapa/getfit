@@ -33,17 +33,18 @@ const workout = [
     image: "https://unsplash.com/photos/0Wra5YYVQJE",
     description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas",
     level: "Beginner",
-    workout: {
-      set: {
-        exercises: [
-          "5fc7c73d8e99c0155dbb766d",
-          "5fc7c73d8e99c0155dbb766c",
-          "5fc7c73d8e99c0155dbb7670"
-        ],
-      "round_rest": 20,
-      "set_rest": 60,
-      "repeat": 4
-      }
-    }
+    exercises: [
+      "5fc937f7ca6244539cfcd8da",
+      "5fc937f7ca6244539cfcd8db",
+      "5fc937f7ca6244539cfcd8dc",
+      "5fc937f7ca6244539cfcd8da",
+      "5fc937f7ca6244539cfcd8db",
+      "5fc937f7ca6244539cfcd8dc"
+    ],
+    round_rest: 20,
+    set_rest: 60,
+    repeat: 4,
+    sets: 2,
+    created_by: "Get Fit"
   }
 ]

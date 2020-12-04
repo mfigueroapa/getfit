@@ -29,9 +29,18 @@ const MY_SERVICE = {
   editInfo: async (userData) => {
     return await service.post("/user/edit-info", userData)
   },
+  deleteUser: async (id) => {
+    return await service.post(`user/delete/${id}`)
+  },
+  updatePic: async (id, image) => {
+    return await service.post(`user/update-pic/${id}`, image)
+  },
   getExercises: async () => {
     return await service.get("/getExercises")
   },
+  getWorkout: async (id) => {
+    return await service.get(`workouts/${id}`)
+  }
 };
 
 export default MY_SERVICE;

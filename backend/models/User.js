@@ -7,6 +7,10 @@ const userSchema = new Schema(
     username: String, 
     weight: Number,
     height: Number,
+    profile_pic: {
+      type: String,
+      default: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
     exercise: {
       type: String,
       enum: ['Begginer', 'Intermediate', 'Avanzed',''],

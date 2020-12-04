@@ -9,8 +9,9 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-      const user = await MY_SERVICE.isAuth()
-      login(user.data.user)
+      const respond = await MY_SERVICE.isAuth()
+      console.log(respond.data.user)
+      login(respond.data.user)
     }
 
     getSessionData()
@@ -23,18 +24,25 @@ export const AppCtxProvider = (props) => {
     setUser(null)
   }
 
+  const addProfilePic = img => {
+    const userCopy = {...user}
+    userCopy.profile_pic = img
+    setUser(userCopy)
+  }
+
   const updateUserCtx = (userInfo) => {
-    setUser(
-      (user.username = userInfo.username),
-      (user.email = userInfo.email),
-      (user.weight = userInfo.weight),
-      (user.height = userInfo.height),
-      (user.exercise = userInfo.exercise)
-    )
+    const userCopy = {...user}
+    userCopy.username = userInfo.username
+    userCopy.email = userInfo.email
+    userCopy.weight = userInfo.weight
+    userCopy.height = userInfo.height
+    userCopy.exercise = userInfo.exercise
+
+    setUser(userCopy)
     console.log(user)
   }
   
-  const value = { user, login, updateUserCtx, logout}
+  const value = { user, login, updateUserCtx, logout, addProfilePic}
 
   return <AppContext.Provider {...props} value={value} />
 }

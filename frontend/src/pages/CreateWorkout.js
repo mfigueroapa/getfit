@@ -3,8 +3,9 @@ import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
 import React, { useState, useEffect } from "react"
 import { Typography, Row, Col, Skeleton, Divider, Input } from "antd"
-
+import { toast } from "react-toastify"
 import WorkoutForm from "../components/Dashboard/WorkoutForm"
+import Exercises from "./Exercises"
 
 const { Search } = Input
 const style = {
@@ -20,6 +21,7 @@ const CreateWorkout = () => {
   const [searchResults, setSearchResults] = useState([])
   const [newData, setNewData] = useState(false)
   const [show, setShow] = useState(false)
+  const [exerciseArr, setExerciseArr] = useState([])
 
   useEffect(() => {
     async function getData() {
@@ -43,9 +45,31 @@ const CreateWorkout = () => {
     setSearchResults(term)
   }, [searchQuery])
   return (
-    <> 
-    {show ?  <button onClick={()=>setShow(false)}>cancel</button> : null}
-    {show ?  <WorkoutForm ></WorkoutForm> : null}
+    <>
+      {show ? <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> : null}
+      {show ? (
+        <button
+          style={{ color: "white", background: "#000" }}
+          onClick={() => {
+            //create workout maybe post?
+          }}
+        >
+          Creacte workout!
+        </button>
+      ) : null}
+      <br />
+      <br />
+      {show ? (
+        <button
+          style={{ color: "white", background: "#000" }}
+          onClick={() => {
+            setShow(false)
+            setExerciseArr([])
+          }}
+        >
+          Cancel workout creation
+        </button>
+      ) : null}
       <Row gutter={[16, 16]}>
         <Col xs={24}>
           <Typography.Title level={4} style={{ margin: "2rem 0" }}>
@@ -72,10 +96,16 @@ const CreateWorkout = () => {
                   <button
                     style={{ color: "black" }}
                     onClick={() => {
-                        setShow(true); console.log(item._id)
-                        //func para recibir id y name
-
-                        
+                      setShow(true)
+                      console.log(item._id)
+                      console.log("exArr antes", exerciseArr)
+                      if (exerciseArr.length === 6)
+                      toast.error("You can only add up to 6 exercises per workout.")
+                        console.log("ahi merito paps")
+                      if (exerciseArr.length < 6) {
+                        setExerciseArr((exerciseArr) => [...exerciseArr, item])
+                        console.log("lengthhh ", exerciseArr.length)
+                      }
                     }}
                   >
                     +

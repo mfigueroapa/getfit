@@ -14,6 +14,7 @@ const workoutSchema = new Schema(
     set_rest: Number,
     repeat: Number,
     sets: Number,
+    exercises_per_set: Number,
     created_by: String
   },
   {

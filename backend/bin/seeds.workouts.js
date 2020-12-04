@@ -45,6 +45,7 @@ const workout = [
     set_rest: 60,
     repeat: 4,
     sets: 2,
+    exercises_per_set: 3,
     created_by: "Get Fit"
   }
 ]

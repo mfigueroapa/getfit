@@ -21,7 +21,7 @@ function DisplayWorkout() {
   let setsCounter = 0
   const exercises = 3
   let exercisesCounter = 1
-  for(let i = 0; i < sets; i++) {
+  for(let i = 0; i < sets; i++) { 
     listData.push({
       set: "set",
     })

@@ -6,7 +6,13 @@ exports.getExercises = async (req, res) => {
   res.status(200).json(exercises)
 }
 
+exports.getExercisesQuery = async (req, res) => {
+    // const {exercise} = 
+}
+
 exports.getWorkouts = async (req, res) => {
-  const workouts = await Workout.find()
+  const workouts = await Workout.find().populate('workout.set.exercises')
+
+//   console.log(workouts[0].workout.set.exercises)
   res.status(200).json(workouts)
 }

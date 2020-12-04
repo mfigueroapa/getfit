@@ -36,9 +36,9 @@ const workout = [
     workout: {
       set: {
         exercises: [
-          "5fc7c73d8e99c0155dbb766d",
-          "5fc7c73d8e99c0155dbb766c",
-          "5fc7c73d8e99c0155dbb7670"
+          "5fc937f7ca6244539cfcd8da",
+          "5fc937f7ca6244539cfcd8db",
+          "5fc937f7ca6244539cfcd8dc"
         ],
       "round_rest": 20,
       "set_rest": 60,

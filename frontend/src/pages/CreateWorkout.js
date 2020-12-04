@@ -73,6 +73,8 @@ const CreateWorkout = () => {
                     style={{ color: "black" }}
                     onClick={() => {
                         setShow(true); console.log(item._id)
+                        //func para recibir id y name
+
                         
                     }}
                   >

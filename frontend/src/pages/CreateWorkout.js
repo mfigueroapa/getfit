@@ -2,11 +2,22 @@ import { useHistory } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
 import React, { useState, useEffect } from "react"
-import { Typography, Row, Col, Skeleton, Divider, Input } from "antd"
+import {
+  Typography,
+  Row,
+  Col,
+  Skeleton,
+  Divider,
+  Input,
+  Card,
+  Form,
+  Button,
+  InputNumber,
+  Select,
+} from "antd"
 import { toast } from "react-toastify"
 import WorkoutForm from "../components/Dashboard/WorkoutForm"
 import Exercises from "./Exercises"
-
 const { Search } = Input
 const style = {
   backgroundColor: "blue",
@@ -14,6 +25,7 @@ const style = {
 }
 
 const CreateWorkout = () => {
+  const { user } = useContextInfo()
   const history = useHistory()
   const go = (path) => history.push(path)
   const [exercises, setExercises] = useState([])
@@ -22,6 +34,7 @@ const CreateWorkout = () => {
   const [newData, setNewData] = useState(false)
   const [show, setShow] = useState(false)
   const [exerciseArr, setExerciseArr] = useState([])
+  const [form] = Form.useForm()
 
   useEffect(() => {
     async function getData() {
@@ -44,31 +57,87 @@ const CreateWorkout = () => {
       : []
     setSearchResults(term)
   }, [searchQuery])
+
+  async function handleSubmit(userInputValues) {
+    console.log("hadndddddd")
+    console.log(userInputValues)
+    // console.log({
+    //   exercises: exerciseArr,
+    //   name: userInputValues.name,
+    //   image: "https://unsplash.com/photos/0Wra5YYVQJE",
+    //   description: "This is a custom workout",
+    //   level: userInputValues.exercise,
+    //   round_rest: 20,
+    //   set_rest: 60,
+    //   repeat: 4,
+    //   sets: 2,
+    //   exercises_per_set: 3,
+    //   created_by: user._id,
+    // })
+    
+    MY_SERVICE.createWorkout({
+        exercises: exerciseArr,
+        name: userInputValues.name,
+        image: "https://unsplash.com/photos/0Wra5YYVQJE",
+        description: "This is a custom workout",
+        level: userInputValues.exercise,
+        round_rest: 20,
+        set_rest: 60,
+        repeat: 4,
+        sets: 2,
+        exercises_per_set: 3,
+        created_by: user._id,
+      })
+  }
   return (
     <>
       {show ? <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> : null}
       {show ? (
-        <button
-          style={{ color: "white", background: "#000" }}
-          onClick={() => {
-            //create workout maybe post?
-          }}
-        >
-          Creacte workout!
-        </button>
+        <>
+          {/* <Divider /> */}
+          <Col span={24}>
+            <Form form={form} layout="vertical" onFinish={handleSubmit}>
+              <Form.Item
+                rules={[{ required: true }]}
+                name="name"
+                label="Name your workout"
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="exercise"
+                label="Select a difficulty level for your workout according to exercise selection"
+                rules={[{ required: true }]}
+              >
+                <Select>
+                  <Select.Option value="Begginer">Begginer</Select.Option>
+                  <Select.Option value="Intermediate">
+                    Intermediate
+                  </Select.Option>
+                  <Select.Option value="Advanced">Advanced</Select.Option>
+                </Select>
+              </Form.Item>
+              <Button type="primary" block size="middle" htmlType="submit">
+                Create Wrokout
+              </Button>
+            </Form>
+          </Col>
+        </>
       ) : null}
       <br />
-      <br />
+
       {show ? (
-        <button
-          style={{ color: "white", background: "#000" }}
+        <Button
+          type="danger"
+          block
+          size="middle"
           onClick={() => {
             setShow(false)
             setExerciseArr([])
           }}
         >
-          Cancel workout creation
-        </button>
+          Cancel
+        </Button>
       ) : null}
       <Row gutter={[16, 16]}>
         <Col xs={24}>
@@ -100,8 +169,10 @@ const CreateWorkout = () => {
                       console.log(item._id)
                       console.log("exArr antes", exerciseArr)
                       if (exerciseArr.length === 6)
-                      toast.error("You can only add up to 6 exercises per workout.")
-                        console.log("ahi merito paps")
+                        toast.error(
+                          "You can only add up to 6 exercises per workout."
+                        )
+                      console.log("ahi merito paps")
                       if (exerciseArr.length < 6) {
                         setExerciseArr((exerciseArr) => [...exerciseArr, item])
                         console.log("lengthhh ", exerciseArr.length)
@@ -144,3 +215,17 @@ const CreateWorkout = () => {
 }
 
 export default CreateWorkout
+
+// <button
+//           style={{ color: "white", background: "#000" }}
+//           onClick={() => {
+//             console.log(exerciseArr)
+//             console.log("CREATE WORKOUT BTN TRIGGERED")
+//             MY_SERVICE.createWorkout({
+//                 name
+//             })
+//           }}
+//         >
+//           Create workout!
+
+//         </button>

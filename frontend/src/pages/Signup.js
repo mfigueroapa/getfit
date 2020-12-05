@@ -4,6 +4,9 @@ import MY_SERVICE from "../services"
 
 const { Title } = Typography
 
+const googleUrl = process.env.NODE_ENV === 'development' ?
+  "http://localhost:3000/auth/google" : '/auth/google'
+
 const Signup = ({ history }) => {
   const [form] = Form.useForm()
 
@@ -35,6 +38,12 @@ const Signup = ({ history }) => {
             Signup
           </Button>
         </Form>
+        <Divider>
+          Or
+        </Divider>
+        <a href={googleUrl}>
+          <Button block> <i class="fab fa-google"></i>  &nbsp; Signup with Google </Button>
+        </a>
       </Col>
     </Row>
   )

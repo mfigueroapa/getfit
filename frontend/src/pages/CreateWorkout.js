@@ -12,7 +12,6 @@ import {
   Card,
   Form,
   Button,
-  InputNumber,
   Select,
 } from "antd"
 import { toast } from "react-toastify"
@@ -47,6 +46,15 @@ const CreateWorkout = () => {
     setSearchQuery(event.target.value)
     setNewData(true)
   }
+  const addExercise = (item) => {
+    setShow(true)
+    if (exerciseArr.length === 6)
+      toast.error("You can only add up to 6 exercises per workout.")
+    if (exerciseArr.length < 6) {
+      setExerciseArr((exerciseArr) => [...exerciseArr, item])
+    }
+  }
+
   useEffect(() => {
     const term = exercises
       ? exercises.filter(
@@ -59,35 +67,19 @@ const CreateWorkout = () => {
   }, [searchQuery])
 
   async function handleSubmit(userInputValues) {
-    console.log("hadndddddd")
-    console.log(userInputValues)
-    // console.log({
-    //   exercises: exerciseArr,
-    //   name: userInputValues.name,
-    //   image: "https://unsplash.com/photos/0Wra5YYVQJE",
-    //   description: "This is a custom workout",
-    //   level: userInputValues.exercise,
-    //   round_rest: 20,
-    //   set_rest: 60,
-    //   repeat: 4,
-    //   sets: 2,
-    //   exercises_per_set: 3,
-    //   created_by: user._id,
-    // })
-    
     MY_SERVICE.createWorkout({
-        exercises: exerciseArr,
-        name: userInputValues.name,
-        image: "https://unsplash.com/photos/0Wra5YYVQJE",
-        description: "This is a custom workout",
-        level: userInputValues.exercise,
-        round_rest: 20,
-        set_rest: 60,
-        repeat: 4,
-        sets: 2,
-        exercises_per_set: 3,
-        created_by: user._id,
-      })
+      exercises: exerciseArr,
+      name: userInputValues.name,
+      image: "https://unsplash.com/photos/0Wra5YYVQJE",
+      description: "This is a custom workout",
+      level: userInputValues.exercise,
+      round_rest: 20,
+      set_rest: 60,
+      repeat: 4,
+      sets: 2,
+      exercises_per_set: 3,
+      created_by: user._id,
+    })
   }
   return (
     <>
@@ -125,7 +117,6 @@ const CreateWorkout = () => {
         </>
       ) : null}
       <br />
-
       {show ? (
         <Button
           type="danger"
@@ -142,8 +133,11 @@ const CreateWorkout = () => {
       <Row gutter={[16, 16]}>
         <Col xs={24}>
           <Typography.Title level={4} style={{ margin: "2rem 0" }}>
-            Browse excerices and add them
+            Select exercises to add
           </Typography.Title>
+          <Typography.Paragraph ellipsis>
+          You can browse specific exercise by name or even by muscle group i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
+          </Typography.Paragraph>
           <Search
             value={searchQuery}
             onChange={onChange}
@@ -157,57 +151,75 @@ const CreateWorkout = () => {
               <Skeleton></Skeleton>
             </>
           )}
-          {searchResults.length > 0 ? (
-            searchResults.map((item) => (
-              <>
-                <div style={style}>
-                  <li key={item._id}>{item.name}</li>
-                  <button
-                    style={{ color: "black" }}
-                    onClick={() => {
-                      setShow(true)
-                      console.log(item._id)
-                      console.log("exArr antes", exerciseArr)
-                      if (exerciseArr.length === 6)
-                        toast.error(
-                          "You can only add up to 6 exercises per workout."
-                        )
-                      console.log("ahi merito paps")
-                      if (exerciseArr.length < 6) {
-                        setExerciseArr((exerciseArr) => [...exerciseArr, item])
-                        console.log("lengthhh ", exerciseArr.length)
-                      }
-                    }}
-                  >
-                    +
-                  </button>
-                </div>
-              </>
-            ))
-          ) : (
-            <></>
-          )}
-          {searchResults.length === 0 && newData === false ? (
-            exercises.map((item) => (
-              <div style={{ backgroundColor: "gray" }}>
-                <li key={item._id}>{item.name}</li>
-                <button
-                  style={{ color: "black" }}
-                  onClick={() => setShow(true)}
-                >
-                  +
-                </button>
-              </div>
-            ))
-          ) : (
-            <></>
-          )}
-          {newData === true && searchResults.length === 0 ? (
-            <p>NO HAY RESULTADOS</p>
-          ) : (
-            <></>
-          )}
-          <p onClick={() => console.log(exercises)}>Prueba de estado: </p>
+          <Row gutter={[16, 16]}>
+            {searchResults.length > 0 ? (
+              searchResults.map((item) => (
+                <>
+                  <Col xs={12} sm={12} md={6} lg={6} key={item._id}>
+                    <Card>
+                      <p>{item.name}</p>
+                      <img
+                        style={{ width: "100%" }}
+                        src={item.imageUrl}
+                        alt=""
+                      />
+                      <br />
+                      <br />
+                      <Button
+                        ghost
+                        block
+                        size="middle"
+                        onClick={() => addExercise(item)}
+                      >
+                        +
+                      </Button>
+                    </Card>
+                  </Col>
+                </>
+              ))
+            ) : (
+              <></>
+            )}
+          </Row>
+
+          <Row gutter={[16, 16]}>
+            {searchResults.length === 0 && newData === false ? (
+              exercises.map((item) => (
+
+                <>
+                  <Col xs={12} sm={12} md={6} lg={6} key={item._id}>
+                    <Card>
+                      <p>{item.name}</p>
+                      <img
+                        style={{ width: "100%" }}
+                        src={item.imageUrl}
+                        alt=""
+                      />
+                      <br />
+                      <br />
+                      <Button
+                        ghost
+                        block
+                        size="middle"
+                        onClick={() => addExercise(item)}
+                      >
+                        +
+                      </Button>
+                    </Card>
+                  </Col>
+                </>
+              ))
+            ) : (
+              <></>
+            )}
+            {newData === true && searchResults.length === 0 ? (
+              <p>NO HAY RESULTADOS</p>
+            ) : (
+              <></>
+            )}
+          </Row>
+
+          {/* <p onClick={() => console.log(exercises)}>Prueba de estado: </p> */}
         </Col>
       </Row>
     </>
@@ -215,17 +227,3 @@ const CreateWorkout = () => {
 }
 
 export default CreateWorkout
-
-// <button
-//           style={{ color: "white", background: "#000" }}
-//           onClick={() => {
-//             console.log(exerciseArr)
-//             console.log("CREATE WORKOUT BTN TRIGGERED")
-//             MY_SERVICE.createWorkout({
-//                 name
-//             })
-//           }}
-//         >
-//           Create workout!
-
-//         </button>

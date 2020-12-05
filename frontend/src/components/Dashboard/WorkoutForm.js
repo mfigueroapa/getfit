@@ -45,7 +45,7 @@ function WorkoutForm({ exerciseArr }) {
   return (
     <>
       <div className="site-card-wrapper">
-        <Title level={3}>Select 6 exercises you wish to add to your workout</Title>
+        <Title level={4}>Selected exercises for your new routine</Title>
         <Divider />
         <Row gutter={16}>
           {exerciseArr.map((ex) => (

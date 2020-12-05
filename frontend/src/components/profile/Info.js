@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { useContextInfo } from '../../hooks/context'
-import { Avatar, Row, Col, Typography, Upload, Button, message, Form } from 'antd';
+import { Avatar, Row, Col, Typography, Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import MY_SERVICE from '../../services'
 
@@ -35,6 +35,17 @@ const Info = () => {
 
   }
 
+  function onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  }
+
   return (
     <>
       <Row>
@@ -44,6 +55,8 @@ const Info = () => {
           size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
           />
             <Upload 
+            action='//jsonplaceholder.typicode.com/posts/'
+            onChange={onChange}
             name="file"
             beforeUpload={handleUploadFile}>
               <Button icon={<UploadOutlined />}>Click to Upload</Button>

@@ -1,86 +1,116 @@
 import React, {useEffect, useState} from 'react'
 import MY_SERVICE from '../services'
-import { List, Avatar, Space } from 'antd';
+import { List, Row, Col, Spin } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import ReactPlayer from "react-player/lazy"
 
-function DisplayWorkout() {
+function DisplayWorkout({ match }) {
 
-  const [workout, setWorkout] = useState({})
+  const listData = [];
+  let exercisesCounter = 0
+
+  const [workout, setWorkout] = useState([])
+  const [videos, setVideos] = useState([])
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     async function getWorkout() {
-      const { data } = await MY_SERVICE.getWorkout("5fc9ca4efad4f15ceaec42c8")
+      const { data } = await MY_SERVICE.getWorkout(match.params.id)
+      console.log(data, "📡")
+      const videosCopy = data.exercises.map(elm => false)
+
+      setVideos(videosCopy)
       setWorkout(data)
+
+      for(let i = 0; i < data.sets; i++) { 
+        listData.push({
+          set: "set",
+        })
+        for (let j = 0; j < data.exercises_per_set; j++) {
+          listData.push({
+            exercise: data.exercises[exercisesCounter],
+            id: exercisesCounter
+          })
+          if(j != data.exercises_per_set-1){
+            listData.push({
+              rest: data.round_rest,
+            })
+          }
+          exercisesCounter++
+        }
+        listData.push({
+          rest: data.set_rest,
+        })
+      }
+      setWorkout(listData)
+      setCount(listData.length)
     }
 
     getWorkout()
   }, [])
 
-  const listData = [];
-  const sets = 2
-  let setsCounter = 0
-  const exercises = 3
-  let exercisesCounter = 1
-  for(let i = 0; i < sets; i++) { 
-    listData.push({
-      set: "set",
-    })
-    for (let j = 0; j < exercises; j++) {
-      listData.push({
-        exercise: exercisesCounter,
-      })
-      if(j != exercises-1){
-        listData.push({
-          rest: 30,
-        })
-      }
-      exercisesCounter++
-    }
-    listData.push({
-      rest: 60,
-    })
-  }
-  console.log(listData)
+  function handleVideo(id) {
+    const copy = [...videos]
 
-  // for (let i = 0; i < 23; i++) {
-  //   listData.push({
-  //     href: 'https://ant.design',
-  //     title: `ant design part ${i}`,
-  //     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-  //     description:
-  //       'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-  //     content:
-  //       'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  //   });
-  // }
+    if(copy[id]) {
+      copy[id] = false
+    } else {
+      copy[id] = true
+    }
+
+    setVideos(copy)
+  }
+
 
   return (
     <div>
-      <List
-      itemLayout="vertical"
-      size="large"
-      dataSource={listData}
-      renderItem={item => (
-        <List.Item
-          key={item.title}
-          extra={
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
-          }
+      <List>
+      {workout && workout.length == count ?
+      <>
+      {workout.map((item) => 
+        <List.Item>
+        {item.set ? 
+        <p>{item.set}</p>
+        : item.exercise ?
+        <Row
+        onClick={() => handleVideo(item.id)}
         >
-          {item.set ? 
-          <p>{item.set}</p>
-          : item.exercise ?
-          <p>{item.exercise}</p>
-          :
-          <p>{item.rest}</p>
+        <Col span={24}>
+          <Row>
+            <Col span={6}>
+              <img
+                alt="Exercise"
+                src={item.exercise.imageUrl}
+                style={{width: "100%"}}
+              />
+            </Col>
+            <Col span={18}>
+              0:30 {item.exercise.name}
+            </Col>
+          </Row>
+          {videos[item.id] ? 
+          <Row>
+            <Col span={24}>
+              <ReactPlayer 
+              url={item.exercise.videoUrl} 
+              />
+            </Col>
+          </Row>
+          : 
+          <></>
           }
+        </Col>
+        </Row>
+        :
+        <p>Recover: {item.rest}</p>
+        }
         </List.Item>
       )}
-      />
+      </>
+      : 
+      <p>loading</p>
+      }
+      </List>
     </div>
   )
 }

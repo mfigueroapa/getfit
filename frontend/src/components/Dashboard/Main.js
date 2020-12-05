@@ -63,7 +63,9 @@ function Main() {
           <Carousel autoplay>
             {workouts?.map((workout) => (
               <div key={workout._id}>
-                <h3 style={contentStyle1}>{workout.name}</h3>
+                <Link to={`/workouts/${workout._id}`}>
+                  <h3 style={contentStyle1}>{workout.name}</h3>
+                </Link>
               </div>
             ))}
           </Carousel>

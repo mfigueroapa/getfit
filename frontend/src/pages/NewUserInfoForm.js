@@ -33,9 +33,6 @@ const NewUserInfoForm = ({ history }) => {
       toast.error("Weight and Height values must be number")
       console.log("Error:  ", error.data)
     })
-
-
-    
   }
 
   return (

@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
+import ReactPlayer from "react-player"
 import React, { useState, useEffect } from "react"
 import {
   Typography,
@@ -13,20 +14,18 @@ import {
   Form,
   Button,
   Select,
+  Modal,
+  Spin
 } from "antd"
 import { toast } from "react-toastify"
 import WorkoutForm from "../components/Dashboard/WorkoutForm"
 import Exercises from "./Exercises"
 const { Search } = Input
-const style = {
-  backgroundColor: "blue",
-  marginTop: "5px",
-}
 
 const CreateWorkout = () => {
   const { user } = useContextInfo()
   const history = useHistory()
-  const go = (path) => history.push(path)
+//   const go = (path) => history.push(path)
   const [exercises, setExercises] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
@@ -34,26 +33,19 @@ const CreateWorkout = () => {
   const [show, setShow] = useState(false)
   const [exerciseArr, setExerciseArr] = useState([])
   const [form] = Form.useForm()
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [modalVideoUrl, setModalVideoUrl] = useState("")
 
   useEffect(() => {
     async function getData() {
+      toast.success(
+        "Click on an exercise to see a preview of how to peform the movement correctly! "
+      )
       const { data } = await MY_SERVICE.getExercises()
       setExercises(data)
     }
     getData()
   }, [])
-  const onChange = (event) => {
-    setSearchQuery(event.target.value)
-    setNewData(true)
-  }
-  const addExercise = (item) => {
-    setShow(true)
-    if (exerciseArr.length === 6)
-      toast.error("You can only add up to 6 exercises per workout.")
-    if (exerciseArr.length < 6) {
-      setExerciseArr((exerciseArr) => [...exerciseArr, item])
-    }
-  }
 
   useEffect(() => {
     const term = exercises
@@ -66,6 +58,30 @@ const CreateWorkout = () => {
     setSearchResults(term)
   }, [searchQuery])
 
+  const onChange = (event) => {
+    setSearchQuery(event.target.value)
+    setNewData(true)
+  }
+
+  const addExercise = (item) => {
+    setShow(true)
+    if (exerciseArr.length === 6)
+      toast.error("You can only add up to 6 exercises per workout.")
+    if (exerciseArr.length < 6) {
+      setExerciseArr((exerciseArr) => [...exerciseArr, item])
+    }
+  }
+
+  const showModal = (url) => {
+    setModalVideoUrl(url)
+    setIsModalVisible(true)
+  }
+  const handleCancel = () => {
+    setIsModalVisible(false)
+  }
+  const handleOk = () => {
+    setIsModalVisible(false)
+  }
   async function handleSubmit(userInputValues) {
     MY_SERVICE.createWorkout({
       exercises: exerciseArr,
@@ -83,6 +99,21 @@ const CreateWorkout = () => {
   }
   return (
     <>
+      {isModalVisible ? (
+        <Modal
+          visible={isModalVisible}
+          title="How to perform the exercise"
+          onCancel={handleCancel}
+          footer={[
+            <Button key="submit" type="primary" onClick={handleOk}>
+              Okay
+            </Button>,
+          ]}
+        >
+       <ReactPlayer url={modalVideoUrl} width="100%" height="260px" /> 
+        </Modal>
+      ) : null}
+
       {show ? <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> : null}
       {show ? (
         <>
@@ -136,7 +167,11 @@ const CreateWorkout = () => {
             Select exercises to add
           </Typography.Title>
           <Typography.Paragraph ellipsis>
-          You can browse specific exercise by name or even by muscle group i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
+            You can browse specific exercise by name or even by muscle group
+            i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
+          </Typography.Paragraph>
+          <Typography.Paragraph ellipsis>
+            Select an exercise to see a quick video demonstrating how to perform the movement correctly and decide whether to add it to your workout or not.
           </Typography.Paragraph>
           <Search
             value={searchQuery}
@@ -159,11 +194,21 @@ const CreateWorkout = () => {
                     <Card>
                       <p>{item.name}</p>
                       <img
+                        onClick={() => showModal(item.videoUrl)}
                         style={{ width: "100%" }}
                         src={item.imageUrl}
                         alt=""
                       />
                       <br />
+                      <br />
+                      <Button
+                        primary
+                        block
+                        size="middle"
+                        onClick={() => showModal(item.videoUrl)}
+                      >
+                        <i class="fas fa-play-circle"></i>
+                      </Button>
                       <br />
                       <Button
                         ghost
@@ -185,17 +230,26 @@ const CreateWorkout = () => {
           <Row gutter={[16, 16]}>
             {searchResults.length === 0 && newData === false ? (
               exercises.map((item) => (
-
                 <>
                   <Col xs={12} sm={12} md={6} lg={6} key={item._id}>
                     <Card>
                       <p>{item.name}</p>
                       <img
+                        onClick={() => showModal(item.videoUrl)}
                         style={{ width: "100%" }}
                         src={item.imageUrl}
                         alt=""
                       />
                       <br />
+                      <br />
+                      <Button
+                        primary
+                        block
+                        size="middle"
+                        onClick={() => showModal(item.videoUrl)}
+                      >
+                        <i class="fas fa-play-circle"></i>
+                      </Button>
                       <br />
                       <Button
                         ghost
@@ -218,8 +272,6 @@ const CreateWorkout = () => {
               <></>
             )}
           </Row>
-
-          {/* <p onClick={() => console.log(exercises)}>Prueba de estado: </p> */}
         </Col>
       </Row>
     </>

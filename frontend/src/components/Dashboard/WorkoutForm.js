@@ -14,29 +14,10 @@ import {
 } from "antd"
 const { Title } = Typography
 
-// const layout = {
-//   labelCol: { span: 8 },
-//   wrapperCol: { span: 16 },
-// }
-// const validateMessages = {
-//   required: "${label} is required!",
-//   types: {
-//     email: "${label} is not a valid email!",
-//     number: "${label} is not a valid number!",
-//   },
-//   number: {
-//     range: "${label} must be between ${min} and ${max}",
-//   },
-// }
-// const onFinish = (values) => {
-//   console.log(values)
-// }
 
 function WorkoutForm({ exerciseArr }) {
   const [exercises, setExercises] = useState([])
   const { user } = useContextInfo()
-  console.log("props from Form ", exerciseArr[0].name)
-
   async function handleSubmit(userInputValues) {
    console.log(userInputValues)
 

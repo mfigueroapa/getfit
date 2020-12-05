@@ -36,7 +36,7 @@ const Profile = () => {
           <ImportOutlined key="signout" onClick={handleLogout}/>,
           <InfoCircleOutlined key="info" onClick={handleInfo}/>,
           <EditOutlined key="edit" onClick={handleUpdate}/>,
-          <DeleteOutlined Key="delete" onClick={handleDelete}/>
+          <DeleteOutlined key="delete" onClick={handleDelete}/>
         ]}
       >
       {view === "info" ? 

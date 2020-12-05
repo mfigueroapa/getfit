@@ -46,6 +46,9 @@ const MY_SERVICE = {
   },
   getWorkout: async (id) => {
     return await service.get(`workouts/${id}`)
+  },
+  createWorkout: async (workoutInfo) => {
+    return await service.post('user/create-workout', workoutInfo)
   }
 };
 

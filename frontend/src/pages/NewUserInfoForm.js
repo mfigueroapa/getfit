@@ -17,26 +17,21 @@ const { Option } = Select
 
 const NewUserInfoForm = ({ history }) => {
   const [form] = Form.useForm()
-  const { updateUserCtx, user, login, msg } = useContextInfo()
+  const { updateUserCtx, login } = useContextInfo()
 
   async function handleSubmit(userInputValues) {
-    console.log(userInputValues)
     if (!userInputValues.weightPrefix) toast.error("Type of unit for weight must be selected")
     if (!userInputValues.heightPrefix) toast.error("Type of unit for height must be selected")
-    console.log(userInputValues.weightPrefix)
-    console.log(userInputValues.heightPrefix)
 
     if (userInputValues.weightPrefix && userInputValues.heightPrefix) {
       await MY_SERVICE.editInfo(userInputValues)
     .then(response => {
       toast.success("Welcome to GetFit")
-      console.log("esta fue la respuesta del server.. ,", response.data.data.user)
       login(response.data.data.user)
       updateUserCtx(userInputValues)
       history.push("/dashboard")
     }).catch(error => {
       toast.error("Weight and Height values must be number")
-      console.log("Error:  ", error.data)
     })
     }
   }
@@ -94,7 +89,7 @@ const NewUserInfoForm = ({ history }) => {
           </Form.Item>
           <Form.Item
             name="user"
-            label="Are you a regular user or a trainer who can create workouts?"
+            label="Are you a regular user or a trainer who wants to create workouts?"
             rules={[{ required: true }]}
           >
             <Select>

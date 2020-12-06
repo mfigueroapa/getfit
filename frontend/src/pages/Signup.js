@@ -1,19 +1,31 @@
 import React from "react"
 import { Row, Col, Form, Input, Button, Typography, Divider } from "antd"
 import MY_SERVICE from "../services"
+import { toast } from "react-toastify"
+import { useContextInfo } from "../hooks/context"
 
 const { Title } = Typography
 
 const googleUrl = process.env.NODE_ENV === 'development' ?
-  "http://localhost:3000/auth/google" : '/auth/google'
+"http://localhost:3000/auth/google" : '/auth/google'
 
 const Signup = ({ history }) => {
   const [form] = Form.useForm()
+  const { login } = useContextInfo()
 
   async function handleSubmit(userInput) {
     await MY_SERVICE.signup(userInput)
-    console.log(userInput)
-    history.push("/login")
+    .then(response => {
+      MY_SERVICE.login(userInput)
+      .then(response => {
+        history.push("/new-user-form")
+      }).catch(error => {
+        console.log(error)
+      })
+    }).catch(error => {
+      console.log(error)
+      toast.error("Something went wrong! Email already exists!")
+    })
   }
 
   return (
@@ -42,7 +54,7 @@ const Signup = ({ history }) => {
           Or
         </Divider>
         <a href={googleUrl}>
-          <Button block> <i class="fab fa-google"></i>  &nbsp; Signup with Google </Button>
+          <Button block> <i className="fab fa-google"></i>  &nbsp; Signup with Google </Button>
         </a>
       </Col>
     </Row>

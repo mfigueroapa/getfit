@@ -10,7 +10,9 @@ const Dashboard = () => {
 
   return (
     <>
+    {user ? (
     <Main></Main>
+    ) : ""}
     {/* <h1>Dashboard</h1> */}
     </>
   )

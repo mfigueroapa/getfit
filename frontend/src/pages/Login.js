@@ -14,11 +14,11 @@ const Login = ({ history }) => {
 
   async function handleSubmit(userInput) {
     const { data } = await MY_SERVICE.login(userInput)
-    login(data.user)
     if (data.user.exercise === "") {
-        history.push("/new-user-form")
+      history.push("/new-user-form")
     } else {
-        history.push("/dashboard")
+      history.push("/dashboard")
+      login(data.user)
     }
   }
 
@@ -48,7 +48,7 @@ const Login = ({ history }) => {
         </Form>
         <Divider/>
         <a href={googleUrl}>
-          <Button block><i class="fab fa-google"></i> &nbsp; Login with Google </Button>
+          <Button block><i className="fab fa-google"></i> &nbsp; Login with Google </Button>
         </a>
       </Col>
     </Row>

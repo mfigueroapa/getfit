@@ -28,7 +28,7 @@ export default function LayoutApp({ children }) {
   }
 
   function handleProfile() {
-    if (profile){
+    if (profile) {
       setProfile(false)
     } else {
       setProfile(true)
@@ -39,46 +39,54 @@ export default function LayoutApp({ children }) {
     <div id="custom">
       <Layout className="layout">
         <Row>
-          <Col className="custom-container" xs={{ span: 24 }} s={{ span: 22, offset: 1 }} lg={{ span: 22, offset: 1 }}>
+          <Col
+            className="custom-container"
+            xs={{ span: 24 }}
+            s={{ span: 22, offset: 1 }}
+            lg={{ span: 22, offset: 1 }}
+          >
             <Header>
               <div className="layout__container">
                 <div>
                   <div className="layout__image">
-                    {!user ? 
+                    {!user ? (
                       <Link to="/">
-                        <img src={logo}/>
+                        <img src={logo} />
                       </Link>
-                    :
-                      <img src={logo}/>
-                    }
+                    ) : (
+                      <img src={logo} />
+                    )}
                   </div>
                 </div>
                 <div className="layout__links">
-                  {!user ?
-                  <>
-                    <Link to="/signup">
-                      <Button type="primary">Signup</Button>
-                    </Link>
-                    <Link to="/login">
-                      <Button>Login</Button>
-                    </Link>
-                  </>
-                  :
-                  <>
-                    <Link to="/dashboard">
-                      <Button type="text">Feed</Button>
-                    </Link>
-                    <Link to="/workouts">
-                      <Button type="text">workouts</Button>
-                    </Link>
-                    <Link to="/create-workout">
-                      <Button type="text">make workout</Button>
-                    </Link>
-                    <a onClick={handleProfile}>
-                      <Avatar size="large" src={image} />
-                    </a>
-                  </>
-                  }
+                  {!user ? (
+                    <>
+                      <Link to="/signup">
+                        <Button type="primary">Signup</Button>
+                      </Link>
+                      <Link to="/login">
+                        <Button>Login</Button>
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link to="/dashboard">
+                        <Button type="text">Feed</Button>
+                      </Link>
+                      <Link to="/workouts">
+                        <Button type="text">workouts</Button>
+                      </Link>
+                      <Link to="/create-workout">
+                        <Button type="text">make workout</Button>
+                      </Link>
+
+                      <Button onClick={handleLogout}type="text">Logout</Button>
+
+                      <a onClick={handleProfile}>
+                        <Avatar size="large" src={image} />
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
             </Header>
@@ -87,9 +95,13 @@ export default function LayoutApp({ children }) {
         <br />
         <Content>
           <Row>
-            <Col xs={{ span: 24 }} s={{ span: 22, offset: 1 }} lg={{ span: 22, offset: 1 }}>
+            <Col
+              xs={{ span: 24 }}
+              s={{ span: 22, offset: 1 }}
+              lg={{ span: 22, offset: 1 }}
+            >
               <div className="site-layout-content">
-                {profile && <Profile/>}
+                {profile && <Profile />}
                 {children}
               </div>
             </Col>
@@ -97,15 +109,17 @@ export default function LayoutApp({ children }) {
         </Content>
         <Footer>
           <Row>
-            <Col xs={{ span: 24 }} s={{ span: 22, offset: 1 }} lg={{ span: 22, offset: 1 }}>
+            <Col
+              xs={{ span: 24 }}
+              s={{ span: 22, offset: 1 }}
+              lg={{ span: 22, offset: 1 }}
+            >
               <div className="footer__container">
                 <div className="footer__image">
-                  <img src={logo}/>
+                  <img src={logo} />
                   <p>Powered by IRONHACK</p>
                 </div>
-                <div>
-                  GetFitTeam © Copyright 2020
-                </div>
+                <div>GetFitTeam © Copyright 2020</div>
               </div>
             </Col>
           </Row>

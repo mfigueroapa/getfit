@@ -1,12 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./index.css"
 import Router from "./Router"
 import * as serviceWorker from "./serviceWorker"
 import { AppCtxProvider } from "./hooks/context"
-import "antd/dist/antd.dark.css"
 import { ToastContainer, Slide } from 'react-toastify'
+import "antd/dist/antd.css"
 import 'react-toastify/dist/ReactToastify.css'
+import "./index.scss"
 
 ReactDOM.render(
   <>

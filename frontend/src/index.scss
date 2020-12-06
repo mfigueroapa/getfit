@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400&family=Oswald:wght@400;700&display=swap');
+
+
+html {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Barlow', 'Oswald', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#custom {
+
+  .ant-btn {
+    font-family: 'Oswald';
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: auto;
+
+    &:hover {
+      color: #000
+    }
+
+
+    &-primary{
+      background-color: #000;
+      border-color: #000;
+    }
+  }
+
+  h1.ant-typography {
+    font-family: 'Oswald';
+    font-weight: 700;
+
+    span {
+      font-family: 'Oswald';
+      font-weight: 400;
+    }
+  }
+
+  //LAYOUT STYLING
+  .ant-layout {
+    background: #fff;
+    padding: 0 16px;
+
+    .ant-layout-header {
+      background: #fff;
+      padding: 0;
+
+      .layout__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .layout__image {
+          display: flex;
+          align-items: center;
+          padding: 12px, 0;
+
+          img {
+            width: 90px;
+          }
+        }
+
+        .layout__links {
+          display: flex;
+          align-items: center;
+
+          a {
+            padding: 0 8px;
+          }
+        }
+      }
+    }
+
+    //footer
+    .ant-layout-footer {
+      background: #fff;
+
+      .footer__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .footer__image {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          p {
+            margin: 0;
+            padding: 8px 16px;
+            border-left: solid 1px #C4C4C4;
+          }
+
+          img {
+            height: 40px;
+            padding-right: 16px;
+          }
+        }
+      }
+    }
+
+    //CONTENT STYLING
+    .site-layout-content {
+
+      #profile-card {
+        position: absolute;
+        z-index: 5;
+        right: 0;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1)
+      } 
+    }
+  }
+}

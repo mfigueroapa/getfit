@@ -1,13 +1,25 @@
-import { Layout, Menu } from "antd"
-import React, { useState } from "react"
+import { Layout, Row, Col, Button, Avatar } from "antd"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
+import logo from "../images/logo.svg"
+import Profile from "../components/profile/Profile"
 
 const { Header, Content, Footer } = Layout
 
 export default function LayoutApp({ children }) {
   const { user, logout } = useContextInfo()
+  const [image, setImage] = useState()
+  const [profile, setProfile] = useState(false)
+
+  useEffect(() => {
+    if (user) {
+      setImage(user.profile_pic)
+    } else {
+      setImage("")
+    }
+  })
 
   async function handleLogout() {
     console.log("handleLogout")
@@ -15,52 +27,90 @@ export default function LayoutApp({ children }) {
     logout()
   }
 
+  function handleProfile() {
+    if (profile){
+      setProfile(false)
+    } else {
+      setProfile(true)
+    }
+  }
+
   return (
-    <>
+    <div id="custom">
       <Layout className="layout">
-        <Header>
-          <div className="logo" />
-          <Menu theme="dark" mode="horizontal">
-            <Menu.Item key="1">
-              <Link to="/">Home</Link>
-            </Menu.Item>
-            {!user ? (
-              <>
-                <Menu.Item key="2">
-                  <Link to="/signup">Signup</Link>
-                </Menu.Item>
-                <Menu.Item key="3">
-                  <Link to="/login">Login</Link>
-                </Menu.Item>
-              </>
-            ) : (
-              <React.Fragment>
-                <Menu.Item key="4">
-                  <Link to="/profile">Profile</Link>
-                </Menu.Item>
-                <Menu.Item key="5">
-                  <Link to="/create-workout">Create Workout</Link>
-                </Menu.Item>
-                <Menu.Item key="6" onClick={handleLogout}>
-                  Logout
-                </Menu.Item>
-              </React.Fragment>
-            )}
-          </Menu>
-        </Header>
+        <Row>
+          <Col className="custom-container" xs={{ span: 24 }} s={{ span: 22, offset: 1 }} lg={{ span: 22, offset: 1 }}>
+            <Header>
+              <div className="layout__container">
+                <div>
+                  <div className="layout__image">
+                    {!user ? 
+                      <Link to="/">
+                        <img src={logo}/>
+                      </Link>
+                    :
+                      <img src={logo}/>
+                    }
+                  </div>
+                </div>
+                <div className="layout__links">
+                  {!user ?
+                  <>
+                    <Link to="/signup">
+                      <Button type="primary">Signup</Button>
+                    </Link>
+                    <Link to="/login">
+                      <Button>Login</Button>
+                    </Link>
+                  </>
+                  :
+                  <>
+                    <Link to="/dashboard">
+                      <Button type="text">Feed</Button>
+                    </Link>
+                    <Link to="/workouts">
+                      <Button type="text">workouts</Button>
+                    </Link>
+                    <Link to="/create-workout">
+                      <Button type="text">make workout</Button>
+                    </Link>
+                    <a onClick={handleProfile}>
+                      <Avatar size="large" src={image} />
+                    </a>
+                  </>
+                  }
+                </div>
+              </div>
+            </Header>
+          </Col>
+        </Row>
         <br />
-        <Content
-          style={{
-            padding: "0 50px",
-            minHeight: "100vh",
-          }}
-        >
-          <div className="site-layout-content">{children}</div>
+        <Content>
+          <Row>
+            <Col xs={{ span: 24 }} s={{ span: 22, offset: 1 }} lg={{ span: 22, offset: 1 }}>
+              <div className="site-layout-content">
+                {profile && <Profile/>}
+                {children}
+              </div>
+            </Col>
+          </Row>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          GetFitTeam © Copyright 2020
+        <Footer>
+          <Row>
+            <Col xs={{ span: 24 }} s={{ span: 22, offset: 1 }} lg={{ span: 22, offset: 1 }}>
+              <div className="footer__container">
+                <div className="footer__image">
+                  <img src={logo}/>
+                  <p>Powered by IRONHACK</p>
+                </div>
+                <div>
+                  GetFitTeam © Copyright 2020
+                </div>
+              </div>
+            </Col>
+          </Row>
         </Footer>
       </Layout>
-    </>
+    </div>
   )
 }

@@ -29,8 +29,8 @@ const Profile = () => {
   }
 
   return (
-    <Row>
-    <Col span={8}>
+    <Row id="profile-card" style={{width: "375px"}}>
+    <Col>
       <Card
         actions={[
           <ImportOutlined key="signout" onClick={handleLogout}/>,

@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react"
 import { Typography, Row, Col, Modal, Button } from "antd"
 import { useContextInfo } from "../hooks/context"
-import Profile from "../components/profile/Profile"
 import Main from '../components/Dashboard/Main'
 
 const Dashboard = () => {
@@ -11,7 +10,6 @@ const Dashboard = () => {
 
   return (
     <>
-    <Profile/>
     <Main></Main>
     {/* <h1>Dashboard</h1> */}
     </>

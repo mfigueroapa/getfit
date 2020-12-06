@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Row, Col, Card, Typography, Carousel } from "antd"
+import { Row, Col, Typography, Carousel } from "antd"
 import { Link } from "react-router-dom"
-import ReactPlayer from "react-player"
 import MY_SERVICE from "../../services"
 import { useContextInfo } from "../../hooks/context"
 

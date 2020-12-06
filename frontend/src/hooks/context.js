@@ -37,16 +37,23 @@ export const AppCtxProvider = (props) => {
   }
 
   const updateUserCtx = (userInfo) => {
-    const userCopy = { ...user }
-    console.log("userCOpy: ----", userCopy)
+    const userCopy = {...user}
     userCopy.username = userInfo.username
-    userCopy.email = userInfo.email
-    userCopy.weight = userInfo.weight
-    userCopy.height = userInfo.height
-    userCopy.exercise = userInfo.exercise
+     userCopy.weight = userInfo.weight
+     userCopy.weightPrefix = userInfo.weightPrefix
+     userCopy.height = userInfo.height
+     userCopy.heightPrefix = userInfo.heightPrefix
+     userCopy.user = userInfo.user
+     userCopy.exercise = userInfo.exercise
+     userCopy.profile_pic = userInfo.profile_pic
+     setUser(userCopy)
 
-    setUser(userCopy)
-    console.log(user)
+    // const userCopy = { ...user }
+    // console.log("userCOpy: ----", userCopy)
+    // userCopy.email = userInfo.email
+    
+    // setUser(userCopy)
+    // console.log(user)
   }
 
   const value = { user, login, updateUserCtx, logout, addProfilePic }

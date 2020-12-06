@@ -14,18 +14,30 @@ const Signup = ({ history }) => {
   const { login } = useContextInfo()
 
   async function handleSubmit(userInput) {
+    // console.log("antes del signup")
     await MY_SERVICE.signup(userInput)
     .then(response => {
+      // console.log(response.data.user)
       MY_SERVICE.login(userInput)
       .then(response => {
+        
+        // login(response.data.user)
         history.push("/new-user-form")
-      }).catch(error => {
+        console.log("response fro server" ,response)
+        console.log("response fro server" ,response.data)
+        console.log("response fro server" ,response.data.user)
+      }).catch(error =>{
         console.log(error)
       })
     }).catch(error => {
       console.log(error)
       toast.error("Something went wrong! Email already exists!")
     })
+
+    // console.log(userInput)
+    // history.push("/login")
+    //Despues del signp nos loggeamos directamente para rdigir al newform
+    
   }
 
   return (

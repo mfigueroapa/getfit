@@ -6,6 +6,8 @@ import Main from '../components/Dashboard/Main'
 const Dashboard = () => {
   
   const { user } = useContextInfo()
+  console.log("user from dashbrd: ", user)
+  // console.log("user from dashbrd: ",)
 //   console.log(user.user, user.email)
 
   return (

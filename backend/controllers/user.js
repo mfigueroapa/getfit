@@ -4,10 +4,11 @@ const Exercise = require("../models/Exercise")
 
 exports.editInfo = async (req, res) => {
   const { _id } = req.user
-  const { username, weight, weightPrefix, heightPrefix, height, exercise } = req.body
+  const { username, user, weight, weightPrefix, heightPrefix, height, exercise } = req.body
   // console.log(weight, weightPrefix, height, heightPrefix)
   await User.findByIdAndUpdate(_id, {
     username,
+    user,
     weight: {
       value: weight,
       weightPrefix
@@ -38,10 +39,12 @@ exports.updateProfile = async (req, res) => {
   await User.findByIdAndUpdate(id, {
     username,
     weight:{
-      value: weight
+      value: weight,
+      weightPrefix: weight.weightPrefix
     },
     height: {
-      value: height
+      value: height,
+      heightPrefix: weight.weightPrefix
     },
     exercise,
     email,

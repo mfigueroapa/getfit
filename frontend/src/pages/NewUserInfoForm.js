@@ -61,9 +61,12 @@ const NewUserInfoForm = ({ history }) => {
   return (
     <Row>
       <Col span={24}>
-        <Title level={2}>
-          Before we proceed, please fill the information required
+        <Title level={3}>
+          We're almost there! 
         </Title>
+        <Typography.Paragraph ellipsis>
+        Before we proceed, please help us filling the form below as it will help us to give you a better experience. <br/>
+          </Typography.Paragraph>
       </Col>
       <Divider />
       <Col span={24}>
@@ -90,6 +93,20 @@ const NewUserInfoForm = ({ history }) => {
             <Input addonBefore={heightPrefixSelector} style={{ width: "100%" }} />
           </Form.Item>
           <Form.Item
+            name="user"
+            label="Are you a regular user or a trainer who can create workouts?"
+            rules={[{ required: true }]}
+          >
+            <Select>
+              <Select.Option value="User">
+                I'm a regular user who wants to get fit and explore or try new workouts!
+              </Select.Option>
+              <Select.Option value="Trainer">
+                I'm a trainer who can create specific workouts according to somebody's specific needs!
+              </Select.Option>
+            </Select>
+          </Form.Item>
+          <Form.Item
             name="exercise"
             label="What bests describe your training history"
             rules={[{ required: true }]}
@@ -109,6 +126,11 @@ const NewUserInfoForm = ({ history }) => {
           <Button type="primary" block size="middle" htmlType="submit">
             Next
           </Button>
+          <br/>
+          <br/>
+          <Typography.Paragraph ellipsis>
+         This form only needs to be filled once.
+          </Typography.Paragraph>
         </Form>
       </Col>
     </Row>

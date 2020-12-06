@@ -6,6 +6,10 @@ const userSchema = new Schema(
     email: String,
     googleID: String,
     username: String, 
+    user: {
+      type: String,
+      enum: ['User', 'Trainer'],
+    },
     weight: {
       value: Number,
       weightPrefix: String

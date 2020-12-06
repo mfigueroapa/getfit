@@ -5,6 +5,9 @@ import { useContextInfo } from "../hooks/context"
 
 const { Title } = Typography
 
+const googleUrl = process.env.NODE_ENV === 'development' ?
+  "http://localhost:3000/auth/google" : '/auth/google'
+
 const Login = ({ history }) => {
   const { login } = useContextInfo()
   const [form] = Form.useForm()
@@ -43,6 +46,10 @@ const Login = ({ history }) => {
             Login
           </Button>
         </Form>
+        <Divider/>
+        <a href={googleUrl}>
+          <Button block><i class="fab fa-google"></i> &nbsp; Login with Google </Button>
+        </a>
       </Col>
     </Row>
   )

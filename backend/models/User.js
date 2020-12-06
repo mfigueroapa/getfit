@@ -4,9 +4,20 @@ const PLM = require('passport-local-mongoose');
 const userSchema = new Schema(
   {
     email: String,
+    googleID: String,
     username: String, 
-    weight: Number,
-    height: Number,
+    user: {
+      type: String,
+      enum: ['User', 'Trainer'],
+    },
+    weight: {
+      value: Number,
+      weightPrefix: String
+    },
+    height: {
+      value: Number,
+      heightPrefix: String
+    },
     profile_pic: {
       type: String,
       default: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"

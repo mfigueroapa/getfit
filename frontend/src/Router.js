@@ -12,9 +12,9 @@ import CreateWorkout from "./pages/CreateWorkout"
 import { useContextInfo } from "./hooks/context"
 import MY_SERVICE from "./services"
 import DisplayWorkout from "./pages/WorkoutDisplay"
-const Dummy = () => {
-  console.log("Dummy cargo")
-  return <div></div>
+const Profile = () => {
+  console.log("profile de prueba cargo")
+  return <div>profile de prueba</div>
 }
 const Router = () => {
   const { login } = useContextInfo()
@@ -42,11 +42,7 @@ const Router = () => {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/new-user-form" component={NewUserInfoForm} />
-          {/* {user ? (
-            <Route path="/new-user-form" component={NewUserInfoForm} />
-          ) : (
-            <Route component={Home} />
-          )} */}
+          <Route path='/profile' component={Profile}/>
           {user ? (
             <>
               <Route path="/dashboard" component={Dashboard} />
@@ -57,7 +53,6 @@ const Router = () => {
           ) : (
             <Route component={Home} />
           )}
-          {/* <Route path="/dashboard" component={Dashboard} /> */}
           <Route component={NotFound} />
         </Switch>
       </LayoutApp>

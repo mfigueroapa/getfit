@@ -10,7 +10,7 @@ export const AppCtxProvider = (props) => {
   useEffect(() => {
     async function getSessionData() {
       const respond = await MY_SERVICE.isAuth()
-      console.log(respond.data.user)
+      console.log("anser from isAuth: ",respond.data.user)
       login(respond.data.user)
     }
 
@@ -32,6 +32,7 @@ export const AppCtxProvider = (props) => {
 
   const updateUserCtx = (userInfo) => {
     const userCopy = {...user}
+    console.log("userCOpy: ----", userCopy)
     userCopy.username = userInfo.username
     userCopy.email = userInfo.email
     userCopy.weight = userInfo.weight

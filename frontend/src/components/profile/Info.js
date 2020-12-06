@@ -69,8 +69,8 @@ const Info = () => {
       </Row>
       <Row>
         <Col span={24}>
-          <p>{user.height}</p>
-          <p>{user.weight}</p>
+          <p>{user.height.value} &nbsp; {user.height.heightPrefix}</p>
+          <p>{user.weight.value}  &nbsp; {user.weight.weightPrefix}</p>
         </Col>
       </Row>
     </>

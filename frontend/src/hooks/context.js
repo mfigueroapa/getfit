@@ -47,13 +47,6 @@ export const AppCtxProvider = (props) => {
      userCopy.exercise = userInfo.exercise
      userCopy.profile_pic = userInfo.profile_pic
      setUser(userCopy)
-
-    // const userCopy = { ...user }
-    // console.log("userCOpy: ----", userCopy)
-    // userCopy.email = userInfo.email
-    
-    // setUser(userCopy)
-    // console.log(user)
   }
 
   const value = { user, login, updateUserCtx, logout, addProfilePic }

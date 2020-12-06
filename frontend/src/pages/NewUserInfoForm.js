@@ -28,7 +28,6 @@ const NewUserInfoForm = ({ history }) => {
     if (userInputValues.weightPrefix && userInputValues.heightPrefix) {
       await MY_SERVICE.editInfo(userInputValues)
         .then((response) => {
-          console.log("linea 31 del new user form", response)
           history.push("/dashboard")
           toast.success("Welcome to GetFit")
           userInputValues.profile_pic = response.data.user.profile_pic

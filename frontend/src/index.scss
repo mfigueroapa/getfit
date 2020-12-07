@@ -36,14 +36,31 @@ code {
     }
   }
 
+  //TYPOGRAPHY
   h1.ant-typography {
     font-family: 'Oswald';
     font-weight: 700;
+    font-size: 72px;
+    text-transform: uppercase;
+    text-align: left;
 
     span {
       font-family: 'Oswald';
       font-weight: 400;
     }
+  }
+
+  h4.ant-typography {
+    font-family: 'Oswald';
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    padding-top: 42px;
+    padding-bottom: 24px;
+  }
+
+  p {
+    text-align: left;
   }
 
   //LAYOUT STYLING
@@ -119,5 +136,53 @@ code {
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1)
       } 
     }
+  }
+
+  //CARD
+  .ant-card.ant-card-bordered {
+    border: none;
+    padding: 18px;
+
+    .ant-card-body {
+      padding: 0;
+
+      img {
+        width: 100%;
+      }
+
+      .card-content {
+
+        .card-title {
+          font-family: "Oswald";
+          font-weight: 700;
+          font-size: 18px;
+          margin: 8px 0;
+        }
+
+        .card-text {
+          font-size: 12px;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .section {
+    padding: 64px 64px 128px 64px;
+    margin: 64px 0;
+
+    p {
+      font-size: 18px;
+      width: 320px;
+    }
+  }
+
+  .card-group {
+    margin: 0 0 64px 0;
+  }
+
+  .ant-layout-footer {
+    margin-top: 24px;
   }
 }

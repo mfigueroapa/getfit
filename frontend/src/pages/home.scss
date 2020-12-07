@@ -1,0 +1,44 @@
+#home {
+
+  .hero {
+    background-image: url("../images/hero.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    padding: 64px 64px 128px 64px;
+    height: 80vh;
+    margin-bottom: 24px;
+
+    p {
+      font-size: 18px;
+      width: 320px;
+    }
+  }
+
+  .promo-1 {
+    background-image: url("../images/promo1.jpg");
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-position: 68% 50%;
+  }
+
+  .promo-2 {
+    background-image: url("../images/promo2.jpg");
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-position: 32% 50%;
+  }
+
+  .section.section-inverse {
+
+    h1, p {
+      text-align: right;
+    }
+
+    p {
+     position: absolute;
+     right: 0;
+    }
+  }
+}

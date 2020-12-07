@@ -5,6 +5,7 @@ process.env.NODE_ENV === 'production'
   ? (baseURL = 'here should be your production endpoint')
   : (baseURL = 'http://localhost:3000');
 
+
 const service = axios.create({ withCredentials: true, baseURL });
 
 const MY_SERVICE = {
@@ -21,13 +22,7 @@ const MY_SERVICE = {
     return await service.get("/logout")
   },
   isAuth: async () => {
-    await service.get('./profile')
-    .then(response=> {
-      return response
-    }).catch(error=> {
-      return error
-    })
-    // return await service.get('/profile')
+    return await service.get('/profile')
   },
   updateUser: async (id, user) => {
     return await service.put(`user/update/${id}`, user)

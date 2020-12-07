@@ -41,7 +41,7 @@ const NewUserInfoForm = ({ history }) => {
 
   const weightPrefixSelector = (
     <Form.Item name="weightPrefix" noStyle>
-      <Select style={{ width: 70 }}>
+      <Select  defaultValue="kgs"  style={{ width: 70 }}>
         <Option value="kgs">kgs</Option>
         <Option value="lbs">lbs</Option>
       </Select>
@@ -49,7 +49,7 @@ const NewUserInfoForm = ({ history }) => {
   )
   const heightPrefixSelector = (
     <Form.Item name="heightPrefix" noStyle>
-      <Select style={{ width: 70 }}>
+      <Select defaultValue="cms"  style={{ width: 70 }}>
         <Option value="cms">cms</Option>
         <Option value="ins">ins</Option>
       </Select>
@@ -87,6 +87,7 @@ const NewUserInfoForm = ({ history }) => {
               style={{ width: "100%" }}
             />
           </Form.Item>
+          
           <Form.Item
             name="user"
             label="Are you a regular user or a trainer who wants to create workouts?"

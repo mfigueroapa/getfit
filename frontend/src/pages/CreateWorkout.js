@@ -31,7 +31,6 @@ const CreateWorkout = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [newData, setNewData] = useState(false)
-  const [show, setShow] = useState(false)
   const [exerciseArr, setExerciseArr] = useState([])
   const [form] = Form.useForm()
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -65,7 +64,6 @@ const CreateWorkout = () => {
   }
 
   const addExercise = (item) => {
-    setShow(true)
     if (exerciseArr.length === 6)
       toast.error("You can only add up to 6 exercises per workout.")
     if (exerciseArr.length < 6) {
@@ -130,14 +128,22 @@ const CreateWorkout = () => {
           <br />
           <Row>
             <Typography.Paragraph>
-              You can create your workout form a variaty of exercises, just look
-              for them on the search bar.
+              <p>
+                You can create your workout form a variaty of exercises, just
+                look for them on the search bar. 
+                <br/>
+                Try browsing specific
+                exercise by name or even by muscle group i.e., "Lower Body",
+                "Upper Body", "Tricep", "Leg".
+                <br />
+                Select an exercise to see a quick video demonstrating how to
+                perform the movement correctly and decide whether to add it to
+                your workout or not.
+              </p>
             </Typography.Paragraph>
           </Row>
-
-          {show ? <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> : null}
-          {show ? (
-            <>
+          <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm>
+          <>
               <Col span={24}>
                 <Form form={form} layout="vertical" onFinish={handleSubmit}>
                   <Form.Item
@@ -165,39 +171,23 @@ const CreateWorkout = () => {
                   </Button>
                   <br />
                   <br />
-                  {show ? (
-                    <Button
+                  <Button
                       danger
                       block
                       size="middle"
                       onClick={() => {
-                        setShow(false)
                         setExerciseArr([])
                       }}
                     >
-                      Cancel
+                      Clear
                     </Button>
-                  ) : null}
                 </Form>
               </Col>
             </>
-          ) : null}
           <br />
         </div>
 
         <div className="right">
-          <Typography.Title level={4}>Let's get started!</Typography.Title>
-
-          <Typography.Paragraph>
-            <p>
-              You can browse specific exercise by name or even by muscle group
-              i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
-              <br />
-              Select an exercise to see a quick video demonstrating how to
-              perform the movement correctly and decide whether to add it to
-              your workout or not.
-            </p>
-          </Typography.Paragraph>
           <Search
             value={searchQuery}
             onChange={onChange}
@@ -219,7 +209,6 @@ const CreateWorkout = () => {
                     <Card>
                       <img
                         onClick={() => showModal(item.videoUrl)}
-                        style={{ width: "30%" }}
                         src={item.imageUrl}
                         alt=""
                       />
@@ -259,11 +248,10 @@ const CreateWorkout = () => {
             {searchResults.length === 0 && newData === false ? (
               exercises.map((item) => (
                 <>
-                  <Col xs={24} sm={24} md={24} lg={24} key={item._id}>
+                  <Col  xs={24} sm={24} md={24} lg={24} key={item._id} >
                     <Card>
                       <img
                         onClick={() => showModal(item.videoUrl)}
-                        style={{ width: "30%" }}
                         src={item.imageUrl}
                         alt=""
                       />

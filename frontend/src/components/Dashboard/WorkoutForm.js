@@ -10,62 +10,52 @@ import {
   Input,
   InputNumber,
   Divider,
-  Select
+  Select,
 } from "antd"
 const { Title } = Typography
-
 
 function WorkoutForm({ exerciseArr }) {
   const [exercises, setExercises] = useState([])
   const { user } = useContextInfo()
   async function handleSubmit(userInputValues) {
-   console.log(userInputValues)
+    console.log(userInputValues)
+  }
 
-    
+  const deleteHandle = (ex) => {
+    console.log("this is the id of the item",ex.name, ex._id)
   }
   return (
     <>
-    <div className="workout-form">
-    <div className="site-card-wrapper">
-        {/* <Title level={4}>Selected exercises for your new routine</Title> */}
-        {/* <Divider /> */}
-        <Row gutter={16}>
-          {exerciseArr.map((ex) => (
-            <>
-              {/* <Col span={8}> */}
-              <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
-                <Card
-                  // title={
-                  //   <h6 style={{ width: "100%" }}>
-                  //     {ex.name} <br /> {ex.muscle_group}
-                  //   </h6>
-                  // }
-                  // bordered={false}
-                >
-                  {/* <img
-                    src={ex.imageUrl}
-                    alt="exercise"
-                    style={{ 
-                      width: "100%" }}
-                  /> */}
-                  <div className="text">
-                        <span>
-                          <p>{ex.name}</p>
-                        </span>
-                        <p>{ex.muscle_group}</p>
-                      </div>
-                </Card>
-              </Col>
-            </>
-          ))}
-        </Row>
+      <div className="workout-form">
+        <div className="site-card-wrapper">
+          <Row gutter={16}>
+            {exerciseArr.map((ex) => (
+              <>
+                <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
+                  <Card>
+                    <div className="text">
+                      <span>
+                        <p>{ex.name}</p>
+                      </span>
+                      <p>{ex.muscle_group}</p>
+                    </div>
+                    <Button
+                        primary
+                        block
+                        size="middle"
+                        onClick={() => deleteHandle(ex)}
+                      >
+                        <i className="fas fa-trash-alt"></i>
+                      </Button>
+                  </Card>
+                </Col>
+              </>
+            ))}
+          </Row>
+        </div>
       </div>
-    </div>
     </>
   )
 }
 
 export default WorkoutForm
-{/* <Form.Item rules={[{ required: true }]} name={["user", "introduction"]} label="Description">
-<Input.TextArea />
-</Form.Item> */}

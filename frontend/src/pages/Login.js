@@ -9,7 +9,9 @@ const googleUrl = process.env.NODE_ENV === 'development' ?
   "http://localhost:3000/auth/google" : '/auth/google'
 
 const Login = ({ history }) => {
-  const { login } = useContextInfo()
+  
+  const { user, login } = useContextInfo()
+  if (user) history.push("/dashboard")
   const [form] = Form.useForm()
 
   async function handleSubmit(userInput) {

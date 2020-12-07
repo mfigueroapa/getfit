@@ -1,0 +1,50 @@
+//Create Workout
+#create-workout {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+
+  .right {
+    width: 60%;
+    .ant-input-wrapper {
+      margin-top: 350px;
+      .ant-input {
+        height: 42px;
+      }
+    }
+    .ant-btn{
+      color: #000;
+      border: none;
+    }
+    .ant-card-body{
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      max-height: 12vh;
+      .text{
+        padding: 2rem;
+        text-align: left;
+        span {
+          font-weight: 900;
+          p{
+            font-size: .7rem;
+          }
+        }
+        p{
+          width: 19vw;
+          font-size: .7rem;
+          margin: 0;
+        }
+      }
+    }
+  }//close right
+
+  .left {
+    width: 40%;
+    .ant-typography {
+      color: #000;
+      margin: 0;
+      text-align: left;
+    }
+  }
+}

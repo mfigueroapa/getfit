@@ -11,7 +11,8 @@ const googleUrl = process.env.NODE_ENV === 'development' ?
 
 const Signup = ({ history }) => {
   const [form] = Form.useForm()
-  const { login } = useContextInfo()
+  const { login, user } = useContextInfo()
+  if (user) history.push("/dashboard")
 
   async function handleSubmit(userInput) {
     // console.log("antes del signup")

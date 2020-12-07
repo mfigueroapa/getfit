@@ -29,8 +29,9 @@ const Router = () => {
   //   }
   //   getUser()
   // }, [])
+    const { user } = useContextInfo()
 
-  const { user } = useContextInfo()
+
 
   return (
     <BrowserRouter>

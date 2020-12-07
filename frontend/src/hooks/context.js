@@ -9,15 +9,15 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-      MY_SERVICE.isAuth()
-      .then(response=> {
-        console.log("anser from isAuth: ", response.data.user)
-      if (response.data.user.exercise !== "") {
-        console.log(response.data.user)
-        login(response.data.user)
-      }
-      }).catch(error=>{
-      })
+      // MY_SERVICE.isAuth()
+      // .then(response=> {
+      //   console.log("anser from isAuth: ", response.data.user)
+      // if (response.data.user.exercise !== "") {
+      //   console.log(response.data.user)
+      //   login(response.data.user)
+      // }
+      // }).catch(error=>{
+      // })
     }
     getSessionData()
   }, [])

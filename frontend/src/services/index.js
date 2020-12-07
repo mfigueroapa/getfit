@@ -21,7 +21,13 @@ const MY_SERVICE = {
     return await service.get("/logout")
   },
   isAuth: async () => {
-    return await service.get('/profile')
+    await service.get('./profile')
+    .then(response=> {
+      return response
+    }).catch(error=> {
+      return error
+    })
+    // return await service.get('/profile')
   },
   updateUser: async (id, user) => {
     return await service.put(`user/update/${id}`, user)

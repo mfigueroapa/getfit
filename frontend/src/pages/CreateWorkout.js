@@ -84,19 +84,24 @@ const CreateWorkout = () => {
     setIsModalVisible(false)
   }
   async function handleSubmit(userInputValues) {
-    MY_SERVICE.createWorkout({
-      exercises: exerciseArr,
-      name: userInputValues.name,
-      image: "https://unsplash.com/photos/0Wra5YYVQJE",
-      description: "This is a custom workout",
-      level: userInputValues.exercise,
-      round_rest: 20,
-      set_rest: 60,
-      repeat: 4,
-      sets: 2,
-      exercises_per_set: 3,
-      created_by: user._id,
-    })
+    console.log("hola")
+    if (exerciseArr.length === 6) {
+      MY_SERVICE.createWorkout({
+        exercises: exerciseArr,
+        name: userInputValues.name,
+        image: "https://unsplash.com/photos/0Wra5YYVQJE",
+        description: "This is a custom workout",
+        level: userInputValues.exercise,
+        round_rest: 20,
+        set_rest: 60,
+        repeat: 4,
+        sets: 2,
+        exercises_per_set: 3,
+        created_by: user._id,
+      })
+    } else {
+      toast.error("Your workout needs to contain 6 exercises to be created")
+    }
   }
   return (
     <>
@@ -122,7 +127,7 @@ const CreateWorkout = () => {
               CREATE A <span>NEW WORKOUT</span>
             </Typography.Title>
           </Row>
-          <br/>
+          <br />
           <Row>
             <Typography.Paragraph>
               You can create your workout form a variaty of exercises, just look
@@ -158,56 +163,39 @@ const CreateWorkout = () => {
                   <Button type="primary" block size="middle" htmlType="submit">
                     Create Wrokout
                   </Button>
-                  <br/>
-                  <br/>
+                  <br />
+                  <br />
                   {show ? (
-            <Button
-              danger
-              block
-              size="middle"
-              onClick={() => {
-                setShow(false)
-                setExerciseArr([])
-              }}
-            >
-              Cancel
-            </Button>
-          ) : null}
+                    <Button
+                      danger
+                      block
+                      size="middle"
+                      onClick={() => {
+                        setShow(false)
+                        setExerciseArr([])
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                  ) : null}
                 </Form>
               </Col>
             </>
           ) : null}
           <br />
-          {/* {show ? (
-            <Button
-              type="danger"
-              block
-              size="middle"
-              onClick={() => {
-                setShow(false)
-                setExerciseArr([])
-              }}
-            >
-              Cancel
-            </Button>
-          ) : null} */}
-          
         </div>
 
         <div className="right">
-   
-            <Typography.Title level={4}>
-           Let's get started!
-            </Typography.Title>
-  
+          <Typography.Title level={4}>Let's get started!</Typography.Title>
+
           <Typography.Paragraph>
             <p>
-            You can browse specific exercise by name or even by muscle group
-            i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
-            <br />
-            Select an exercise to see a quick video demonstrating how to perform
-            the movement correctly and decide whether to add it to your workout
-            or not.
+              You can browse specific exercise by name or even by muscle group
+              i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
+              <br />
+              Select an exercise to see a quick video demonstrating how to
+              perform the movement correctly and decide whether to add it to
+              your workout or not.
             </p>
           </Typography.Paragraph>
           <Search

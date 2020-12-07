@@ -319,7 +319,7 @@ const execises = [
   {
     "name": "Earthquake Bar Back Squat",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/A6qx7lVbxas-MU/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/A6qx7lVbxas/hqdefault.jpg",
     "videoUrl": "https://youtu.be/A6qx7lVbxas",
     "focus": "Strenght",
     "muscle_group": "Lower Body",

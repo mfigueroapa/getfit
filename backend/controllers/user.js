@@ -4,32 +4,39 @@ const Exercise = require("../models/Exercise")
 
 exports.editInfo = async (req, res) => {
   const { _id } = req.user
-  const { username, user, weight, weightPrefix, heightPrefix, height, exercise } = req.body
+  const {
+    username,
+    user,
+    weight,
+    weightPrefix,
+    heightPrefix,
+    height,
+    exercise,
+  } = req.body
   // console.log(weight, weightPrefix, height, heightPrefix)
   await User.findByIdAndUpdate(_id, {
     username,
     user,
     weight: {
       value: weight,
-      weightPrefix
+      weightPrefix,
     },
     height: {
       value: height,
-      heightPrefix
+      heightPrefix,
     },
     exercise,
   })
-    .then((user) =>
-      res.status(200).json({ data: { user: "Fields edited successfully" } })
-    )
+    .then((user) => {
+      // res.status(200).json({ data: { user: "Fields edited successfully" } })
+      res.status(200).json({ user, message:"Fields edited successfully"})
+    })
     .catch((error) => {
-      res
-        .status(500)
-        .json({
-          data: {
-            msg: "You can only enter number on weight and height fields",
-          },
-        })
+      res.status(500).json({
+        data: {
+          msg: "You can only enter number on weight and height fields",
+        },
+      })
     })
 }
 
@@ -38,13 +45,13 @@ exports.updateProfile = async (req, res) => {
   const { username, weight, height, exercise, email } = req.body
   await User.findByIdAndUpdate(id, {
     username,
-    weight:{
+    weight: {
       value: weight,
-      weightPrefix: weight.weightPrefix
+      weightPrefix: weight.weightPrefix,
     },
     height: {
       value: height,
-      heightPrefix: weight.weightPrefix
+      heightPrefix: weight.weightPrefix,
     },
     exercise,
     email,
@@ -79,7 +86,7 @@ exports.createWorkout = async (req, res) => {
     exercises_per_set,
     created_by,
   } = req.body
-  
+
   // console.log("Arreglo d exerics: ", exercises)
 
   await Workout.create({
@@ -96,7 +103,6 @@ exports.createWorkout = async (req, res) => {
     created_by,
   })
 
-  
   res.status(200).json({ message: "recibido men" })
 }
 

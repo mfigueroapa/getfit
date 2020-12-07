@@ -1,19 +1,44 @@
 import React from "react"
 import { Row, Col, Form, Input, Button, Typography, Divider } from "antd"
 import MY_SERVICE from "../services"
+import { toast } from "react-toastify"
+import { useContextInfo } from "../hooks/context"
 
 const { Title } = Typography
 
 const googleUrl = process.env.NODE_ENV === 'development' ?
-  "http://localhost:3000/auth/google" : '/auth/google'
+"http://localhost:3000/auth/google" : '/auth/google'
 
 const Signup = ({ history }) => {
   const [form] = Form.useForm()
+  const { login, user } = useContextInfo()
+  if (user) history.push("/dashboard")
 
   async function handleSubmit(userInput) {
+    // console.log("antes del signup")
     await MY_SERVICE.signup(userInput)
-    console.log(userInput)
-    history.push("/login")
+    .then(response => {
+      // console.log(response.data.user)
+      MY_SERVICE.login(userInput)
+      .then(response => {
+        
+        // login(response.data.user)
+        history.push("/new-user-form")
+        console.log("response fro server" ,response)
+        console.log("response fro server" ,response.data)
+        console.log("response fro server" ,response.data.user)
+      }).catch(error =>{
+        console.log(error)
+      })
+    }).catch(error => {
+      console.log(error)
+      toast.error("Something went wrong! Email already exists!")
+    })
+
+    // console.log(userInput)
+    // history.push("/login")
+    //Despues del signp nos loggeamos directamente para rdigir al newform
+    
   }
 
   return (
@@ -42,7 +67,7 @@ const Signup = ({ history }) => {
           Or
         </Divider>
         <a href={googleUrl}>
-          <Button block> <i class="fab fa-google"></i>  &nbsp; Signup with Google </Button>
+          <Button block> <i className="fab fa-google"></i>  &nbsp; Signup with Google </Button>
         </a>
       </Col>
     </Row>

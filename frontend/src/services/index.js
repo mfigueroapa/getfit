@@ -24,28 +24,29 @@ const MY_SERVICE = {
     return await service.get('/profile')
   },
   updateUser: async (id, user) => {
-    return await service.post(`user/update/${id}`, user)
+    return await service.put(`user/update/${id}`, user)
+    // return await service.post(`user/update/${id}`, user)
   },
   editInfo: async (userData) => {
-    return await service.post("/user/edit-info", userData)
+    return await service.put("/user/edit-info", userData)
+    // return await service.post("/user/edit-info", userData)
   },
   deleteUser: async (id) => {
-    return await service.post(`user/delete/${id}`)
+    return await service.delete(`user/delete/${id}`)
+    // return await service.post(`user/delete/${id}`)
   },
   updatePic: async (id, image) => {
-    return await service.post(`user/update-pic/${id}`, image)
+    return await service.put(`user/update-pic/${id}`, image)
+    // return await service.post(`user/update-pic/${id}`, image)
   },
   getExercises: async () => {
-    return await service.get("/getExercises")
+    return await service.get("/api/getExercises")
   },
   getWorkouts: async () => {
-    return await service.get("/getWorkouts")
-  },
-  searchExercise: async (query) => {
-    return await service.get(`/getExercises/search?q=${query}`)
+    return await service.get("/api/getWorkouts")
   },
   getWorkout: async (id) => {
-    return await service.get(`workouts/${id}`)
+    return await service.get(`/api/workouts/${id}`)
   },
   createWorkout: async (workoutInfo) => {
     return await service.post('user/create-workout', workoutInfo)

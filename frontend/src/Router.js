@@ -10,30 +10,28 @@ import NewUserInfoForm from "./pages/NewUserInfoForm"
 import Exercises from "./pages/Exercises"
 import CreateWorkout from "./pages/CreateWorkout"
 import { useContextInfo } from "./hooks/context"
-import MY_SERVICE from "./services"
+// import MY_SERVICE from "./services"
 import DisplayWorkout from "./pages/WorkoutDisplay"
-const Profile = () => {
-  console.log("profile de prueba cargo")
-  return <div>profile de prueba</div>
-}
+
 const Router = () => {
-  const { login } = useContextInfo()
-  useEffect(() => {
-    //ver si estamos loggeados en el servr, si si,
-    //actualizamos el contexto con user, sino, logout del contexto.
-    console.log("useEff from router.")
-    async function getUser() {
-      try {
-        const { user } = await MY_SERVICE.isAuth()
-        console.log("esta fue la respuesta del server.. ,", user)
-        login(user)
-        console.log("meotodo getUser asincrono")
-      } catch {}
-    }
-    getUser()
-  }, [])
+  // const { user } = useContextInfo()
+  // useEffect(() => {
+  //   //ver si estamos loggeados en el servr, si si,
+  //   //actualizamos el contexto con user, sino, logout del contexto.
+  //   console.log("useEff from router.")
+  //   async function getUser() {
+  //     try {
+  //       const { user } = await MY_SERVICE.isAuth()
+  //       console.log("esta fue la respuesta del server.. ,", user)
+  //       login(user)
+
+  //     } catch {}
+  //   }
+  //   getUser()
+  // }, [])
 
   const { user } = useContextInfo()
+
   return (
     <BrowserRouter>
       <LayoutApp>
@@ -42,7 +40,7 @@ const Router = () => {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/new-user-form" component={NewUserInfoForm} />
-          <Route path='/profile' component={Profile}/>
+          {/* <Route path='/profile' component={Profile}/> */}
           {user ? (
             <>
               <Route path="/dashboard" component={Dashboard} />

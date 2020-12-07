@@ -9,41 +9,47 @@ export const AppCtxProvider = (props) => {
 
   useEffect(() => {
     async function getSessionData() {
-      const respond = await MY_SERVICE.isAuth()
-      console.log("anser from isAuth: ",respond.data.user)
-      login(respond.data.user)
+      MY_SERVICE.isAuth()
+      .then(response=> {
+        console.log("anser from isAuth: ", response.data.user)
+      if (response.data.user.exercise !== "") {
+        console.log(response.data.user)
+        login(response.data.user)
+      }
+      }).catch(error=>{
+      })
     }
-
     getSessionData()
   }, [])
 
   const login = (userInfo) => {
     setUser(userInfo)
   }
+  
   const logout = () => {
     setUser(null)
   }
 
-  const addProfilePic = img => {
-    const userCopy = {...user}
+  const addProfilePic = (img) => {
+    const userCopy = { ...user }
     userCopy.profile_pic = img
     setUser(userCopy)
   }
 
   const updateUserCtx = (userInfo) => {
     const userCopy = {...user}
-    console.log("userCOpy: ----", userCopy)
     userCopy.username = userInfo.username
-    userCopy.email = userInfo.email
-    userCopy.weight = userInfo.weight
-    userCopy.height = userInfo.height
-    userCopy.exercise = userInfo.exercise
-
-    setUser(userCopy)
-    console.log(user)
+     userCopy.weight = userInfo.weight
+     userCopy.weightPrefix = userInfo.weightPrefix
+     userCopy.height = userInfo.height
+     userCopy.heightPrefix = userInfo.heightPrefix
+     userCopy.user = userInfo.user
+     userCopy.exercise = userInfo.exercise
+     userCopy.profile_pic = userInfo.profile_pic
+     setUser(userCopy)
   }
-  
-  const value = { user, login, updateUserCtx, logout, addProfilePic}
+
+  const value = { user, login, updateUserCtx, logout, addProfilePic }
 
   return <AppContext.Provider {...props} value={value} />
 }

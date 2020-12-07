@@ -25,36 +25,42 @@ function WorkoutForm({ exerciseArr }) {
   }
   return (
     <>
-      <div className="site-card-wrapper">
-        <Title level={4}>Selected exercises for your new routine</Title>
-        <Divider />
+    <div className="workout-form">
+    <div className="site-card-wrapper">
+        {/* <Title level={4}>Selected exercises for your new routine</Title> */}
+        {/* <Divider /> */}
         <Row gutter={16}>
           {exerciseArr.map((ex) => (
             <>
-              <Col span={8}>
+              {/* <Col span={8}> */}
+              <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
                 <Card
-                  title={
-                    <h6 style={{ width: "100%" }}>
-                      {ex.name} <br /> {ex.muscle_group}
-                    </h6>
-                  }
-                  bordered={false}
+                  // title={
+                  //   <h6 style={{ width: "100%" }}>
+                  //     {ex.name} <br /> {ex.muscle_group}
+                  //   </h6>
+                  // }
+                  // bordered={false}
                 >
-                  <img
+                  {/* <img
                     src={ex.imageUrl}
                     alt="exercise"
-                    style={{ width: "100%" }}
-                  />
+                    style={{ 
+                      width: "100%" }}
+                  /> */}
+                  <div className="text">
+                        <span>
+                          <p>{ex.name}</p>
+                        </span>
+                        <p>{ex.muscle_group}</p>
+                      </div>
                 </Card>
-                <br />
               </Col>
             </>
           ))}
         </Row>
-        <br />
-        
-        <br />
       </div>
+    </div>
     </>
   )
 }

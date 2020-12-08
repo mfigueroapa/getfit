@@ -10,6 +10,7 @@ import NewUserInfoForm from "./pages/NewUserInfoForm"
 import Exercises from "./pages/Exercises"
 import Workouts from "./pages/Workouts"
 import CreateWorkout from "./pages/CreateWorkout"
+import Recipes from "./pages/Recipes"
 import { useContextInfo } from "./hooks/context"
 // import MY_SERVICE from "./services"
 import DisplayWorkout from "./pages/WorkoutDisplay"
@@ -50,6 +51,7 @@ const Router = () => {
               <Route path="/exercises" component={Exercises} />
               <Route path="/workouts" component={Workouts} />
               <Route path="/create-workout" component={CreateWorkout} />
+              <Route path="/recipes" component={Recipes} />
             </>
           ) : (
             <Route component={Home} />

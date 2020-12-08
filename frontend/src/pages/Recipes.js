@@ -34,14 +34,14 @@ const Recipies = () => {
     getRecipesOnce()
   }, [])
 
-  // useEffect(() => {
-  //   const getRecipies = async () => {
-  //     const { data } = await MY_SERVICE.getRecipes(query)
-  //     console.log(data)
-  //     setRecipes(data.hits)
-  //   }
-  //   getRecipies()
-  // }, [query])
+  useEffect(() => {
+    const getRecipies = async () => {
+      const { data } = await MY_SERVICE.getRecipes(query)
+      console.log(data)
+      setRecipes(data.hits)
+    }
+    getRecipies()
+  }, [query])
 
   const updateSearch = (e) => {
     setSearch(e.target.value)

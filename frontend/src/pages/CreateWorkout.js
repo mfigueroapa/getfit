@@ -140,15 +140,14 @@ const CreateWorkout = ({history}) => {
           <Row>
             <Typography.Paragraph>
               <p>
-                You can create your workout form a variaty of exercises, just
-                look for them on the search bar.
+                Start by clicking the + button of the exercise you want to add.
                 <br />
-                Try browsing specific exercise by name or even by muscle group
+                <br/>
+                You can type in the searchbar any exercise name or even a muscle group to start getting results
                 i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
                 <br />
-                Select an exercise to see a quick video demonstrating how to
-                perform the movement correctly and decide whether to add it to
-                your workout or not.
+                <br />
+                Don't forget to name your workout and select a difficulty level according to exercise selection.
               </p>
             </Typography.Paragraph>
           </Row>

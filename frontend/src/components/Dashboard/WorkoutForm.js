@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useContextInfo } from "../../hooks/context"
+import CreateWorkout from '../../pages/CreateWorkout'
 import {
   Card,
   Col,
@@ -15,7 +16,8 @@ import {
 const { Title } = Typography
 
 function WorkoutForm({ exerciseArr }) {
-  const [exercises, setExercises] = useState([])
+
+  // const {deleteElement} = CreateWorkout;
   const { user } = useContextInfo()
   async function handleSubmit(userInputValues) {
     console.log(userInputValues)
@@ -23,6 +25,12 @@ function WorkoutForm({ exerciseArr }) {
 
   const deleteHandle = (ex) => {
     console.log("this is the id of the item",ex.name, ex._id)
+    // CreateWorkout.deleteElement(ex)
+    // deleteElement(ex)
+    // console.log("ARR: ",exerciseArr)
+    // setExerciseArr(exerciseArr.pop())
+    // console.log("ARR: ",exerciseArr)
+
   }
   return (
     <>

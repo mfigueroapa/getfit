@@ -20,13 +20,11 @@ import {
 } from "antd"
 import { toast } from "react-toastify"
 import WorkoutForm from "../components/Dashboard/WorkoutForm"
-import Exercises from "./Exercises"
 const { Search } = Input
 
 const CreateWorkout = () => {
   const { user } = useContextInfo()
   const history = useHistory()
-  //   const go = (path) => history.push(path)
   const [exercises, setExercises] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
@@ -64,11 +62,18 @@ const CreateWorkout = () => {
   }
 
   const addExercise = (item) => {
+    if (exerciseArr.includes(item) && exerciseArr.length < 6) toast.error("Exercise already added, try a different one.")
     if (exerciseArr.length === 6)
       toast.error("You can only add up to 6 exercises per workout.")
-    if (exerciseArr.length < 6) {
+    if (exerciseArr.length < 6 && exerciseArr.includes(item) === false) {
       setExerciseArr((exerciseArr) => [...exerciseArr, item])
     }
+  }
+ 
+  const deleteHandle = (exercise) => {
+    let arr = []
+    arr = exerciseArr.filter(ex=> ex._id!==exercise._id)
+    setExerciseArr(arr)
   }
 
   const showModal = (url) => {
@@ -130,11 +135,10 @@ const CreateWorkout = () => {
             <Typography.Paragraph>
               <p>
                 You can create your workout form a variaty of exercises, just
-                look for them on the search bar. 
-                <br/>
-                Try browsing specific
-                exercise by name or even by muscle group i.e., "Lower Body",
-                "Upper Body", "Tricep", "Leg".
+                look for them on the search bar.
+                <br />
+                Try browsing specific exercise by name or even by muscle group
+                i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
                 <br />
                 Select an exercise to see a quick video demonstrating how to
                 perform the movement correctly and decide whether to add it to
@@ -142,48 +146,80 @@ const CreateWorkout = () => {
               </p>
             </Typography.Paragraph>
           </Row>
-          <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm>
+          <br />
+          <br />
+          <br />
+          <p className="your-workout">YOUR WORKOUT</p>
+          {/* <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> */}
+          <div className="workout-form">
+            <div className="site-card-wrapper">
+              <Row gutter={16}>
+                {exerciseArr.map((ex) => (
+                  <>
+                    <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
+                      <Card>
+                        <div className="text">
+                          <span>
+                            <p>{ex.name}</p>
+                          </span>
+                          <p>{ex.muscle_group}</p>
+                        </div>
+                        <Button
+                          primary
+                          block
+                          size="middle"
+                          onClick={() => deleteHandle(ex)}
+                        >
+                          <i className="fas fa-trash-alt"></i>
+                        </Button>
+                      </Card>
+                    </Col>
+                  </>
+                ))}
+              </Row>
+            </div>
+          </div>
           <>
-              <Col span={24}>
-                <Form form={form} layout="vertical" onFinish={handleSubmit}>
-                  <Form.Item
-                    rules={[{ required: true }]}
-                    name="name"
-                    label="Name your workout"
-                  >
-                    <Input />
-                  </Form.Item>
-                  <Form.Item
-                    name="exercise"
-                    label="Select a difficulty level for your workout according to exercise selection"
-                    rules={[{ required: true }]}
-                  >
-                    <Select>
-                      <Select.Option value="Begginer">Begginer</Select.Option>
-                      <Select.Option value="Intermediate">
-                        Intermediate
-                      </Select.Option>
-                      <Select.Option value="Advanced">Advanced</Select.Option>
-                    </Select>
-                  </Form.Item>
-                  <Button type="primary" block size="middle" htmlType="submit">
-                    Create Wrokout
-                  </Button>
-                  <br />
-                  <br />
-                  <Button
-                      danger
-                      block
-                      size="middle"
-                      onClick={() => {
-                        setExerciseArr([])
-                      }}
-                    >
-                      Clear
-                    </Button>
-                </Form>
-              </Col>
-            </>
+            <Col span={24}>
+              <Form form={form} layout="vertical" onFinish={handleSubmit}>
+                <Form.Item
+                  rules={[{ required: true }]}
+                  name="name"
+                  label="Name your workout"
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name="exercise"
+                  label="Select a difficulty level for your workout according to exercise selection"
+                  rules={[{ required: true }]}
+                >
+                  <Select>
+                    <Select.Option value="Begginer">Begginer</Select.Option>
+                    <Select.Option value="Intermediate">
+                      Intermediate
+                    </Select.Option>
+                    <Select.Option value="Advanced">Advanced</Select.Option>
+                  </Select>
+                </Form.Item>
+                <Button type="primary" block size="middle" htmlType="submit">
+                  Create Wrokout
+                </Button>
+                <br />
+                <br />
+                <Button
+                  danger
+                  block
+                  size="middle"
+                  onClick={() => {
+                    setExerciseArr([])
+                  }}
+                >
+                  Clear
+                </Button>
+              </Form>
+            </Col>
+          </>
           <br />
         </div>
 
@@ -248,7 +284,7 @@ const CreateWorkout = () => {
             {searchResults.length === 0 && newData === false ? (
               exercises.map((item) => (
                 <>
-                  <Col  xs={24} sm={24} md={24} lg={24} key={item._id} >
+                  <Col xs={24} sm={24} md={24} lg={24} key={item._id}>
                     <Card>
                       <img
                         onClick={() => showModal(item.videoUrl)}

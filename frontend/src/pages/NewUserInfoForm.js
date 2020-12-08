@@ -132,27 +132,6 @@ const NewUserInfoForm = ({ history }) => {
         </Form>
       </Col>
     </Row>
-    // <Form form={form} layout="vertical" onFinish={handleSubmit}>
-    //   <Form.Item name="username" label="Username:">
-    //     <Input />
-    //   </Form.Item>
-    //   <Form.Item name="weight" label="Weight:">
-    //     <Input />
-    //   </Form.Item>
-    //   <Form.Item name="height" label="Height:">
-    //     <Input />
-    //   </Form.Item>
-    //   <Form.Item name="exercise" label="How ofter you exercise?">
-    //     <Select>
-    //       <Select.Option value="Begginer">Begginer</Select.Option>
-    //       <Select.Option value="Intermediate">Intermediate</Select.Option>
-    //       <Select.Option value="Avanzed">Avanzed</Select.Option>
-    //     </Select>
-    //   </Form.Item>
-    //   <Button type="primary" block size="middle" htmlType="submit">
-    //     Next
-    //   </Button>
-    // </Form>
   )
 }
 

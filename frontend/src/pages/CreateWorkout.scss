@@ -53,6 +53,9 @@
 
   .left {
     width: 40%;
+   .your-workout {
+     text-align: center;
+   }
     .ant-card.ant-card-bordered {
       padding: 0;
       margin: 0;
@@ -69,13 +72,18 @@
       padding: 0;
       margin: 40px;
     }
-    .ant-btn {
-      color: #000;
-      border: none;
-    }
+    
     .site-card-wrapper {
+      height: 490px;
+      background-color: rgb(210, 210, 210);
+      border: 2px solid rgb(165, 165, 165);
       padding: 0px;
       margin: 20px;
+      .ant-btn {
+        color: #000;
+        border: none;
+      }
+      
       .ant-card-body {
         border: 1px solid #000;
         padding: 0;

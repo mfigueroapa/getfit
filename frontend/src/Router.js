@@ -46,9 +46,9 @@ const Router = () => {
           {user ? (
             <>
               <Route path="/dashboard" component={Dashboard} />
-              <Route path="/workouts/:id" component={DisplayWorkout} />
+              <Route exact path="/workouts/:id" component={DisplayWorkout} />
               <Route path="/exercises" component={Exercises} />
-              <Route path="/workouts" component={Workouts} />
+              <Route exact path="/workouts" component={Workouts} />
               <Route path="/create-workout" component={CreateWorkout} />
             </>
           ) : (

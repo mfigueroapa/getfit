@@ -22,9 +22,9 @@ import { toast } from "react-toastify"
 import WorkoutForm from "../components/Dashboard/WorkoutForm"
 const { Search } = Input
 
-const CreateWorkout = () => {
+const CreateWorkout = ({history}) => {
   const { user } = useContextInfo()
-  const history = useHistory()
+  // const history = useHistory()
   const [exercises, setExercises] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
@@ -62,17 +62,18 @@ const CreateWorkout = () => {
   }
 
   const addExercise = (item) => {
-    if (exerciseArr.includes(item) && exerciseArr.length < 6) toast.error("Exercise already added, try a different one.")
+    if (exerciseArr.includes(item) && exerciseArr.length < 6)
+      toast.error("Exercise already added, try a different one.")
     if (exerciseArr.length === 6)
       toast.error("You can only add up to 6 exercises per workout.")
     if (exerciseArr.length < 6 && exerciseArr.includes(item) === false) {
       setExerciseArr((exerciseArr) => [...exerciseArr, item])
     }
   }
- 
+
   const deleteHandle = (exercise) => {
     let arr = []
-    arr = exerciseArr.filter(ex=> ex._id!==exercise._id)
+    arr = exerciseArr.filter((ex) => ex._id !== exercise._id)
     setExerciseArr(arr)
   }
 
@@ -102,6 +103,11 @@ const CreateWorkout = () => {
         exercises_per_set: 3,
         created_by: user._id,
       })
+        .then((response) => {
+          setExerciseArr([])
+          history.push("/workouts")
+        })
+        .catch((error) => {})
     } else {
       toast.error("Your workout needs to contain 6 exercises to be created")
     }
@@ -134,15 +140,14 @@ const CreateWorkout = () => {
           <Row>
             <Typography.Paragraph>
               <p>
-                You can create your workout form a variaty of exercises, just
-                look for them on the search bar.
+                Start by clicking the + button of the exercise you want to add.
                 <br />
-                Try browsing specific exercise by name or even by muscle group
+                <br/>
+                You can type in the searchbar any exercise name or even a muscle group to start getting results
                 i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
                 <br />
-                Select an exercise to see a quick video demonstrating how to
-                perform the movement correctly and decide whether to add it to
-                your workout or not.
+                <br />
+                Don't forget to name your workout and select a difficulty level according to exercise selection.
               </p>
             </Typography.Paragraph>
           </Row>
@@ -182,12 +187,13 @@ const CreateWorkout = () => {
           <>
             <Col span={24}>
               <Form form={form} layout="vertical" onFinish={handleSubmit}>
+                
                 <Form.Item
                   rules={[{ required: true }]}
                   name="name"
                   label="Name your workout"
                 >
-                  <Input />
+                  <Input value="asd" />
                 </Form.Item>
                 <Form.Item
                   name="exercise"

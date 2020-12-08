@@ -16,34 +16,35 @@ function Workouts() {
     getWorkoutsFunction()
   }, [])
 
-
   return (
     <>
-    <Row className="custom-header">
-      <Col span={24}>
-        <Title level={1}>
-          Checkout
-          <br/> 
-          <span>Our Workouts</span>
-        </Title>
-      </Col>
-    </Row>
-    <Row className="card-group">
-    {workouts && workouts.map(elm=> 
-    <Col span={6}>
-    <Link to={`/workouts/${elm._id}`}>
-      <Card>
-          <div>
-          <img alt="example" src="/exercise.jpg"/>
-          </div>
-          <div className="card-content">
-            <p className="card-title">{elm.name}</p>
-            <p className="card-text">{elm.level}</p>
-          </div>
-        </Card>
-      </Link>
-      </Col>)}
-    </Row>
+      <Row className="custom-header">
+        <Col span={24}>
+          <Title level={1}>
+            Checkout
+            <br />
+            <span>Our Workouts</span>
+          </Title>
+        </Col>
+      </Row>
+      <Row className="card-group">
+        {workouts &&
+          workouts.map((elm) => (
+            <Col span={6}>
+              <Link to={`/workouts/${elm._id}`}>
+                <Card key={elm._id}>
+                  <div>
+                    <img alt="example" src="/exercise.jpg" />
+                  </div>
+                  <div className="card-content">
+                    <p className="card-title">{elm.name}</p>
+                    <p className="card-text">{elm.level}</p>
+                  </div>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+      </Row>
     </>
   )
 }

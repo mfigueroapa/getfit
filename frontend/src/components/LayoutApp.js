@@ -77,7 +77,10 @@ export default function LayoutApp({ children }) {
                         <Button type="text">workouts</Button>
                       </Link>
                       <Link to="/create-workout">
-                        <Button type="text">make workout</Button>
+                        <Button type="text">create workout</Button>
+                      </Link>
+                      <Link to="/recipes">
+                        <Button type="text">meals</Button>
                       </Link>
 
                       <a onClick={handleProfile}>

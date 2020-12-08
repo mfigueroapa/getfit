@@ -31,7 +31,7 @@ const execises = [
   {
     "name": "Axle Bar Power Clean",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/mroGR6UH5Cw/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/mroGR6UH5Cw/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/mroGR6UH5Cw",
     "focus": "Mobility",
     "muscle_group": "Upper Body",
@@ -40,7 +40,7 @@ const execises = [
   {
     "name": "Standing Tricep Extension on Cable Machine",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/-T66XHhmNJI/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/-T66XHhmNJI/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/-T66XHhmNJI",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -49,7 +49,7 @@ const execises = [
   {
     "name": "Scott Reverse Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/4oCf4lmxWXE/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/4oCf4lmxWXE/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/4oCf4lmxWXE",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -58,7 +58,7 @@ const execises = [
   {
     "name": "Elevator Goblet Squat",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/G8DTF8H4qvU/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/G8DTF8H4qvU/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/G8DTF8H4qvU",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -67,7 +67,7 @@ const execises = [
   {
     "name": "Single Arm Drag Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/i3jLGppPJSg/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/i3jLGppPJSg/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/i3jLGppPJSg",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -76,7 +76,7 @@ const execises = [
   {
     "name": "Axle Bar Deadlift",
     "description": "A full body workout is just what it sounds like: a workout that aims to hit all the major muscle groups in one single session. Popular programs would include exercises for back, legs, chest, shoulders, arms and core.",
-    "imageUrl": "https://img.youtube.com/vi/UTRCue9rGaE/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/UTRCue9rGaE/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/UTRCue9rGaE",
     "focus": "Strength",
     "muscle_group": "Full Body",
@@ -85,7 +85,7 @@ const execises = [
   {
     "name": "Roller Pistol to Single Leg Vertical Jump",
     "description": "A full body workout is just what it sounds like: a workout that aims to hit all the major muscle groups in one single session. Popular programs would include exercises for back, legs, chest, shoulders, arms and core.",
-    "imageUrl": "https://img.youtube.com/vi/DANmETgRwJE/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/DANmETgRwJE/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/DANmETgRwJE",
     "focus": "Strength",
     "muscle_group": "Full Body",
@@ -94,7 +94,7 @@ const execises = [
   {
     "name": "Decline Parallette Push-up",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/UgwZtY0f-rQ/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/UgwZtY0f-rQ/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/UgwZtY0f-rQ",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -103,7 +103,7 @@ const execises = [
   {
     "name": "Decline Barbell Tricep Extension",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/YucSbAMSOmA/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/YucSbAMSOmA/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/YucSbAMSOmA",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -112,17 +112,8 @@ const execises = [
   {
     "name": "Narrow Grip Supinated Pull-Up Negative",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/4UICwSmBMPA/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/4UICwSmBMPA/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/4UICwSmBMPA",
-    "focus": "Strength",
-    "muscle_group": "Upper Body",
-    "level": "All Levels"
-  },
-  {
-    "name": "Dumbbell Bent Over Row",
-    "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/Hh8Y5HT56P0/hqdefault.jpg",
-    "videoUrl": "https://youtu.be/Hh8Y5HT56P0",
     "focus": "Strength",
     "muscle_group": "Upper Body",
     "level": "All Levels"
@@ -130,7 +121,7 @@ const execises = [
   {
     "name": "Standing Barbell Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/WcAYy5UrFUI/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/WcAYy5UrFUI/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/WcAYy5UrFUI",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -139,7 +130,7 @@ const execises = [
   {
     "name": "Scott Narrow Grip Barbell Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/cI9D3d9WmsM/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/cI9D3d9WmsM/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/cI9D3d9WmsM",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -148,7 +139,7 @@ const execises = [
   {
     "name": "",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/G8DTF8H4qvU/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/G8DTF8H4qvU/maxresdefault.jpg",
     "videoUrl": "",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -157,7 +148,7 @@ const execises = [
   {
     "name": "Banded Hammer Curl + Press",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/UjGhQDCFuWo/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/UjGhQDCFuWo/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/UjGhQDCFuWo",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -166,7 +157,7 @@ const execises = [
   {
     "name": "Single Arm Banded Tricep Pushdown",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/imZuGYVi-vk/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/imZuGYVi-vk/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/imZuGYVi-vk",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -175,7 +166,7 @@ const execises = [
   {
     "name": "Single Arm Cuban Press",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/tfPEh9oKBxk/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/tfPEh9oKBxk/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/tfPEh9oKBxk",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -184,7 +175,7 @@ const execises = [
   {
     "name": "Scapular Ring Row",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/9R9gXT6qPMY/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/9R9gXT6qPMY/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/9R9gXT6qPMY",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -193,7 +184,7 @@ const execises = [
   {
     "name": "Bent Over Dumbbell Reverse Fly",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/wrd8G2xB2FI/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/wrd8G2xB2FI/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/wrd8G2xB2FI",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -202,7 +193,7 @@ const execises = [
   {
     "name": "Banded Single Arm Row",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/FbeuQKNLFT0/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/FbeuQKNLFT0/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/FbeuQKNLFT0",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -211,7 +202,7 @@ const execises = [
   {
     "name": "Ring Bicep Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/d-DyoyBtrTU/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/d-DyoyBtrTU/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/d-DyoyBtrTU",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -220,7 +211,7 @@ const execises = [
   {
     "name": "Chest Supported Reverse Fly",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/8O9rCK1l7XU/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/8O9rCK1l7XU/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/8O9rCK1l7XU",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -229,7 +220,7 @@ const execises = [
   {
     "name": "Band Chest Press",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/kU5wXRcohsQ/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/kU5wXRcohsQ/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/kU5wXRcohsQ",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -238,7 +229,7 @@ const execises = [
   {
     "name": "Incline Dumbbell Bicep Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/xy8JU8Vcc4c/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/xy8JU8Vcc4c/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/xy8JU8Vcc4c",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -247,7 +238,7 @@ const execises = [
   {
     "name": "Lat Pulldown to Sternum",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/MJDyZdHo4jM/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/MJDyZdHo4jM/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/MJDyZdHo4jM",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -256,7 +247,7 @@ const execises = [
   {
     "name": "Banded Upright Row to Press",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/gf78I-uhka8/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/gf78I-uhka8/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/gf78I-uhka8",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -265,7 +256,7 @@ const execises = [
   {
     "name": "Decline Barbell Wrist Curl",
     "description": "Upper body resistance or strength training has a long list of benefits. It helps you boost muscle strength and endurance in your arms, back, chest, and shoulders. It also helps you burn calories, reduce your risk of injury, and build stronger bones.",
-    "imageUrl": "https://img.youtube.com/vi/N1fhD4m0dNk/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/N1fhD4m0dNk/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/N1fhD4m0dNk",
     "focus": "Strength",
     "muscle_group": "Upper Body",
@@ -274,7 +265,7 @@ const execises = [
   {
     "name": "Cable Kickback",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/J9XXUYVBJjo/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/J9XXUYVBJjo/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/J9XXUYVBJjo",
     "focus": "Strength",
     "muscle_group": "Lower Body",
@@ -283,7 +274,7 @@ const execises = [
   {
     "name": "One and a Quarter Dumbbell Romanian Deadlift",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/VdQfDA9qEMk/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/VdQfDA9qEMk/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/VdQfDA9qEMk",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -292,7 +283,7 @@ const execises = [
   {
     "name": "Narrow Stance Leg Press",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/P3BKVY63XtI/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/P3BKVY63XtI/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/P3BKVY63XtI",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -301,7 +292,7 @@ const execises = [
   {
     "name": "Dumbbell Wall Sit",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/F0--ixFZkAQ/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/F0--ixFZkAQ/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/F0--ixFZkAQ",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -310,7 +301,7 @@ const execises = [
   {
     "name": "Half Kneeling Banded Behind the Neck Press",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/6jy0Eeoq-MU/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/6jy0Eeoq-MU/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/6jy0Eeoq-MU",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -319,7 +310,7 @@ const execises = [
   {
     "name": "Earthquake Bar Back Squat",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/A6qx7lVbxas/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/A6qx7lVbxas/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/A6qx7lVbxas",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -328,7 +319,7 @@ const execises = [
   {
     "name": "Rower Hamstring Curl",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/bb_YgWFu2cE/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/bb_YgWFu2cE/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/bb_YgWFu2cE",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -337,7 +328,7 @@ const execises = [
   {
     "name": "Safety Squat Bar Split Squat",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/FENFsA5WYi4/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/FENFsA5WYi4/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/FENFsA5WYi4",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -346,7 +337,7 @@ const execises = [
   {
     "name": "Dumbbell Jump Lunge",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/5qxc3bAxCVk/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/5qxc3bAxCVk/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/5qxc3bAxCVk",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -355,7 +346,7 @@ const execises = [
   {
     "name": "Lateral Box Step Over",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/A-npLEYkQ-Y/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/A-npLEYkQ-Y/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/A-npLEYkQ-Y",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -364,7 +355,7 @@ const execises = [
   {
     "name": "Alternating Tuck Up",
     "description": "A full body workout is just what it sounds like: a workout that aims to hit all the major muscle groups in one single session. Popular programs would include exercises for back, legs, chest, shoulders, arms and core.",
-    "imageUrl": "https://img.youtube.com/vi/jNKz885A6Kc/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/jNKz885A6Kc/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/jNKz885A6Kc",
     "focus": "Strenght",
     "muscle_group": "Full Body",
@@ -373,7 +364,7 @@ const execises = [
   {
     "name": "Alternating V-Up",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/V6zE3y5yTQ0/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/V6zE3y5yTQ0/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/V6zE3y5yTQ0",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -382,7 +373,7 @@ const execises = [
   {
     "name": "Modified Thomas Test",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/MVoNH89GzjQ/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/MVoNH89GzjQ/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/MVoNH89GzjQ",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -391,7 +382,7 @@ const execises = [
   {
     "name": "Hollow Side Hold",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/lPMgDhESwrw/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/lPMgDhESwrw/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/lPMgDhESwrw",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -400,7 +391,7 @@ const execises = [
   {
     "name": "Incline Bench Hip Extension",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/hONeo_YLoyM/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/hONeo_YLoyM/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/hONeo_YLoyM",
     "focus": "Strenght",
     "muscle_group": "Lower Body",
@@ -409,7 +400,7 @@ const execises = [
   {
     "name": "Strict Toes Through Rings",
     "description": "The lower extremity refers to the part of the body from the hip to the toes. The lower extremity includes the hip, knee, and ankle joints, and the bones of the thigh, leg, and foot.",
-    "imageUrl": "https://img.youtube.com/vi/PrL7m43WCTE/hqdefault.jpg",
+    "imageUrl": "https://img.youtube.com/vi/PrL7m43WCTE/maxresdefault.jpg",
     "videoUrl": "https://youtu.be/PrL7m43WCTE",
     "focus": "Strenght",
     "muscle_group": "Lower Body",

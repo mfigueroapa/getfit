@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Card, Row, Col } from 'antd';
 import { EditOutlined, DeleteOutlined, ImportOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Info from './Info'
@@ -35,7 +35,7 @@ const Profile = () => {
     <>
     {user && 
     <Row id="profile-card">
-      <Col>
+      <Col style={{width: "100%"}}>
         <Card
           actions={[
             <ImportOutlined key="signout" onClick={handleLogout}/>,

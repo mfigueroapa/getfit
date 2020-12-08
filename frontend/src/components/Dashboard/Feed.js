@@ -38,8 +38,8 @@ function Main() {
       </Col>
     </Row>
     <Row className="card-group">
-    {popular && popular.map(elm=> 
-    <Col span={7}>
+    {popular && popular.map((elm, index)=> 
+    <Col span={7} key={index}>
     <Link to={`/workouts/${elm._id}`}>
       <Card>
           <div>

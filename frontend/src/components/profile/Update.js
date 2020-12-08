@@ -74,7 +74,7 @@ function Update() {
             </Form.Item>
 
             <Button type="primary" block htmlType="submit">
-              Create
+              Update Profile
             </Button>
 
           </Form>

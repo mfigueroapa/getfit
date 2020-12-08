@@ -1,8 +1,22 @@
 #display-workout {
 
   .hero {
+    position: relative;
 
     .hero__content {
+      position: absolute;
+      transform: translate(-50%, 0);
+      left: 50%;
+      
+      p {
+        text-align: center;
+        font-family: "Oswald";
+        font-weight: 400;
+
+        span {
+          font-size: 24px;
+        }
+      }
 
       h1.ant-typography {
         font-weight: 400;
@@ -10,7 +24,138 @@
     }
 
     .hero-image {
-      
+      height: 60vh;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .display-workout__container {
+    display: flex;
+    justify-content: center;
+
+    .display-workout__content {
+      max-width: 800px;
+
+      .display-workout__description {
+        margin: 42px 0;
+      }
+
+      .text-block {
+        width: 100%;
+
+        p {
+          text-align: center;
+          font-family: "Oswald";
+          font-weight: 400;
+          margin-bottom: 8px;
+  
+          span {
+            font-size: 24px;
+          }
+        }
+      }
+
+      .ant-list-item {
+        padding: 0;
+        border: none;
+      }
+
+      .display-workout__list {
+        margin: 32px 0;
+        width: 100%;
+
+        .list-item-set {
+          margin-top: 32px;
+          width: 100%;
+          color: white;
+          background: #000;
+          display: flex;
+          align-items: center;
+          padding: 32px 24px;
+
+          p {
+            margin: 0;
+            font-family: "Oswald";
+            font-weight: 700;
+            font-size: 24px;
+            text-transform: uppercase;
+
+            span {
+              font-weight: 300;
+              margin: 0 16px;
+              padding: 0 16px;
+              border-left: 2px solid #C4C4C4;
+            }
+          }
+        }
+
+        .list-item-recover {
+          width: 100%;
+          background: #f2f2f2;
+          display: flex;
+          align-items: center;
+          padding: 16px 24px;
+
+          p {
+            margin: 0;
+            font-family: "Oswald";
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+
+            span {
+              font-weight: 300;
+              margin: 0 16px;
+              padding: 0 16px;
+              border-left: 2px solid #C4C4C4;
+            }
+          }
+        }
+
+        .list-item-exercise {
+          width: 100%;
+          border: 2px solid #000;
+
+          .list-item-exercise__content {
+            display: flex;
+            align-items: center;
+
+            .time {
+              font-family: "Oswald";
+              font-size: 36px;
+              font-weight: 700;
+              padding: 0 16px;
+              border-right: 2px solid #C4C4C4;
+              margin-right: 16px;
+            }
+
+            p {
+              font-family: "Oswald";
+              font-size: "24px";
+              margin-bottom: 0;
+
+              span {
+                font-family: "Barlow";
+                font-size: 12px;
+                font-weight: 300;
+              }
+            }
+          }
+
+          .list-item-buttons {
+            display: flex;
+            align-items: center;
+          }
+
+          .list-item-video {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            padding: 16px 0;     
+          }
+        }
+      }
     }
   }
 }

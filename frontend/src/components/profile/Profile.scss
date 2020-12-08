@@ -1,0 +1,26 @@
+#custom {
+
+  #profile-info {
+    padding: 16px;
+   
+    h4.ant-typography{
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    .ant-typography-secondary{
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .ant-upload {
+      display: block;
+    }
+
+    .info__content {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-around;
+    }
+   }
+}

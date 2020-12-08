@@ -1,0 +1,25 @@
+//Recipes
+
+#recipes {
+  .card-content {
+    padding: 60px 40px 20px;
+  }
+  .ant-card-body {
+    display: flex;
+    flex-direction: row;
+  }
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .text-info {
+    margin: 30px;
+    padding: 20px;
+    background: rgb(250, 249, 249);
+    border-radius: 20px;
+  }
+
+  .ant-input-group-wrapper {
+    margin: 0;
+    padding: 0 50px;
+  }
+}

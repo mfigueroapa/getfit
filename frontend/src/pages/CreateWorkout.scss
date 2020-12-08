@@ -5,11 +5,11 @@
   // padding: 50px;
 
   .right {
-    margin-top: 470px;
+    margin-top: 22rem;
     width: 60%;
 
     .ant-col {
-      padding: .7px 0 !important
+      padding: 0.7px 0 !important;
     }
     .ant-btn {
       color: #000;
@@ -30,7 +30,8 @@
       border: 1.4px solid #000;
       display: flex;
       flex-direction: row;
-      max-height: 12vh;
+      height: 100px;
+      min-height: 100px;
       margin: 0;
 
       .text {
@@ -53,9 +54,9 @@
 
   .left {
     width: 40%;
-   .your-workout {
-     text-align: center;
-   }
+    .your-workout {
+      text-align: center;
+    }
     .ant-card.ant-card-bordered {
       padding: 0;
       margin: 0;
@@ -72,9 +73,10 @@
       padding: 0;
       margin: 40px;
     }
-    
+
     .site-card-wrapper {
-      height: 490px;
+      height: 603px;
+      min-height: 603px;
       background-color: rgb(210, 210, 210);
       border: 2px solid rgb(165, 165, 165);
       padding: 0px;
@@ -83,14 +85,15 @@
         color: #000;
         border: none;
       }
-      
+
       .ant-card-body {
         border: 1px solid #000;
         padding: 0;
         margin: 0;
         display: flex;
         flex-direction: row;
-        height: 10vh;
+        height: 100px;
+        min-height: 100px;
 
         .text {
           padding: 0.9rem 1rem;

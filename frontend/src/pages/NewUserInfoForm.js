@@ -41,7 +41,7 @@ const NewUserInfoForm = ({ history }) => {
 
   const weightPrefixSelector = (
     <Form.Item name="weightPrefix" noStyle>
-      <Select style={{ width: 70 }}>
+      <Select  defaultValue="kgs"  style={{ width: 70 }}>
         <Option value="kgs">kgs</Option>
         <Option value="lbs">lbs</Option>
       </Select>
@@ -49,7 +49,7 @@ const NewUserInfoForm = ({ history }) => {
   )
   const heightPrefixSelector = (
     <Form.Item name="heightPrefix" noStyle>
-      <Select style={{ width: 70 }}>
+      <Select defaultValue="cms"  style={{ width: 70 }}>
         <Option value="cms">cms</Option>
         <Option value="ins">ins</Option>
       </Select>
@@ -91,6 +91,7 @@ const NewUserInfoForm = ({ history }) => {
               style={{ width: "100%" }}
             />
           </Form.Item>
+          
           <Form.Item
             name="user"
             label="Are you a regular user or a trainer who wants to create workouts?"
@@ -136,27 +137,6 @@ const NewUserInfoForm = ({ history }) => {
       </Col>
       </div>
     </Row>
-    // <Form form={form} layout="vertical" onFinish={handleSubmit}>
-    //   <Form.Item name="username" label="Username:">
-    //     <Input />
-    //   </Form.Item>
-    //   <Form.Item name="weight" label="Weight:">
-    //     <Input />
-    //   </Form.Item>
-    //   <Form.Item name="height" label="Height:">
-    //     <Input />
-    //   </Form.Item>
-    //   <Form.Item name="exercise" label="How ofter you exercise?">
-    //     <Select>
-    //       <Select.Option value="Begginer">Begginer</Select.Option>
-    //       <Select.Option value="Intermediate">Intermediate</Select.Option>
-    //       <Select.Option value="Avanzed">Avanzed</Select.Option>
-    //     </Select>
-    //   </Form.Item>
-    //   <Button type="primary" block size="middle" htmlType="submit">
-    //     Next
-    //   </Button>
-    // </Form>
   )
 }
 

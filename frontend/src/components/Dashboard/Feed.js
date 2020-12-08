@@ -18,7 +18,6 @@ function Main() {
     }
     getWorkoutsFunction()
   }, [])
-  console.log(workouts)
 
   return (
     <>

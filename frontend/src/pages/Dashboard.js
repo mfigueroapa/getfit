@@ -5,9 +5,6 @@ import Feed from '../components/Dashboard/Feed'
 const Dashboard = () => {
   
   const { user } = useContextInfo()
-  console.log("user from dashboard: ", user)
-  // console.log("user from dashbrd: ",)
-//   console.log(user.user, user.email)
 
   return (
     <>

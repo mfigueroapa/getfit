@@ -2,14 +2,13 @@ import { Layout, Row, Col, Button, Avatar } from "antd"
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
-import MY_SERVICE from "../services"
 import logo from "../images/logo.svg"
 import Profile from "../components/profile/Profile"
 
 const { Header, Content, Footer } = Layout
 
 export default function LayoutApp({ children }) {
-  const { user, logout } = useContextInfo()
+  const { user } = useContextInfo()
   const [image, setImage] = useState()
   const [profile, setProfile] = useState(false)
 
@@ -19,13 +18,7 @@ export default function LayoutApp({ children }) {
     } else {
       setImage("")
     }
-  })
-
-  async function handleLogout() {
-    console.log("handleLogout")
-    await MY_SERVICE.logOut()
-    logout()
-  }
+  },[user])
 
   function handleProfile() {
     if (profile) {
@@ -33,6 +26,10 @@ export default function LayoutApp({ children }) {
     } else {
       setProfile(true)
     }
+  }
+
+  function closeProfile() {
+    setProfile(false)
   }
 
   return (
@@ -51,10 +48,10 @@ export default function LayoutApp({ children }) {
                   <div className="layout__image">
                     {!user ? (
                       <Link to="/">
-                        <img src={logo} />
+                        <img src={logo} alt="User profile"/>
                       </Link>
                     ) : (
-                      <img src={logo} />
+                      <img src={logo} alt="User profile"/>
                     )}
                   </div>
                 </div>
@@ -102,7 +99,7 @@ export default function LayoutApp({ children }) {
               lg={{ span: 22, offset: 1 }}
             >
               <div className="site-layout-content">
-                {profile && <Profile />}
+                {profile && <Profile closeProfile={() => closeProfile()}/>}
                 {children}
               </div>
             </Col>

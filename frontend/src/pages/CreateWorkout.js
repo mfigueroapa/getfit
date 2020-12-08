@@ -1,4 +1,3 @@
-import { useHistory } from "react-router-dom"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
 import ReactPlayer from "react-player"
@@ -15,11 +14,9 @@ import {
   Form,
   Button,
   Select,
-  Modal,
-  Spin,
+  Modal
 } from "antd"
 import { toast } from "react-toastify"
-import WorkoutForm from "../components/Dashboard/WorkoutForm"
 const { Search } = Input
 
 const CreateWorkout = ({history}) => {

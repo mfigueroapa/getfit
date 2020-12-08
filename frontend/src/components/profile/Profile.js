@@ -7,7 +7,7 @@ import { useContextInfo } from '../../hooks/context'
 import MY_SERVICE from '../../services'
 import { useHistory } from 'react-router-dom';
 
-const Profile = () => {
+const Profile = ( {closeProfile} ) => {
   const history = useHistory();
   const { user, logout } = useContextInfo()
   const [view, setView] = useState("info")
@@ -22,12 +22,14 @@ const Profile = () => {
 
   async function handleLogout() {
     await MY_SERVICE.logOut()
+    closeProfile()
     logout()
     history.push("/");
   }
 
   async function handleDelete() {
     await MY_SERVICE.deleteUser(user._id)
+    closeProfile()
     logout()
   }
 

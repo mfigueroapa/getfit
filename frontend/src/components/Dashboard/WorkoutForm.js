@@ -1,27 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { useContextInfo } from "../../hooks/context"
-import CreateWorkout from '../../pages/CreateWorkout'
 import {
   Card,
   Col,
   Row,
-  Typography,
-  Form,
-  Button,
-  Input,
-  InputNumber,
-  Divider,
-  Select,
+  Button
 } from "antd"
-const { Title } = Typography
 
 function WorkoutForm({ exerciseArr }) {
-
-  // const {deleteElement} = CreateWorkout;
-  const { user } = useContextInfo()
-  async function handleSubmit(userInputValues) {
-    console.log(userInputValues)
-  }
 
   const deleteHandle = (ex) => {
     console.log("this is the id of the item",ex.name, ex._id)

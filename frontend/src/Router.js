@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import NotFound from "./components/404/NotFound.js"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useContextInfo } from '../../hooks/context'
 import { Avatar, Row, Col, Typography, Upload, Button, message } from 'antd';
@@ -13,10 +13,17 @@ const { Title, Text } = Typography;
 const Info = () => {
 
   const { user, addProfilePic } = useContextInfo()
+  const [usr, setUsr] = useState(user)
   const [image, setImage] = useState(user.profile_pic)
   console.log(user, "🔥")
 
-
+  useEffect(() => {
+    if(user){
+      setUsr(user)
+    } else {
+      setUsr(user)
+    }
+  },[user])
 
   const handleUploadFile = async (file) => {
     console.log(file, "💾");
@@ -29,7 +36,7 @@ const Info = () => {
 
     const imageUrl = result.data.secure_url
 
-    await MY_SERVICE.updatePic(user._id, {profile_pic: imageUrl})
+    await MY_SERVICE.updatePic(usr._id, {profile_pic: imageUrl})
 
     addProfilePic(imageUrl)
 
@@ -61,8 +68,8 @@ const Info = () => {
           />
         </Col>
         <Col span={18} style={{textAlign: 'left'}}>
-          <Title level={4}>{user.username}</Title>
-          <Text type="secondary">{user.exercise}</Text>
+          <Title level={4}>{usr.username}</Title>
+          <Text type="secondary">{usr.exercise}</Text>
           <Upload 
             action='//jsonplaceholder.typicode.com/posts/'
             onChange={onChange}
@@ -78,14 +85,14 @@ const Info = () => {
         <p>
           Height
         </p>
-        <p>{user.height.value} &nbsp; {user.height.heightPrefix}</p>
+        <p>{usr.height.value} &nbsp; {usr.height.heightPrefix}</p>
         </div>
         <div>
           <p>
             Weight
           </p>
           <p>
-          <p>{user.weight.value}  &nbsp; {user.weight.weightPrefix}</p>
+          {usr.weight.value}  &nbsp; {usr.weight.weightPrefix}
           </p>
         </div>
         </Col>

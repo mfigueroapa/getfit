@@ -3,7 +3,6 @@ import "./home.scss"
 import { Row, Col, Card, Typography } from "antd"
 
 const { Title } = Typography
-const { Meta } = Card;
 
 function Home() {
 

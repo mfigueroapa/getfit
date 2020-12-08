@@ -30,7 +30,7 @@ function Workouts() {
       <Row className="card-group">
         {workouts &&
           workouts.map((elm) => (
-            <Col span={6}>
+            <Col span={6} key={elm._id}>
               <Link to={`/workouts/${elm._id}`}>
                 <Card key={elm._id}>
                   <div>

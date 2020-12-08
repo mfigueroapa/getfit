@@ -4,17 +4,12 @@ import MY_SERVICE from '../../services'
 import {
   Row,
   Col,
-  Typography,
   Form,
   Input,
   Button,
-  Divider,
   Select,
-  message,
-  DatePicker
+  message
 } from 'antd'
-
-const { Title } = Typography;
 
 function Update() {
 
@@ -41,6 +36,9 @@ function Update() {
   return (
     <div style={{ padding: '1rem 3rem' }}>
       <Row>
+        <div>
+          Update Profiel
+        </div>
         <Col span={24}>
           <Form form={form} layout="vertical" onFinish={submitForm}>
             <Form.Item name="username" label="Username:">

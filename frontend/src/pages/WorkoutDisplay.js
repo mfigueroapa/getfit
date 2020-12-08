@@ -34,7 +34,7 @@ function DisplayWorkout({ match }) {
             exercise: data.exercises[exercisesCounter],
             id: exercisesCounter
           })
-          if(j != data.exercises_per_set-1){
+          if(j !== data.exercises_per_set-1){
             listData.push({
               rest: data.round_rest,
             })
@@ -74,7 +74,7 @@ function DisplayWorkout({ match }) {
               <p>
               Level 
               <br/>
-              <span>Beginner</span>
+              <span>{workout.level}</span>
               </p>
             </div>
           </div>
@@ -85,14 +85,12 @@ function DisplayWorkout({ match }) {
       <div className="display-workout__content">
         <Row>
           <Col span={24} className="display-workout__description">
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-          voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-          cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+          {workout.description}
           </Col>
 
           <div className="text-block">
-            <p>Level</p>
-            <span>Beginner</span>
+            <p>Created By:</p>
+            <span>{workout.created_by}</span>
           </div>
         </Row>
         <List className="display-workout__list">
@@ -135,6 +133,7 @@ function DisplayWorkout({ match }) {
               <Col span={24} className="list-item-video">
                 <ReactPlayer 
                 url={item.exercise.videoUrl}
+                width="100%"
                 />
               </Col>
             </Row>

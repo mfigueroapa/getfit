@@ -29,13 +29,22 @@ code {
     height: auto;
 
     &:hover {
-      color: #000
+      color: #000;
+      border-color: #000;
     }
 
 
     &-primary{
       background-color: #000;
       border-color: #000;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    &-text{
+      border: none;
     }
   }
 

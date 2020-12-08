@@ -40,15 +40,15 @@ const NewUserInfoForm = ({ history }) => {
   }
 
   const weightPrefixSelector = (
-    <Form.Item name="weightPrefix" noStyle>
-      <Select  defaultValue="kgs"  style={{ width: 70 }}>
+    <Form.Item initialValue='kgs' name="weightPrefix" noStyle>
+      <Select value='kgs'   defaultValue="kgs"  style={{ width: 70 }}>
         <Option value="kgs">kgs</Option>
         <Option value="lbs">lbs</Option>
       </Select>
     </Form.Item>
   )
   const heightPrefixSelector = (
-    <Form.Item name="heightPrefix" noStyle>
+    <Form.Item initialValue='cms' name="heightPrefix" noStyle>
       <Select defaultValue="cms"  style={{ width: 70 }}>
         <Option value="cms">cms</Option>
         <Option value="ins">ins</Option>
@@ -78,13 +78,17 @@ const NewUserInfoForm = ({ history }) => {
           >
             <Input />
           </Form.Item>
+
           <Form.Item rules={[{ required: true }]} name="weight" label="Weight">
             <Input
+              // defaultValue='123
               addonBefore={weightPrefixSelector}
+              
               style={{ width: "100%" }}
               className="blk-input"
             />
           </Form.Item>
+
           <Form.Item rules={[{ required: true }]} name="height" label="Height" className="blk-input">
             <Input
               addonBefore={heightPrefixSelector}

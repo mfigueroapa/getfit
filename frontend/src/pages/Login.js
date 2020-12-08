@@ -2,6 +2,7 @@ import React from "react"
 import { Row, Col, Form, Input, Button, Typography, Divider } from "antd"
 import MY_SERVICE from "../services"
 import { useContextInfo } from "../hooks/context"
+import "./form.scss"
 
 const { Title } = Typography
 
@@ -25,11 +26,15 @@ const Login = ({ history }) => {
   }
 
   return (
-    <Row>
+    <Row id="form-style">
+    <div className="form__content">
       <Col span={24}>
-        <Title level={1}>Login</Title>
+        <Title level={1}>
+        Get in to cotinue
+        <br/>
+        <span>with your JOURNEY</span>
+        </Title>
       </Col>
-      <Divider />
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleSubmit}>
           <Form.Item 
@@ -53,6 +58,7 @@ const Login = ({ history }) => {
           <Button block><i className="fab fa-google"></i> &nbsp; Login with Google </Button>
         </a>
       </Col>
+      </div>
     </Row>
   )
 }

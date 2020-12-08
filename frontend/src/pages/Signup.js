@@ -3,6 +3,7 @@ import { Row, Col, Form, Input, Button, Typography, Divider } from "antd"
 import MY_SERVICE from "../services"
 import { toast } from "react-toastify"
 import { useContextInfo } from "../hooks/context"
+import "./form.scss"
 
 const { Title } = Typography
 
@@ -42,11 +43,15 @@ const Signup = ({ history }) => {
   }
 
   return (
-    <Row>
+    <Row id="form-style">
+      <div className="form__content">
       <Col span={24}>
-        <Title level={1}>Signup</Title>
+        <Title level={1}>
+        CREATE YOUR ACCOUNT
+        <br/>
+        <span>To start your journey</span>
+        </Title>
       </Col>
-      <Divider />
       <Col span={24}>
         <Form layout="vertical" form={form} onFinish={handleSubmit}>
           <Form.Item rules={[{ required: true }]} name="email" label="Email">
@@ -70,6 +75,7 @@ const Signup = ({ history }) => {
           <Button block> <i className="fab fa-google"></i>  &nbsp; Signup with Google </Button>
         </a>
       </Col>
+      </div>
     </Row>
   )
 }

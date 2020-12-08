@@ -1,0 +1,16 @@
+#dash-feed {
+  .feed-image {
+    background-image: url("../../images/feed.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+  }
+
+  .section.feed {
+    padding: 24px;
+
+    .feed__button-container {
+      display: flex;
+    }
+  }
+}

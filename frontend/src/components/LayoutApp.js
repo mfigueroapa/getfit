@@ -80,8 +80,6 @@ export default function LayoutApp({ children }) {
                         <Button type="text">make workout</Button>
                       </Link>
 
-                      <Button onClick={handleLogout}type="text">Logout</Button>
-
                       <a onClick={handleProfile}>
                         <Avatar size="large" src={image} />
                       </a>

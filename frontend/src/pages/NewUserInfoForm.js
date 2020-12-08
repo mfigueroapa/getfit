@@ -1,10 +1,9 @@
-import React, { useEffect } from "react"
+import React from "react"
 import {
   Form,
   Button,
   Input,
   Col,
-  Divider,
   Select,
   Row,
   Typography,
@@ -12,12 +11,13 @@ import {
 import MY_SERVICE from "../services"
 import { useContextInfo } from "../hooks/context"
 import { toast } from "react-toastify"
+import "./form.scss"
 const { Title } = Typography
 const { Option } = Select
 
 const NewUserInfoForm = ({ history }) => {
   const [form] = Form.useForm()
-  const { updateUserCtx, login } = useContextInfo()
+  const { updateUserCtx } = useContextInfo()
 
   async function handleSubmit(userInputValues) {
     if (!userInputValues.weightPrefix)
@@ -57,15 +57,18 @@ const NewUserInfoForm = ({ history }) => {
   )
 
   return (
-    <Row>
+    <Row id="form-style">
+    <div className="form__content">
       <Col span={24}>
-        <Title level={3}>We're almost there!</Title>
-        <Typography.Paragraph ellipsis>
-          Before we proceed, please help us filling the form below as it will
-          help us to give you a better experience. <br />
+        <Title level={1}>
+        set your profile
+        <br/>
+        <span>and get started</span>
+        </Title>
+        <Typography.Paragraph>
+          Before we proceed. Let us know more about yourself, are you a trainer or a enthusiastic athlete
         </Typography.Paragraph>
       </Col>
-      <Divider />
       <Col span={24}>
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           <Form.Item
@@ -79,9 +82,10 @@ const NewUserInfoForm = ({ history }) => {
             <Input
               addonBefore={weightPrefixSelector}
               style={{ width: "100%" }}
+              className="blk-input"
             />
           </Form.Item>
-          <Form.Item rules={[{ required: true }]} name="height" label="Height">
+          <Form.Item rules={[{ required: true }]} name="height" label="Height" className="blk-input">
             <Input
               addonBefore={heightPrefixSelector}
               style={{ width: "100%" }}
@@ -130,6 +134,7 @@ const NewUserInfoForm = ({ history }) => {
           </Typography.Paragraph>
         </Form>
       </Col>
+      </div>
     </Row>
     // <Form form={form} layout="vertical" onFinish={handleSubmit}>
     //   <Form.Item name="username" label="Username:">

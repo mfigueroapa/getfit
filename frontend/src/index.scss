@@ -40,9 +40,10 @@ code {
   h1.ant-typography {
     font-family: 'Oswald';
     font-weight: 700;
-    font-size: 72px;
+    font-size: 36px;
     text-transform: uppercase;
     text-align: left;
+    margin-top: 32px;
 
     span {
       font-family: 'Oswald';
@@ -170,16 +171,36 @@ code {
 
   .section {
     padding: 64px 64px 128px 64px;
-    margin: 64px 0;
+    margin-bottom: 64px;
 
     p {
       font-size: 18px;
       width: 320px;
     }
+
+    .button-container {
+      display: flex;
+    }
+  }
+
+  .custom-header {
+    margin-bottom: 32px;
+    margin-top: 42px
   }
 
   .card-group {
     margin: 0 0 64px 0;
+
+    .card-group__button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      button {
+        padding: 24px;
+      }
+    }
   }
 
   .ant-layout-footer {

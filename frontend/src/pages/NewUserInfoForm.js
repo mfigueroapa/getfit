@@ -81,9 +81,7 @@ const NewUserInfoForm = ({ history }) => {
 
           <Form.Item rules={[{ required: true }]} name="weight" label="Weight">
             <Input
-              // defaultValue='123
               addonBefore={weightPrefixSelector}
-              
               style={{ width: "100%" }}
               className="blk-input"
             />

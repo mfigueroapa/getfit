@@ -65,9 +65,10 @@ const Recipies = () => {
               <Typography.Paragraph>
                 <p>
                   Nutrition and a proper diet are as crucial as your physical
-                  training, ensuring your body has enough fuel to run and recover is
-                  instrumental. Incorporating healthy dietary practices in your
-                  training will ensure your body has enough energy to keep going.
+                  training, ensuring your body has enough fuel to run and
+                  recover is instrumental. Incorporating healthy dietary
+                  practices in your training will ensure your body has enough
+                  energy to keep going.
                   <br />
                   <br />
                   Here we provide you some healthy foods for each of the 3
@@ -82,8 +83,8 @@ const Recipies = () => {
                   bananas, macaroni, spaghetti, cereal, raisins, apples, bagels,
                   syrup, brown rice, corn, apples, carrots, and root vegetables.
                   <br />
-                  🥑 <b>Fats:</b> avocado, nuts, seeds, nut-butter, vegetable oil,
-                  and salmon.
+                  🥑 <b>Fats:</b> avocado, nuts, seeds, nut-butter, vegetable
+                  oil, and salmon.
                 </p>
               </Typography.Paragraph>
             </div>
@@ -96,37 +97,38 @@ const Recipies = () => {
           </Col>
         </Row>
         <Row className="card-group">
-          {recipes.map((recipe) => (
-            <>
+          {recipes.map((recipe, i) => (
+            <div key={i}>
               <Col xs={24} sm={24} md={24} lg={24}>
-                <Card key={recipe.recipe.calories}>
-                  <div class="card-left">
+                <Card>
+                  <div className="card-left">
                     <p className="card-title">{recipe.recipe.label}</p>
                     <img alt="/recipe.jpg" src={recipe.recipe.image} />
                   </div>
                   <div className="card-content">
                     <p className="card-text">
-                      <p className="card-text">
-                        {" "}
-                        <b>Ingredients:</b>{" "}
-                      </p>
-                      {recipe.recipe.ingredientLines.map((ingredient) => (
-                        <li>{ingredient}</li>
+                      {" "}
+                      <b>Ingredients:</b>{" "}
+                      {recipe.recipe.ingredientLines.map((ingredient, i) => (
+                        <li key={i}>{ingredient}</li>
                       ))}
                     </p>
                     <p>
-                    This meal is 
-                      {recipe.recipe.healthLabels.map((healthLabel) => (
-                        <span> {healthLabel} </span>
+                      This meal is
+                      {recipe.recipe.healthLabels.map((healthLabel, i) => (
+                        <span key={i}> {healthLabel} </span>
                       ))}
                     </p>
                     <p className="card-text">
-                      <b>Calories: </b> {(recipe.recipe.calories).toFixed(2)}
+                      <span key={recipe.recipe.calories}>
+                        {" "}
+                        <b>Calories: </b> {recipe.recipe.calories.toFixed(2)}
+                      </span>
                     </p>
                   </div>
                 </Card>
               </Col>
-            </>
+            </div>
           ))}
         </Row>
       </div>

@@ -99,12 +99,10 @@ const NewUserInfoForm = ({ history }) => {
           >
             <Select>
               <Select.Option value="User">
-                I'm a regular user who wants to get fit and explore or try new
-                workouts!
+                I'm a regular user!
               </Select.Option>
               <Select.Option value="Trainer">
-                I'm a trainer who can create specific workouts according to
-                somebody's specific needs!
+                I'm a trainer who can create workouts!
               </Select.Option>
             </Select>
           </Form.Item>

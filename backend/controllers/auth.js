@@ -45,10 +45,10 @@ exports.googleCb = (req, res, next) => {
       if (user.exercise === '') {
         // return res.redirect(process.env.NODE_ENV === 'development' ?
         return res.redirect(process.env.ENV === 'development' ?
-          'http://localhost:3001/new-user-form' : '/profile')
+          'http://localhost:3001/new-user-form' : '/new-user-form')
         } else {
           return res.redirect(process.env.ENV === 'development' ?
-            'http://localhost:3001/dashboard' : '/profile')
+            'http://localhost:3001/dashboard' : '/dashboard')
       }
     })
   })(req, res, next)

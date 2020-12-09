@@ -31,6 +31,8 @@ const NewUserInfoForm = ({ history }) => {
           history.push("/dashboard")
           toast.success("Welcome to GetFit")
           userInputValues.profile_pic = response.data.user.profile_pic
+          console.log("log pa ver con que estamos updateando el contexto despues de llenar el NewUSerInfoForm: ")
+          console.log(userInputValues)
           updateUserCtx(userInputValues)
         })
         .catch((error) => {
@@ -41,7 +43,7 @@ const NewUserInfoForm = ({ history }) => {
 
   const weightPrefixSelector = (
     <Form.Item initialValue='kgs' name="weightPrefix" noStyle>
-      <Select value='kgs'   defaultValue="kgs"  style={{ width: 70 }}>
+      <Select value='kgs'   initialvalue="kgs"  style={{ width: 70 }}>
         <Option value="kgs">kgs</Option>
         <Option value="lbs">lbs</Option>
       </Select>
@@ -49,7 +51,7 @@ const NewUserInfoForm = ({ history }) => {
   )
   const heightPrefixSelector = (
     <Form.Item initialValue='cms' name="heightPrefix" noStyle>
-      <Select defaultValue="cms"  style={{ width: 70 }}>
+      <Select initialvalue="cms"  style={{ width: 70 }}>
         <Option value="cms">cms</Option>
         <Option value="ins">ins</Option>
       </Select>

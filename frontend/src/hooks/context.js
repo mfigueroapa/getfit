@@ -37,15 +37,22 @@ export const AppCtxProvider = (props) => {
   }
 
   const updateUserCtx = (userInfo) => {
-    const userCopy = {...user}
-    userCopy.username = userInfo.username
-     userCopy.weight = userInfo.weight
-     userCopy.weightPrefix = userInfo.weightPrefix
-     userCopy.height = userInfo.height
-     userCopy.heightPrefix = userInfo.heightPrefix
-     userCopy.user = userInfo.user
-     userCopy.exercise = userInfo.exercise
-     userCopy.profile_pic = userInfo.profile_pic
+    let userCopy = {...user}
+
+    userCopy = {
+      username: userInfo.username,
+      user: userInfo.user,
+      exercise: userInfo.exercise,
+      profile_pic: userInfo.profile_pic,
+      weight: {
+        value: userInfo.weight,
+        weightPrefix: userInfo.weightPrefix
+      },
+      height: {
+        value: userInfo.height,
+        heightPrefix: userInfo.heightPrefix
+      },
+    }
      setUser(userCopy)
   }
 

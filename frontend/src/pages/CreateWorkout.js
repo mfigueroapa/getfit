@@ -136,10 +136,7 @@ const CreateWorkout = ({history}) => {
           <Row>
             <Typography.Paragraph>
               <p>
-                Start by clicking the + button of the exercise you want to add.
-                <br />
-                <br/>
-                You can type in the searchbar any exercise name or even a muscle group to start getting results
+                Start by clicking the + button of the exercise you want to add. You can type in the searchbar any exercise name or even a muscle group to start getting results
                 i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
                 <br />
                 <br />

@@ -53,10 +53,10 @@ const MY_SERVICE = {
     return await service.post('user/create-workout', workoutInfo)
   },
   getRecipesChicken: async () => {
-    return await service.get("https://api.edamam.com/search?q=chicken&app_id=e50da659&app_key=eb99b1b48328cf571da2b148a26f0653")
+    return await service.get(`https://api.edamam.com/search?q=chicken&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`)
   },
   getRecipes: async (query) => {
-    return await service.get(`https://api.edamam.com/search?q=${query}&app_id=e50da659&app_key=eb99b1b48328cf571da2b148a26f0653`)
+    return await service.get(`https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`)
   }
 };
 

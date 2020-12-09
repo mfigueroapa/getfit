@@ -6,7 +6,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import MY_SERVICE from '../../services'
 import "./Profile.scss"
 
-const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/dj52orqog/image/upload'
+const cloudinaryAPI = process.env.REACT_APP_CLOUDINARY_ROUTE
 
 const { Title, Text } = Typography;
 
@@ -30,7 +30,7 @@ const Info = () => {
     let data = new FormData()
 
     data.append('file', file)
-    data.append('upload_preset', 'l89c8zgu')
+    data.append('upload_preset', process.env.REACT_APP_UPLOAD_PRESET)
     
     const result = await axios.post(cloudinaryAPI, data)
 

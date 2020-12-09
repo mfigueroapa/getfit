@@ -15,6 +15,8 @@ function DisplayWorkout({ match }) {
   const [workout, setWorkout] = useState({})
   const [videos, setVideos] = useState([])
   const [count, setCount] = useState(0)
+  const [seconds, setSeconds] = useState(30);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     async function getWorkout() {
@@ -63,6 +65,28 @@ function DisplayWorkout({ match }) {
 
     setVideos(copy)
   }
+
+  // //Timer
+  // function toggle() {
+  //   setIsActive(!isActive);
+  // }
+
+  // function reset() {
+  //   setSeconds(30);
+  //   setIsActive(false);
+  // }
+
+  // useEffect(() => {
+  //   let interval = null;
+  //   if (isActive) {
+  //     interval = setInterval(() => {
+  //       setSeconds(seconds => seconds - 1);
+  //     }, 1000);
+  //   } else if (isActive && seconds === 0) {
+  //     clearInterval(interval);
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [isActive, seconds]);
 
   return (
     <div id="display-workout">
@@ -156,6 +180,19 @@ function DisplayWorkout({ match }) {
         </List>
       </div>
       </div>
+      {/* <Row className="timer">
+      <Col span={18} className="timer__time">
+        {seconds}s
+      </Col>
+      <Col span={3} className="timer__buttons">
+        <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
+          {isActive ? 'Pause' : 'Start'}
+        </button>
+        <button className="button" onClick={reset}>
+          Reset
+        </button>
+      </Col>
+    </Row> */}
     </div>
   )
 }

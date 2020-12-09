@@ -27,7 +27,7 @@ const userSchema = new Schema(
       enum: ['Begginer', 'Intermediate', 'Avanzed',''],
       default: ''
     },
-    workout: [{
+    favWorkouts: [{
       type: Schema.Types.ObjectId,
       ref: 'Workout'
     }]

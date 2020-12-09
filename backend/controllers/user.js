@@ -29,7 +29,7 @@ exports.editInfo = async (req, res) => {
   })
     .then((user) => {
       // res.status(200).json({ data: { user: "Fields edited successfully" } })
-      res.status(200).json({ user, message:"Fields edited successfully"})
+      res.status(200).json({ user, message: "Fields edited successfully" })
     })
     .catch((error) => {
       res.status(500).json({
@@ -103,7 +103,7 @@ exports.createWorkout = async (req, res) => {
     created_by,
   })
 
-  res.status(200).json({ message: "recibido men" })
+  res.status(200).json({ message: "Workout created!" })
 }
 
 exports.deleteUser = async (req, res) => {
@@ -112,4 +112,30 @@ exports.deleteUser = async (req, res) => {
   await User.findByIdAndDelete(id)
 
   res.status(200).json({ message: "User Deleted" })
+}
+
+exports.saveWorkout = async (req, res) => {
+  const { _id } = req.user
+  const {workout} = req.body
+
+  await User.findByIdAndUpdate(_id, {
+    $push : {
+      favWorkouts: workout
+    }
+  }, {
+    new: true
+  })
+  res.status(200).json({message: "workout saved"})
+}
+
+exports.getSavedWorkouts = async (req, res) => {
+  console.log("getSavedWorkouts")
+  const {_id} = req.user
+  console.log(_id)
+
+  const workouts = await User.findOne({_id},'favWorkouts').populate('favWorkouts')
+  console.log(workouts)
+  res.status(200).json(workouts)
+  
+  
 }

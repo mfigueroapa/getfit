@@ -5,17 +5,17 @@ import { Link } from "react-router-dom"
 
 const { Title } = Typography
 
-function Workouts() {
+function FavWorkouts() {
   const [workouts, setWorkouts] = useState(null)
 
   useEffect(() => {
     async function getWorkoutsFunction() {
-      const { data: allWorkouts } = await MY_SERVICE.getWorkouts()
-      setWorkouts(allWorkouts)
+      const { data: allWorkouts } = await MY_SERVICE.getFavWorkouts()
+      setWorkouts(allWorkouts.favWorkouts)
     }
     getWorkoutsFunction()
   }, [])
-
+  console.log()
 
   return (
     <>
@@ -24,7 +24,7 @@ function Workouts() {
           <Title level={1}>
             Checkout
             <br />
-            <span>Our Workouts</span>
+            <span>Your Favorite Workouts!</span>
           </Title>
         </Col>
       </Row>
@@ -50,4 +50,4 @@ function Workouts() {
   )
 }
 
-export default Workouts
+export default FavWorkouts

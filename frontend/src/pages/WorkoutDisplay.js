@@ -88,6 +88,13 @@ function DisplayWorkout({ match }) {
   //   return () => clearInterval(interval);
   // }, [isActive, seconds]);
 
+  async function handleAddToFav(workout) {
+    console.log("triggered")
+    console.log(workout)
+    const response = await MY_SERVICE.addWorkoutToFavorites({workout})
+    console.log("Respueta despues de intentar mandar el post", response  )
+  }
+
   return (
     <div id="display-workout">
       <Row>
@@ -173,6 +180,7 @@ function DisplayWorkout({ match }) {
           }
           </List.Item>
         )}
+        <button onClick={() => handleAddToFav(workout)}>Add to favorites</button>
         </>
         : 
         <p>loading</p>

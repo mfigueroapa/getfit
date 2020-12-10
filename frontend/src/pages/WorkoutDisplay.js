@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import MY_SERVICE from '../services'
-import { List, Row, Col, Typography } from 'antd';
-import { PlayCircleOutlined } from '@ant-design/icons';
+import { List, Row, Col, Typography, InputNumber } from 'antd';
+import { PlayCircleOutlined, CaretRightOutlined, PauseOutlined, RedoOutlined } from '@ant-design/icons';
 import ReactPlayer from "react-player/lazy"
 import "./WorkoutDisplay.scss"
 const { Title } = Typography;
@@ -15,8 +15,9 @@ function DisplayWorkout({ match }) {
   const [workout, setWorkout] = useState({})
   const [videos, setVideos] = useState([])
   const [count, setCount] = useState(0)
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [input, setInput] = useState("")
 
   useEffect(() => {
     async function getWorkout() {
@@ -66,27 +67,34 @@ function DisplayWorkout({ match }) {
     setVideos(copy)
   }
 
-  // //Timer
-  // function toggle() {
-  //   setIsActive(!isActive);
-  // }
+  //Timer
+  function toggle() {
+    setIsActive(!isActive);
+    if(!isActive && seconds === 0) {
+      setSeconds(input)
+    }
+  }
 
-  // function reset() {
-  //   setSeconds(30);
-  //   setIsActive(false);
-  // }
+  function reset() {
+    setSeconds(input);
+    setIsActive(false);
+  }
 
-  // useEffect(() => {
-  //   let interval = null;
-  //   if (isActive) {
-  //     interval = setInterval(() => {
-  //       setSeconds(seconds => seconds - 1);
-  //     }, 1000);
-  //   } else if (isActive && seconds === 0) {
-  //     clearInterval(interval);
-  //   }
-  //   return () => clearInterval(interval);
-  // }, [isActive, seconds]);
+  useEffect(() => {
+    let interval = null;
+    if (isActive && seconds !== 0) {
+      interval = setInterval(() => {
+        setSeconds( seconds - 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isActive, seconds]);
+
+  function onChange(value){
+    setInput(value)
+  }
 
   return (
     <div id="display-workout">
@@ -117,6 +125,30 @@ function DisplayWorkout({ match }) {
             <span>{workout.created_by}</span>
           </div>
         </Row>
+        
+        <div className="timer-container">
+        <div className="timer-box">
+        <Row className="timer">
+          <Col span={13} className="timer__time">
+            0:{seconds<10 && <span>0</span>}{seconds}
+          </Col>
+          <Col span={3} className="timer__buttons">
+            <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
+              {isActive ? <PauseOutlined /> : <CaretRightOutlined />}
+            </button>
+            <button className="button" onClick={reset}>
+              <RedoOutlined />
+            </button>
+          </Col>
+          <Col span={5}>
+            <p>Set Time:</p>
+            <InputNumber min={20} max={60} defaultValue={0} onChange={onChange} />
+          </Col>
+        </Row>
+        </div>
+        </div>
+
+
         <List className="display-workout__list">
         {workout && workoutExc.length == count ?
         <>
@@ -140,16 +172,16 @@ function DisplayWorkout({ match }) {
                   style={{width: "100%", height: "100%"}}
                 />
               </Col>
-              <Col span={17} className="list-item-exercise__content">
+              <Col span={2} className="list-item-buttons">
+                <PlayCircleOutlined />
+              </Col>
+              <Col span={16} className="list-item-exercise__content">
               <p className="time">0:30</p>
               <p>
               {item.exercise.name}
               <br/>
               <span>{item.exercise.muscle_group}</span>
               </p>
-              </Col>
-              <Col span={1} className="list-item-buttons">
-                <PlayCircleOutlined />
               </Col>
             </Row>
             {videos[item.id] ? 
@@ -180,19 +212,6 @@ function DisplayWorkout({ match }) {
         </List>
       </div>
       </div>
-      {/* <Row className="timer">
-      <Col span={18} className="timer__time">
-        {seconds}s
-      </Col>
-      <Col span={3} className="timer__buttons">
-        <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
-          {isActive ? 'Pause' : 'Start'}
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
-      </Col>
-    </Row> */}
     </div>
   )
 }

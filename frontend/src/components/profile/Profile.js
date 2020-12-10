@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Row, Col } from 'antd';
-import { EditOutlined, DeleteOutlined, ImportOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { EditOutlined, ImportOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Info from './Info'
 import Update from './Update'
 import { useContextInfo } from '../../hooks/context'
@@ -27,12 +27,6 @@ const Profile = ( {closeProfile} ) => {
     history.push("/");
   }
 
-  async function handleDelete() {
-    await MY_SERVICE.deleteUser(user._id)
-    closeProfile()
-    logout()
-  }
-
   return (
     <>
     {user && 
@@ -42,12 +36,11 @@ const Profile = ( {closeProfile} ) => {
           actions={[
             <ImportOutlined key="signout" onClick={handleLogout}/>,
             <InfoCircleOutlined key="info" onClick={handleInfo}/>,
-            <EditOutlined key="edit" onClick={handleUpdate}/>,
-            <DeleteOutlined key="delete" onClick={handleDelete}/>
+            <EditOutlined key="edit" onClick={handleUpdate}/>
           ]}
         >
         {view === "info" ? 
-          <Info />
+          <Info closeProfile={closeProfile}/>
         : 
           <Update />
         }

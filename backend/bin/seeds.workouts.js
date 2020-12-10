@@ -51,7 +51,7 @@ const workout = [
   {
     name: "The Quick Quarter",
     image: "https://res.cloudinary.com/dj52orqog/image/upload/v1607569484/getfit/image1_pe7mee.jpg",
-    description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas",
+    description: "Cardiovascular conditioning involves moderate to vigorous physical activity that results in an elevated heart rate for a sustained period of time. Regular cardiovascular exercise improves the efficiency of the functioning of the heart, lungs, and circulatory system. For adults, aerobic exercise within a target heart rate range calculated based on a maximum heart rate by age is recommended. For healthy children, cardiovascular exercise that elevates the heart rate to no greater than a maximum heart rate of 200 beats per minute is recommended.",
     level: "Beginner",
     exercises: [
       "5fcfba9ba70139a0cf05019c",
@@ -71,7 +71,7 @@ const workout = [
   {
     name: "Quick Hit",
     image: "https://res.cloudinary.com/dj52orqog/image/upload/v1607569486/getfit/image9_sxnk2n.jpg",
-    description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas",
+    description: "Cardiovascular conditioning involves moderate to vigorous physical activity that results in an elevated heart rate for a sustained period of time. Regular cardiovascular exercise improves the efficiency of the functioning of the heart, lungs, and circulatory system. For adults, aerobic exercise within a target heart rate range calculated based on a maximum heart rate by age is recommended. For healthy children, cardiovascular exercise that elevates the heart rate to no greater than a maximum heart rate of 200 beats per minute is recommended.",
     level: "Beginner",
     exercises: [
       "5fcfba9ba70139a0cf0501a1",

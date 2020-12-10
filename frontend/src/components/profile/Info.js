@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useContextInfo } from '../../hooks/context'
-import { Avatar, Row, Col, Typography, Upload, Button, message } from 'antd';
+import { Avatar, Row, Col, Typography, Upload, Button, message, Popconfirm } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import MY_SERVICE from '../../services'
 import "./Profile.scss"
@@ -10,12 +10,13 @@ const cloudinaryAPI = process.env.REACT_APP_CLOUDINARY_ROUTE
 
 const { Title, Text } = Typography;
 
-const Info = () => {
-
-  const { user, addProfilePic } = useContextInfo()
+const Info = ( {closeProfile} ) => {
+  
+  const { user, addProfilePic, logout } = useContextInfo()
   const [usr, setUsr] = useState(user)
   const [image, setImage] = useState(user.profile_pic)
   console.log(user, "🔥")
+  console.log(closeProfile)
 
   useEffect(() => {
     if(user){
@@ -53,6 +54,19 @@ const Info = () => {
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} file upload failed.`);
     }
+  }
+
+  async function confirm(e) {
+    console.log(e);
+    message.success('Is sad to see you leave');
+    await MY_SERVICE.deleteUser(user._id)
+    closeProfile()
+    logout()
+  }
+
+  function cancel(e) {
+    console.log(e);
+    message.info('Thanks for sticking with us');
   }
 
   return (
@@ -97,6 +111,15 @@ const Info = () => {
         </div>
         </Col>
       </Row>
+      <Popconfirm
+        title="Are you sure to delete this task?"
+        onConfirm={confirm}
+        onCancel={cancel}
+        okText="Yes"
+        cancelText="No"
+      >
+        <a href="#">Delete Account</a>
+      </Popconfirm>
     </div>
    </>
    ) : ""}

@@ -1,5 +1,22 @@
 #custom {
 
+  #profile-card {
+
+    .ant-card-actions {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .ant-card-body {
+      padding-top: 50px;
+
+      h4 {
+        padding-top: 0;
+      }
+    }
+  }
+
   #profile-info {
     padding: 16px;
    
@@ -18,7 +35,7 @@
     }
 
     .info__content {
-      padding-top: 24px;
+      padding-top: 32px;
       display: flex;
       justify-content: space-around;
     }

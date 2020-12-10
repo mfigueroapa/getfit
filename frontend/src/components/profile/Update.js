@@ -8,8 +8,11 @@ import {
   Input,
   Button,
   Select,
-  message
+  message,
+  Typography
 } from 'antd'
+
+const { Title } = Typography;
 
 function Update() {
 
@@ -37,9 +40,7 @@ function Update() {
     <div style={{ padding: '1rem 3rem' }}>
       <Row>
         <div>
-          <h4>
-            Update Profile
-          </h4>
+        <Title level={4}>Update Profile</Title>
         </div>
         <Col span={24}>
           <Form form={form} layout="vertical" onFinish={submitForm}>

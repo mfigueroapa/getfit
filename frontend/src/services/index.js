@@ -63,6 +63,9 @@ const MY_SERVICE = {
   },
   getFavWorkouts: async () => {
     return await service.get(`user/saved-workouts`)
+  },
+  removeFavorite: async (workout) => {
+    return await service.post('user/remove-favorite', workout)
   }
 };
 

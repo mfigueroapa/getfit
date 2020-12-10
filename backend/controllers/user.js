@@ -13,7 +13,6 @@ exports.editInfo = async (req, res) => {
     height,
     exercise,
   } = req.body
-  // console.log(weight, weightPrefix, height, heightPrefix)
   await User.findByIdAndUpdate(_id, {
     username,
     user,
@@ -28,7 +27,6 @@ exports.editInfo = async (req, res) => {
     exercise,
   })
     .then((user) => {
-      // res.status(200).json({ data: { user: "Fields edited successfully" } })
       res.status(200).json({ user, message: "Fields edited successfully" })
     })
     .catch((error) => {
@@ -117,19 +115,43 @@ exports.deleteUser = async (req, res) => {
 exports.saveWorkout = async (req, res) => {
   const { _id } = req.user
   const {workout} = req.body
+  const user = await User.findOne({"favWorkouts": workout._id})
+  if (user) {
+    return res.status(500).json({message: "Workout already existis!"})
+  } else {
+    await User.findByIdAndUpdate(_id, {
+      $push : {
+        favWorkouts: workout
+      }
+    }, {
+      new: true
+    })
+    res.status(200).json({message: "workout saved"})
+  }
+  console.log(user)
 
-  await User.findByIdAndUpdate(_id, {
-    $push : {
-      favWorkouts: workout
-    }
-  }, {
-    new: true
-  })
-  res.status(200).json({message: "workout saved"})
 }
 
 exports.getSavedWorkouts = async (req, res) => {
   const {_id} = req.user
   const workouts = await User.findOne({_id},'favWorkouts').populate('favWorkouts')
   res.status(200).json(workouts)
+}
+
+exports.removeFavoriteWorkout = async (req, res) => {
+  const {_id: user_id} = req.user
+  const {_id: workout_id} = req.body
+  console.log(user_id, workout_id)
+
+  await User.findOneAndUpdate({
+    _id: user_id
+  }, {
+    $pull: {
+      favWorkouts: workout_id
+    }
+  }, {
+    new: true
+  })
+
+  res.status(200).json({message: "workout deleted successfully!", deletedWorkout: workout_id})
 }

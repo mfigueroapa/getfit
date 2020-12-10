@@ -17,16 +17,14 @@ function FavWorkouts() {
     getWorkoutsFunction()
   }, [])
 
-  async function deleteHandle(workout){
+  async function deleteHandle(workout) {
     console.log(workout)
-    await MY_SERVICE.removeFavorite(workout)
-    .then(response => {
-        console.log(response.data.deletedWorkout)
-        let arr =[]
-        arr = workouts.filter((wk) => wk._id !== response.data.deletedWorkout)
-        setWorkouts(arr)
+    await MY_SERVICE.removeFavorite(workout).then((response) => {
+      console.log(response.data.deletedWorkout)
+      let arr = []
+      arr = workouts.filter((wk) => wk._id !== response.data.deletedWorkout)
+      setWorkouts(arr)
     })
-    
   }
 
   return (
@@ -41,34 +39,44 @@ function FavWorkouts() {
             </Title>
           </Col>
         </Row>
-        <Row className="card-group">
-          {workouts &&
-            workouts.map((elm) => (
-              <Col span={6} key={elm._id}>
-                <Link to={`/workouts/${elm._id}`}>
-                  <Card key={elm._id}>
-                    <div className="img-card-container">
-                      <img alt="example" src={elm.image} />
-                    </div>
-                    <div className="card-content">
-                      <div>
-                        <p className="card-title">{elm.name} </p>
-                        <p className="card-text">{elm.level}</p>
+
+        {workouts && workouts.length > 0 ? (
+          <Row className="card-group">
+            {workouts &&
+              workouts.map((elm) => (
+                <Col span={6} key={elm._id}>
+                  <Link to={`/workouts/${elm._id}`}>
+                    <Card key={elm._id}>
+                      <div className="img-card-container">
+                        <img alt="example" src={elm.image} />
                       </div>
-                    </div>
-                  </Card>
-                </Link>
-                <div className="delete-icon-content">
-                  <i
-                    onClick={() => {
-                      deleteHandle(elm)
-                    }}
-                    className="fas fa-trash-alt"
-                  ></i>
-                </div>
-              </Col>
-            ))}
-        </Row>
+                      <div className="card-content">
+                        <div>
+                          <p className="card-title">{elm.name} </p>
+                          <p className="card-text">{elm.level}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                  <div className="delete-icon-content">
+                    <i
+                      onClick={() => {
+                        deleteHandle(elm)
+                      }}
+                      className="fas fa-trash-alt"
+                    ></i>
+                  </div>
+                </Col>
+              ))}
+          </Row>
+        ) : (
+          <h1>
+            <span>
+              You currently have no favorite workouts! Try some and add the ones
+              you love!
+            </span>
+          </h1>
+        )}
       </div>
     </>
   )

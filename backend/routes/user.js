@@ -1,6 +1,6 @@
 const User = require("../models/User")
 const router = require("express").Router()
-const {editInfo, updateProfile, deleteUser, updatePic, createWorkout, saveWorkout, getSavedWorkouts} = require('../controllers/user')
+const {editInfo, updateProfile, deleteUser, updatePic, createWorkout, saveWorkout, getSavedWorkouts, removeFavoriteWorkout} = require('../controllers/user')
 
 // router.post("/edit-info", editInfo)
 router.put("/edit-info", editInfo)
@@ -18,5 +18,7 @@ router.delete('/delete/:id', deleteUser)
 
 router.post('/save-workout-to-favorites', saveWorkout)
 router.get('/saved-workouts', getSavedWorkouts)
+
+router.post('/remove-favorite', removeFavoriteWorkout)
 
 module.exports = router

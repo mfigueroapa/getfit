@@ -129,13 +129,7 @@ exports.saveWorkout = async (req, res) => {
 }
 
 exports.getSavedWorkouts = async (req, res) => {
-  console.log("getSavedWorkouts")
   const {_id} = req.user
-  console.log(_id)
-
   const workouts = await User.findOne({_id},'favWorkouts').populate('favWorkouts')
-  console.log(workouts)
   res.status(200).json(workouts)
-  
-  
 }

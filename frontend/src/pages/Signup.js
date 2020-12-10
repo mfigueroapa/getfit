@@ -20,7 +20,13 @@ const Signup = ({ history }) => {
     .then(response => {
       MY_SERVICE.login(userInput)
       .then(response => {
-        history.push("/new-user-form")
+        history.push({
+          pathname: '/new-user-form',
+          state: {
+            _id: response.data.user._id,
+            email: response.data.user.email
+          }
+        })   //"/new-user-form"
       }).catch(error =>{
       })
     }).catch(error => {

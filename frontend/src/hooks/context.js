@@ -19,7 +19,12 @@ export const AppCtxProvider = (props) => {
       }).catch(error=>{
       })
     }
-    getSessionData()
+
+    if(user){
+      getSessionData()
+    } else {
+      console.log("you have to login")
+    }
   }, [])
 
   const login = (userInfo) => {
@@ -40,7 +45,9 @@ export const AppCtxProvider = (props) => {
     let userCopy = {...user}
 
     userCopy = {
+      _id: userInfo._id,
       username: userInfo.username,
+      email: userInfo.email,
       user: userInfo.user,
       exercise: userInfo.exercise,
       profile_pic: userInfo.profile_pic,

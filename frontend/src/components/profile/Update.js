@@ -14,10 +14,9 @@ import {
 
 const { Title } = Typography;
 
-function Update() {
+function Update( { handleInfo } ) {
 
   const { user, updateUserCtx } = useContextInfo()
-  console.log(user)
   const [form] = Form.useForm()
 
   async function submitForm(data) {
@@ -33,6 +32,7 @@ function Update() {
       await MY_SERVICE.updateUser(user._id, data)
       form.resetFields()
       updateUserCtx(data)
+      handleInfo()
     }
   }
 
@@ -44,15 +44,15 @@ function Update() {
         </div>
         <Col span={24}>
           <Form form={form} layout="vertical" onFinish={submitForm}>
-            <Form.Item name="username" label="Username:">
+            <Form.Item name="username" label="Username:" initialValue={user.username}>
               <Input />
             </Form.Item>
 
-            <Form.Item name="email" label="Email:">
+            <Form.Item name="email" label="Email:" initialValue={user.email}>
               <Input />
             </Form.Item>
             
-            <Form.Item name="exercise" label="Exercise:">
+            <Form.Item name="exercise" label="Exercise:" initialValue={user.exercise}>
               <Select>
                 <Select.Option value="Begginer">
                   Begginer
@@ -66,11 +66,19 @@ function Update() {
               </Select>
             </Form.Item>
 
-            <Form.Item name="height" label="Height:">
+            <Form.Item name="height" label="Height:" initialValue={user.height.value}>
               <Input />
             </Form.Item>
 
-            <Form.Item name="weight" label="Weight:">
+            <Form.Item name="weight" label="Weight:" initialValue={user.weight.value}>
+              <Input />
+            </Form.Item>
+
+            <Form.Item name="profile_pic" label="profile_pic:" initialValue={user.profile_pic} style={{display: "none"}}>
+              <Input />
+            </Form.Item>
+
+            <Form.Item name="_id" label="_id" initialValue={user._id} style={{display: "none"}}>
               <Input />
             </Form.Item>
 

@@ -15,8 +15,6 @@ const Info = ( {closeProfile} ) => {
   const { user, addProfilePic, logout } = useContextInfo()
   const [usr, setUsr] = useState(user)
   const [image, setImage] = useState(user.profile_pic)
-  console.log(user, "🔥")
-  console.log(closeProfile)
 
   useEffect(() => {
     if(user){
@@ -123,31 +121,6 @@ const Info = ( {closeProfile} ) => {
     </div>
    </>
    ) : ""}
-      {/* <Row>
-        <Col span={6}>
-          <Avatar 
-          src={image} 
-          size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-          />
-            <Upload 
-            action='//jsonplaceholder.typicode.com/posts/'
-            onChange={onChange}
-            name="file"
-            beforeUpload={handleUploadFile}>
-              <Button icon={<UploadOutlined />}>Click to Upload</Button>
-            </Upload>
-        </Col>
-        <Col span={18} style={{textAlign: 'left'}}>
-          <Title level={4}>{user.username}</Title>
-          <Text type="secondary">{user.exercise}</Text>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <p>{user.height.value} &nbsp; {user.height.heightPrefix}</p>
-          <p>{user.weight.value}  &nbsp; {user.weight.weightPrefix}</p>
-        </Col>
-      </Row> */}
     </>
   )
 }

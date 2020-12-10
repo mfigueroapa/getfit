@@ -17,23 +17,8 @@ import DisplayWorkout from "./pages/WorkoutDisplay"
 import FavWorkouts from "./pages/FavWorkouts"
 
 const Router = () => {
-  // const { user } = useContextInfo()
-  // useEffect(() => {
-  //   //ver si estamos loggeados en el servr, si si,
-  //   //actualizamos el contexto con user, sino, logout del contexto.
-  //   console.log("useEff from router.")
-  //   async function getUser() {
-  //     try {
-  //       const { user } = await MY_SERVICE.isAuth()
-  //       console.log("esta fue la respuesta del server.. ,", user)
-  //       login(user)
 
-  //     } catch {}
-  //   }
-  //   getUser()
-  // }, [])
-    const { user } = useContextInfo()
-
+  const { user } = useContextInfo()
 
 
   return (

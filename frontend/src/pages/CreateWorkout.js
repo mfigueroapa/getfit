@@ -125,15 +125,13 @@ const CreateWorkout = ({history}) => {
         </Modal>
       ) : null}
 
-      <div id="create-workout">
-        <div className="left">
-          <Row>
+      <Row className="title__create-workout">
+          <Col span={24}>
             <Typography.Title level={1}>
               CREATE A <span>NEW WORKOUT</span>
             </Typography.Title>
-          </Row>
           <br />
-          <Row>
+
             <Typography.Paragraph>
               <p>
                 Start by clicking the + button of the exercise you want to add. You can type in the searchbar any exercise name or even a muscle group to start getting results
@@ -143,36 +141,35 @@ const CreateWorkout = ({history}) => {
                 Don't forget to name your workout and select a difficulty level according to exercise selection.
               </p>
             </Typography.Paragraph>
-          </Row>
-          <br />
-          <br />
-          <br />
-          <p className="your-workout">YOUR WORKOUT</p>
+          </Col>
+        </Row>
+
+      <div id="create-workout">
+        <div className="left">
           {/* <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> */}
           <div className="workout-form">
             <div className="site-card-wrapper">
+            <p className="your-workout">YOUR WORKOUT</p>
               <Row gutter={16}>
                 {exerciseArr.map((ex) => (
-                  <>
-                    <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
-                      <Card>
-                        <div className="text">
-                          <span>
-                            <p>{ex.name}</p>
-                          </span>
-                          <p>{ex.muscle_group}</p>
-                        </div>
-                        <Button
-                          primary
-                          block
-                          size="middle"
-                          onClick={() => deleteHandle(ex)}
-                        >
-                          <i className="fas fa-trash-alt"></i>
-                        </Button>
-                      </Card>
-                    </Col>
-                  </>
+                  <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
+                    <Card>
+                      <div className="text">
+                        <span>
+                          <p>{ex.name}</p>
+                        </span>
+                        <p>{ex.muscle_group}</p>
+                      </div>
+                      <Button
+                        type="primary"
+                        block
+                        size="middle"
+                        onClick={() => deleteHandle(ex)}
+                      >
+                        <i className="fas fa-trash-alt"></i>
+                      </Button>
+                    </Card>
+                  </Col>
                 ))}
               </Row>
             </div>
@@ -239,40 +236,38 @@ const CreateWorkout = ({history}) => {
           <Row gutter={[16, 16]}>
             {searchResults.length > 0 ? (
               searchResults.map((item) => (
-                <>
-                  <Col xs={24} sm={24} md={24} lg={24} key={item._id}>
-                    <Card>
-                      <img
-                        onClick={() => showModal(item.videoUrl)}
-                        src={item.imageUrl}
-                        alt=""
-                      />
-                      <div className="text">
-                        <span>
-                          <p>{item.name}</p>
-                        </span>
-                        <p>{item.muscle_group}</p>
-                      </div>
-                      <Button
-                        primary
-                        block
-                        size="middle"
-                        onClick={() => showModal(item.videoUrl)}
-                      >
-                        <i class="fas fa-play-circle"></i>
-                      </Button>
-                      <br />
-                      <Button
-                        ghost
-                        block
-                        size="middle"
-                        onClick={() => addExercise(item)}
-                      >
-                        <i className="fas fa-plus"></i>
-                      </Button>
-                    </Card>
-                  </Col>
-                </>
+                <Col xs={24} sm={24} md={24} lg={24} key={item._id}>
+                  <Card>
+                    <img
+                      onClick={() => showModal(item.videoUrl)}
+                      src={item.imageUrl}
+                      alt=""
+                    />
+                    <div className="text">
+                      <span>
+                        <p>{item.name}</p>
+                      </span>
+                      <p>{item.muscle_group}</p>
+                    </div>
+                    <Button
+                      type="primary"
+                      block
+                      size="middle"
+                      onClick={() => showModal(item.videoUrl)}
+                    >
+                      <i className="fas fa-play-circle"></i>
+                    </Button>
+                    <br />
+                    <Button
+                      ghost
+                      block
+                      size="middle"
+                      onClick={() => addExercise(item)}
+                    >
+                      <i className="fas fa-plus"></i>
+                    </Button>
+                  </Card>
+                </Col>
               ))
             ) : (
               <></>
@@ -282,40 +277,38 @@ const CreateWorkout = ({history}) => {
           <Row gutter={[16, 16]}>
             {searchResults.length === 0 && newData === false ? (
               exercises.map((item) => (
-                <>
-                  <Col xs={24} sm={24} md={24} lg={24} key={item._id}>
-                    <Card>
-                      <img
-                        onClick={() => showModal(item.videoUrl)}
-                        src={item.imageUrl}
-                        alt=""
-                      />
-                      <div className="text">
-                        <span>
-                          <p>{item.name}</p>
-                        </span>
-                        <p>{item.muscle_group}</p>
-                      </div>
-                      <Button
-                        primary
-                        block
-                        size="middle"
-                        onClick={() => showModal(item.videoUrl)}
-                      >
-                        <i class="fas fa-play-circle"></i>
-                      </Button>
-                      <br />
-                      <Button
-                        primary
-                        block
-                        size="middle"
-                        onClick={() => addExercise(item)}
-                      >
-                        <i className="fas fa-plus"></i>
-                      </Button>
-                    </Card>
-                  </Col>
-                </>
+                <Col xs={24} sm={24} md={24} lg={24} key={item._id}>
+                  <Card>
+                    <img
+                      onClick={() => showModal(item.videoUrl)}
+                      src={item.imageUrl}
+                      alt=""
+                    />
+                    <div className="text">
+                      <span>
+                        <p>{item.name}</p>
+                      </span>
+                      <p>{item.muscle_group}</p>
+                    </div>
+                    <Button
+                      type="primary"
+                      block
+                      size="middle"
+                      onClick={() => showModal(item.videoUrl)}
+                    >
+                      <i className="fas fa-play-circle"></i>
+                    </Button>
+                    <br />
+                    <Button
+                      type="primary"
+                      block
+                      size="middle"
+                      onClick={() => addExercise(item)}
+                    >
+                      <i className="fas fa-plus"></i>
+                    </Button>
+                  </Card>
+                </Col>
               ))
             ) : (
               <></>

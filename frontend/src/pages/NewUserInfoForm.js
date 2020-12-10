@@ -127,6 +127,15 @@ const NewUserInfoForm = ({ history }) => {
               </Select.Option>
             </Select>
           </Form.Item>
+
+          <Form.Item name="email" label="email" initialValue={history.location.state.email} style={{display: "none"}}>
+            <Input />
+          </Form.Item>
+
+          <Form.Item name="_id" label="_id" initialValue={history.location.state._id} style={{display: "none"}}>
+            <Input />
+          </Form.Item>
+
           <Button type="primary" block size="middle" htmlType="submit">
             Next
           </Button>

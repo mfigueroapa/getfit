@@ -42,7 +42,7 @@ const Profile = ( {closeProfile} ) => {
         {view === "info" ? 
           <Info closeProfile={closeProfile}/>
         : 
-          <Update />
+          <Update handleInfo={handleInfo}/>
         }
         </Card>
       </Col>

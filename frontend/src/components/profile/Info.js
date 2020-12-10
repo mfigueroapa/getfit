@@ -76,7 +76,7 @@ const Info = ( {closeProfile} ) => {
         <Col span={6}>
           <Avatar 
           src={image} 
-          size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
+          size={64}
           />
         </Col>
         <Col span={18} style={{textAlign: 'left'}}>

@@ -42,7 +42,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -50,9 +50,14 @@ app.use(logger('dev'));
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+
 app.use('/api', index);
 app.use('/', auth);
 app.use('/user', require('./routes/user.js'))
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/build", "index.html"))
+})
 
 // Uncomment this line for production
 // app.get('/*', (req, res) => res.sendFile(__dirname + '/public/index.html'));

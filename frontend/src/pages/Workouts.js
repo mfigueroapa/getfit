@@ -16,6 +16,7 @@ function Workouts() {
     getWorkoutsFunction()
   }, [])
 
+
   return (
     <>
       <Row className="custom-header">

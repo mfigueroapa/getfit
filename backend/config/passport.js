@@ -42,14 +42,3 @@ passport.use(
 )
 
 module.exports = passport
-
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
-
-// const User = require("../models/User")
-// const passport = require("passport")
-// passport.use(User.createStrategy())
-
-// // passport.serializeUser(User.serializeUser)
-// // passport.deserializeUser(User.deserializeUser())
-// module.exports = passport

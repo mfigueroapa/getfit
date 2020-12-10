@@ -37,7 +37,9 @@ function Update() {
     <div style={{ padding: '1rem 3rem' }}>
       <Row>
         <div>
-          Update Profiel
+          <h4>
+            Update Profile
+          </h4>
         </div>
         <Col span={24}>
           <Form form={form} layout="vertical" onFinish={submitForm}>

@@ -35,7 +35,7 @@ function Workouts() {
               <Link to={`/workouts/${elm._id}`}>
                 <Card key={elm._id}>
                   <div>
-                    <img alt="example" src="/exercise.jpg" />
+                    <img alt="example" src={elm.image} />
                   </div>
                   <div className="card-content">
                     <p className="card-title">{elm.name}</p>

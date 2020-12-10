@@ -80,6 +80,7 @@ code {
   .ant-layout {
     background: #fff;
     padding: 0 16px;
+    min-height: 100vh;
 
     .ant-layout-header {
       background: #fff;
@@ -147,6 +148,7 @@ code {
         min-width: 375px;
         z-index: 5;
         right: 0;
+        top: 0;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
 
         .ant-card {
@@ -207,6 +209,12 @@ code {
 
   .card-group {
     margin: 0 0 64px 0;
+
+    img {
+      height: 170px;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
 
     .card-group__button-container {
       display: flex;

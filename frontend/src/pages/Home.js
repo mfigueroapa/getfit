@@ -40,7 +40,7 @@ function Home() {
       <Col span={6}>
         <Card>
           <div>
-          <img alt="example" src="/exercise.jpg"/>
+          <img alt="example" src="/image5.jpg"/>
           </div>
           <div className="card-content">
             <p className="card-title">Boost Your Mood</p>
@@ -51,7 +51,7 @@ function Home() {
       <Col span={6}>
       <Card>
           <div>
-          <img alt="example" src="/exercise.jpg"/>
+          <img alt="example" src="/image4.jpg"/>
           </div>
           <div className="card-content">
             <p className="card-title">For Small Spaces</p>
@@ -62,7 +62,7 @@ function Home() {
       <Col span={6}>
       <Card>
           <div>
-          <img alt="example" src="/exercise.jpg"/>
+          <img alt="example" src="/image2.jpg"/>
           </div>
           <div className="card-content">
             <p className="card-title">For The Whole Family</p>
@@ -88,7 +88,7 @@ function Home() {
           <br/> 
           <span>And Get Notice</span>
         </Title>
-        <p>We have Prrepared The Best Exercises to keep you moving</p>
+        <p>Prepare your workouts, get followers and help people to get healthier</p>
       </Col>
     </Row>
     </div>

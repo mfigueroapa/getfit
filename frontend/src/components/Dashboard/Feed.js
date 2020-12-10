@@ -36,13 +36,20 @@ function Main() {
         </div>
       </Col>
     </Row>
+    <Row>
+        <Col span={24}>
+          <Title level={4}>
+            Popular Workouts
+          </Title>
+        </Col>
+      </Row>
     <Row className="card-group">
     {popular && popular.map((elm, index)=> 
     <Col span={7} key={index}>
     <Link to={`/workouts/${elm._id}`}>
       <Card>
           <div>
-          <img alt="example" src="/exercise.jpg"/>
+          <img alt="example" src={elm.image}/>
           </div>
           <div className="card-content">
             <p className="card-title">{elm.name}</p>

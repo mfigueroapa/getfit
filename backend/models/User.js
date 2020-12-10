@@ -20,7 +20,7 @@ const userSchema = new Schema(
     },
     profile_pic: {
       type: String,
-      default: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      default: "https://res.cloudinary.com/dj52orqog/image/upload/v1607568706/getfit/icon_bgou2o.png"
     },
     exercise: {
       type: String,

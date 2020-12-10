@@ -22,7 +22,7 @@ function DisplayWorkout({ match }) {
   const [count, setCount] = useState(0)
   const [seconds, setSeconds] = useState(0)
   const [isActive, setIsActive] = useState(false)
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState(20)
 
   useEffect(() => {
     async function getWorkout() {

@@ -46,7 +46,7 @@ function Main() {
     <Row className="card-group">
     {popular && popular.map((elm, index)=> 
     <Col span={7} key={index}>
-    <Link to={`/workoutss/${elm._id}`}>
+    <Link to={`/workouts/${elm._id}`}>
       <Card>
           <div>
           <img alt="example" src={elm.image}/>

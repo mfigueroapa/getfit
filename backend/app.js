@@ -54,6 +54,7 @@ const auth = require('./routes/auth');
 app.use('/api', index);
 app.use('/', auth);
 app.use('/user', require('./routes/user.js'))
+app.use('/workouts/user', require('./routes/wkt.js'))
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/build", "index.html"))

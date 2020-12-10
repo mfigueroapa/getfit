@@ -89,15 +89,15 @@ const CreateWorkout = ({history}) => {
       MY_SERVICE.createWorkout({
         exercises: exerciseArr,
         name: userInputValues.name,
-        image: "https://unsplash.com/photos/0Wra5YYVQJE",
-        description: "This is a custom workout",
+        image: "https://res.cloudinary.com/dj52orqog/image/upload/v1607615019/getfit/image15_g77jbi.jpg",
+        description: "Cardiovascular conditioning involves moderate to vigorous physical activity that results in an elevated heart rate for a sustained period of time. Regular cardiovascular exercise improves the efficiency of the functioning of the heart, lungs, and circulatory system. For adults, aerobic exercise within a target heart rate range calculated based on a maximum heart rate by age is recommended. For healthy children, cardiovascular exercise that elevates the heart rate to no greater than a maximum heart rate of 200 beats per minute is recommended.",
         level: userInputValues.exercise,
         round_rest: 20,
         set_rest: 60,
         repeat: 4,
         sets: 2,
         exercises_per_set: 3,
-        created_by: user._id,
+        created_by: user.username,
       })
         .then((response) => {
           setExerciseArr([])
@@ -202,7 +202,7 @@ const CreateWorkout = ({history}) => {
                   </Select>
                 </Form.Item>
                 <Button type="primary" block size="middle" htmlType="submit">
-                  Create Wrokout
+                  Create Workout
                 </Button>
                 <br />
                 <br />

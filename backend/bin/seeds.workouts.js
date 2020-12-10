@@ -170,7 +170,7 @@ const workout = [
   },
   {
     name: "Cycle Sync",
-    image: "https://res.cloudinary.com/dj52orqog/image/upload/v1607569491/getfit/image13_xmzgaq.jpg",
+    image: "https://res.cloudinary.com/dj52orqog/image/upload/v1607569482/getfit/image4_aihzoz.jpg",
     description: "Cardiovascular conditioning involves moderate to vigorous physical activity that results in an elevated heart rate for a sustained period of time. Regular cardiovascular exercise improves the efficiency of the functioning of the heart, lungs, and circulatory system. For adults, aerobic exercise within a target heart rate range calculated based on a maximum heart rate by age is recommended. For healthy children, cardiovascular exercise that elevates the heart rate to no greater than a maximum heart rate of 200 beats per minute is recommended.",
     level: "Beginner",
     exercises: [

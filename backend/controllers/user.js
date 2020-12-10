@@ -115,9 +115,6 @@ exports.deleteUser = async (req, res) => {
 exports.saveWorkout = async (req, res) => {
   const { _id } = req.user
   const {workout} = req.body
-  console.log("el wk que viene de front de workout", workout._id)
-
-
   const user = await User.findOne({"favWorkouts": workout._id})
   if (user) {
     return res.status(500).json({message: "Workout already existis!"})

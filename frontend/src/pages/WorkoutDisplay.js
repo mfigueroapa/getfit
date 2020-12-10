@@ -104,9 +104,12 @@ function DisplayWorkout({ match }) {
   async function handleAddToFav(workout) {
     console.log("triggered")
     console.log(workout)
-    const response = await MY_SERVICE.addWorkoutToFavorites({ workout })
-    console.log("Respueta despues de intentar mandar el post", response)
-    if (response)toast.success("Workout added to favorites")
+    await MY_SERVICE.addWorkoutToFavorites({ workout })
+    .then(response => {
+      if (response) toast.success("Workout added to favorites")
+    }).catch(error => {
+      toast.error("You have already added this workout! Why don't you try another one?")
+    })
   }
 
   return (

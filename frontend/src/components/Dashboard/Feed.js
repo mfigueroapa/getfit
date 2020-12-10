@@ -53,6 +53,7 @@ function Main() {
           </div>
           <div className="card-content">
             <p className="card-title">{elm.name}</p>
+            <p className="card-title">{elm.name}</p>
             <Paragraph className="card-text" ellipsis>
               {elm.description}
             </Paragraph>
@@ -90,3 +91,4 @@ function Main() {
 }
 
 export default Main
+

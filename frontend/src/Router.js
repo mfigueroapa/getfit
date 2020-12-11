@@ -23,9 +23,9 @@ const Router = () => {
       <LayoutApp>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-          <Route path="/new-user-form" component={NewUserInfoForm} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/new-user-form" component={NewUserInfoForm} />
           {user ? (
             <>
               <Route exact path="/dashboard" component={Dashboard} />

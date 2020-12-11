@@ -3,13 +3,35 @@ import { Form, Button, Input, Col, Select, Row, Typography } from "antd"
 import MY_SERVICE from "../services"
 import { useContextInfo } from "../hooks/context"
 import { toast } from "react-toastify"
+import { useEffect, useState } from "react"
 import "./form.scss"
 const { Title } = Typography
 const { Option } = Select
 
 const NewUserInfoForm = ({ history }) => {
   const [form] = Form.useForm()
+  const [currentEmail, setCurrentEmail] = useState("")
+  const [currentId, setCurrentId] = useState("")
   const { updateUserCtx } = useContextInfo()
+
+  useEffect(() => {
+    async function getUser() {
+      MY_SERVICE.isAuth()
+        .then((response) => {
+          console.log(
+            "this is the response from isAuth from NewUserInfoForm useEff ",
+            response
+          )
+          setCurrentEmail(response.data.user.email)
+          setCurrentId(response.data.user._id)
+        })
+        .catch((error) => {
+          console.log("error from catch ", error)
+        })
+    }
+
+    getUser()
+  }, [])
 
   async function handleSubmit(userInputValues) {
     if (!userInputValues.weightPrefix)
@@ -47,7 +69,7 @@ const NewUserInfoForm = ({ history }) => {
       </Select>
     </Form.Item>
   )
-
+console.log("current stuff: ", currentEmail, currentId)
   return (
     <Row id="form-style">
       <div className="form__content">
@@ -123,23 +145,29 @@ const NewUserInfoForm = ({ history }) => {
               </Select>
             </Form.Item>
 
-            <Form.Item
-              name="email"
-              label="email"
-              initialValue={history.location.state.email}
-              style={{ display: "none" }}
-            >
-              <Input />
-            </Form.Item>
+            {currentId && currentEmail ? (
+              <>
+                <Form.Item
+                  name="email"
+                  label="email"
+                  initialValue={currentEmail}
+                  style={{ display: "none" }}
+                >
+                  <Input />
+                </Form.Item>
 
-            <Form.Item
-              name="_id"
-              label="_id"
-              initialValue={history.location.state._id}
-              style={{ display: "none" }}
-            >
-              <Input />
-            </Form.Item>
+                <Form.Item
+                  name="_id"
+                  label="_id"
+                  initialValue={currentId}
+                  style={{ display: "none" }}
+                >
+                  <Input />
+                </Form.Item>
+              </>
+            ) : (
+              <></>
+            )}
 
             <Button type="primary" block size="middle" htmlType="submit">
               Next

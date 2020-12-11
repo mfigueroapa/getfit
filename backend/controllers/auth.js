@@ -39,6 +39,7 @@ exports.googleCb = (req, res, next) => {
       if (err) return res.status(500).json({ err })
 
       if (user.exercise === "") {
+        console.log("user: ",user)
         return res.redirect(
           process.env.ENV === "development"
             ? "http://localhost:3001/new-user-form"

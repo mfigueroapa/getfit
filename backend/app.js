@@ -54,13 +54,12 @@ const auth = require('./routes/auth');
 app.use('/api', index);
 app.use('/', auth);
 app.use('/user', require('./routes/user.js'))
-app.use('/workouts/user', require('./routes/wkt.js'))
+//Esta ruta específica fue creada porque existía un bug en el deploy y siempre intentaba hacer el post 
+//con un "workouts/" antes de user y al no encontrar la ruta, generaba un error. Esto no pasaba en la app local.
+// app.use('/workouts/user', require('./routes/wkt.js'))
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/build", "index.html"))
 })
-
-// Uncomment this line for production
-// app.get('/*', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
 module.exports = app;

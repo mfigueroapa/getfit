@@ -35,8 +35,8 @@ const Router = () => {
               <Route path="/dashboard" component={Dashboard} />
               <Route exact path="/workouts/:id" component={DisplayWorkout} />
               <Route path="/exercises" component={Exercises} />
-              <Route exact path="/workouts" component={Workouts} />
-              <Route exact path="/fav-workouts" component={FavWorkouts} />
+              <Route path="/workouts" component={Workouts} />
+              <Route path="/fav-workouts" component={FavWorkouts} />
               <Route path="/create-workout" component={CreateWorkout} />
               <Route path="/recipes" component={Recipes} />
             </>

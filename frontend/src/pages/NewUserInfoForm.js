@@ -18,15 +18,10 @@ const NewUserInfoForm = ({ history }) => {
     async function getUser() {
       MY_SERVICE.isAuth()
         .then((response) => {
-          console.log(
-            "this is the response from isAuth from NewUserInfoForm useEff ",
-            response
-          )
           setCurrentEmail(response.data.user.email)
           setCurrentId(response.data.user._id)
         })
         .catch((error) => {
-          console.log("error from catch ", error)
         })
     }
 
@@ -69,7 +64,7 @@ const NewUserInfoForm = ({ history }) => {
       </Select>
     </Form.Item>
   )
-console.log("current stuff: ", currentEmail, currentId)
+
   return (
     <Row id="form-style">
       <div className="form__content">

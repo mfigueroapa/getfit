@@ -10,27 +10,23 @@ export const AppCtxProvider = (props) => {
   useEffect(() => {
     async function getSessionData() {
       MY_SERVICE.isAuth()
-      .then(response=> {
-        console.log("anser from isAuth: ", response.data.user)
-      if (response.data.user.exercise !== "") {
-        console.log(response.data.user)
-        login(response.data.user)
-      }
-      }).catch(error=>{
-      })
+        .then((response) => {
+          if (response.data.user.exercise !== "") {
+            login(response.data.user)
+          }
+        })
+        .catch((error) => {})
     }
 
-    if(user){
+    if (user) {
       getSessionData()
-    } else {
-      console.log("you have to login")
     }
   }, [])
 
   const login = (userInfo) => {
     setUser(userInfo)
   }
-  
+
   const logout = () => {
     setUser(null)
   }
@@ -42,8 +38,7 @@ export const AppCtxProvider = (props) => {
   }
 
   const updateUserCtx = (userInfo) => {
-    let userCopy = {...user}
-
+    let userCopy = { ...user }
     userCopy = {
       _id: userInfo._id,
       username: userInfo.username,
@@ -53,14 +48,14 @@ export const AppCtxProvider = (props) => {
       profile_pic: userInfo.profile_pic,
       weight: {
         value: userInfo.weight,
-        weightPrefix: userInfo.weightPrefix
+        weightPrefix: userInfo.weightPrefix,
       },
       height: {
         value: userInfo.height,
-        heightPrefix: userInfo.heightPrefix
+        heightPrefix: userInfo.heightPrefix,
       },
     }
-     setUser(userCopy)
+    setUser(userCopy)
   }
 
   const value = { user, login, updateUserCtx, logout, addProfilePic }

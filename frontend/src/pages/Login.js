@@ -6,11 +6,12 @@ import "./form.scss"
 
 const { Title } = Typography
 
-const googleUrl = process.env.NODE_ENV === 'development' ?
-  "http://localhost:3000/auth/google" : '/auth/google'
+const googleUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000/auth/google"
+    : "/auth/google"
 
 const Login = ({ history }) => {
-  
   const { user, login } = useContextInfo()
   if (user) history.push("/dashboard")
   const [form] = Form.useForm()
@@ -27,37 +28,37 @@ const Login = ({ history }) => {
 
   return (
     <Row id="form-style">
-    <div className="form__content">
-      <Col span={24}>
-        <Title level={1}>
-        Get in to cotinue
-        <br/>
-        <span>with your JOURNEY</span>
-        </Title>
-      </Col>
-      <Col span={24}>
-        <Form layout="vertical" form={form} onFinish={handleSubmit}>
-          <Form.Item 
-          rules={[{ required: true }]} 
-          name="email" label="Email">
-            <Input />
-          </Form.Item>
-          <Form.Item
-            rules={[{ required: true }]}
-            name="password"
-            label="Password"
-          >
-            <Input.Password />
-          </Form.Item>
-          <Button type="primary" block htmlType="submit">
-            Login
-          </Button>
-        </Form>
-        <Divider/>
-        <a href={googleUrl}>
-          <Button block><i className="fab fa-google"></i> &nbsp; Login with Google </Button>
-        </a>
-      </Col>
+      <div className="form__content">
+        <Col span={24}>
+          <Title level={1}>
+            Get in to cotinue
+            <br />
+            <span>with your JOURNEY</span>
+          </Title>
+        </Col>
+        <Col span={24}>
+          <Form layout="vertical" form={form} onFinish={handleSubmit}>
+            <Form.Item rules={[{ required: true }]} name="email" label="Email">
+              <Input />
+            </Form.Item>
+            <Form.Item
+              rules={[{ required: true }]}
+              name="password"
+              label="Password"
+            >
+              <Input.Password />
+            </Form.Item>
+            <Button type="primary" block htmlType="submit">
+              Login
+            </Button>
+          </Form>
+          <Divider />
+          <a href={googleUrl}>
+            <Button block>
+              <i className="fab fa-google"></i> &nbsp; Login with Google{" "}
+            </Button>
+          </a>
+        </Col>
       </div>
     </Row>
   )

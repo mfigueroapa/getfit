@@ -4,8 +4,7 @@ const passport = require("passport")
 exports.signup = async (req, res) => {
   User.register(req.body, req.body.password)
     .then((user) => {
-        console.log(user)
-        res.status(201).json({ user })
+      res.status(201).json({ user })
     })
     .catch((err) => res.status(500).json({ err }))
 }
@@ -24,31 +23,33 @@ exports.profile = async (req, res) => {
     .catch((err) => res.status(500).json({ err }))
 }
 
-
-exports.googleInit = passport.authenticate('google', {
+exports.googleInit = passport.authenticate("google", {
   scope: [
     "https://www.googleapis.com/auth/userinfo.profile",
-    "https://www.googleapis.com/auth/userinfo.email"
-  ]
+    "https://www.googleapis.com/auth/userinfo.email",
+  ],
 })
 
 exports.googleCb = (req, res, next) => {
-  passport.authenticate('google', (err, user, errDetails) => {
-    console.log("intento de consologgear el email: ",user.email)
+  passport.authenticate("google", (err, user, errDetails) => {
     if (err) return res.status(500).json({ err, errDetails })
     if (!user) return res.status(401).json({ err, errDetails })
 
-    req.login(user, err => {
-      console.log("login de doogleCb ",user)
+    req.login(user, (err) => {
       if (err) return res.status(500).json({ err })
 
-      if (user.exercise === '') {
-        // return res.redirect(process.env.NODE_ENV === 'development' ?
-        return res.redirect(process.env.ENV === 'development' ?
-          'http://localhost:3001/new-user-form' : '/new-user-form')
-        } else {
-          return res.redirect(process.env.ENV === 'development' ?
-            'http://localhost:3001/dashboard' : '/dashboard')
+      if (user.exercise === "") {
+        return res.redirect(
+          process.env.ENV === "development"
+            ? "http://localhost:3001/new-user-form"
+            : "/new-user-form"
+        )
+      } else {
+        return res.redirect(
+          process.env.ENV === "development"
+            ? "http://localhost:3001/dashboard"
+            : "/dashboard"
+        )
       }
     })
   })(req, res, next)

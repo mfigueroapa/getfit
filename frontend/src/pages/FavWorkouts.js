@@ -18,9 +18,7 @@ function FavWorkouts() {
   }, [])
 
   async function deleteHandle(workout) {
-    console.log(workout)
     await MY_SERVICE.removeFavorite(workout).then((response) => {
-      console.log(response.data.deletedWorkout)
       let arr = []
       arr = workouts.filter((wk) => wk._id !== response.data.deletedWorkout)
       setWorkouts(arr)

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useContextInfo } from "../hooks/context"
 import MY_SERVICE from "../services"
 import { Typography, Row, Col, Input, Card } from "antd"
-import "./recipes.scss"
+import "./Recipes.scss"
 const { Search } = Input
 const { Title } = Typography
 
@@ -119,7 +119,7 @@ const Recipies = () => {
           </Row>
         </div>
       ) : (
-        ''
+        ""
       )}
     </>
   )

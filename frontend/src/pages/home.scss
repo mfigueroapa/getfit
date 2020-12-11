@@ -1,9 +1,7 @@
 #home {
-
   h1.ant-typography {
     font-size: 72px !important;
   }
-
   .hero {
     background-image: url("../images/hero.jpg");
     background-size: contain;
@@ -19,30 +17,27 @@
       width: 320px;
     }
   }
-
   .promo-1 {
     background-image: url("../images/promo1.jpg");
     background-repeat: no-repeat;
     background-size: 45%;
     background-position: 68% 50%;
   }
-
   .promo-2 {
     background-image: url("../images/promo2.jpg");
     background-repeat: no-repeat;
     background-size: 45%;
     background-position: 32% 50%;
   }
-
   .section.section-inverse {
-
-    h1, p {
+    h1,
+    p {
       text-align: right;
     }
 
     p {
-     position: absolute;
-     right: 0;
+      position: absolute;
+      right: 0;
     }
   }
 }

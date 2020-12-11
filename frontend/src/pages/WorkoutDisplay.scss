@@ -1,5 +1,4 @@
 #display-workout {
-
   .hero {
     position: relative;
 
@@ -7,7 +6,7 @@
       position: absolute;
       transform: translate(-50%, 0);
       left: 50%;
-      
+
       p {
         text-align: center;
         font-family: "Oswald";
@@ -49,7 +48,7 @@
           font-family: "Oswald";
           font-weight: 400;
           margin-bottom: 8px;
-  
+
           span {
             font-size: 24px;
           }
@@ -85,7 +84,7 @@
               font-weight: 300;
               margin: 0 16px;
               padding: 0 16px;
-              border-left: 2px solid #C4C4C4;
+              border-left: 2px solid #c4c4c4;
             }
           }
         }
@@ -108,7 +107,7 @@
               font-weight: 300;
               margin: 0 16px;
               padding: 0 16px;
-              border-left: 2px solid #C4C4C4;
+              border-left: 2px solid #c4c4c4;
             }
           }
         }
@@ -118,7 +117,6 @@
           border: 2px solid #000;
 
           span.anticon {
-
             svg {
               width: 20px;
               height: 20px;
@@ -135,7 +133,7 @@
               font-size: 36px;
               font-weight: 700;
               padding: 0 16px;
-              border-right: 2px solid #C4C4C4;
+              border-right: 2px solid #c4c4c4;
               margin-right: 16px;
             }
 
@@ -161,7 +159,7 @@
             background: #000;
             display: flex;
             justify-content: center;
-            padding-top: 16px;     
+            padding-top: 16px;
           }
         }
       }
@@ -187,23 +185,22 @@
       padding: 12px;
       color: #fff;
       border-radius: 12px;
-  
-  
+
       &__time {
         font-family: "Oswald";
         font-size: 32px;
       }
-  
+
       .timer__buttons {
         margin-right: 8px;
-  
+
         button {
           background: rgba(242, 242, 242, 0.05);
           border: none;
           padding: 4px 8px;
         }
       }
-  
+
       p {
         font-size: 10px;
       }

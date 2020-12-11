@@ -18,7 +18,7 @@ export default function LayoutApp({ children }) {
     } else {
       setImage("")
     }
-  },[user])
+  }, [user])
 
   function handleProfile() {
     if (profile) {
@@ -48,10 +48,10 @@ export default function LayoutApp({ children }) {
                   <div className="layout__image">
                     {!user ? (
                       <Link to="/">
-                        <img src={logo} alt="User profile"/>
+                        <img src={logo} alt="User profile" />
                       </Link>
                     ) : (
-                      <img src={logo} alt="User profile"/>
+                      <img src={logo} alt="User profile" />
                     )}
                   </div>
                 </div>
@@ -99,7 +99,7 @@ export default function LayoutApp({ children }) {
               lg={{ span: 22, offset: 1 }}
             >
               <div className="site-layout-content">
-                {profile && <Profile closeProfile={() => closeProfile()}/>}
+                {profile && <Profile closeProfile={() => closeProfile()} />}
                 {children}
               </div>
             </Col>

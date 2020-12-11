@@ -14,14 +14,13 @@ import {
   Form,
   Button,
   Select,
-  Modal
+  Modal,
 } from "antd"
 import { toast } from "react-toastify"
 const { Search } = Input
 
-const CreateWorkout = ({history}) => {
+const CreateWorkout = ({ history }) => {
   const { user } = useContextInfo()
-  // const history = useHistory()
   const [exercises, setExercises] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
@@ -89,8 +88,10 @@ const CreateWorkout = ({history}) => {
       MY_SERVICE.createWorkout({
         exercises: exerciseArr,
         name: userInputValues.name,
-        image: "https://res.cloudinary.com/dj52orqog/image/upload/v1607615019/getfit/image15_g77jbi.jpg",
-        description: "Cardiovascular conditioning involves moderate to vigorous physical activity that results in an elevated heart rate for a sustained period of time. Regular cardiovascular exercise improves the efficiency of the functioning of the heart, lungs, and circulatory system. For adults, aerobic exercise within a target heart rate range calculated based on a maximum heart rate by age is recommended. For healthy children, cardiovascular exercise that elevates the heart rate to no greater than a maximum heart rate of 200 beats per minute is recommended.",
+        image:
+          "https://res.cloudinary.com/dj52orqog/image/upload/v1607615019/getfit/image15_g77jbi.jpg",
+        description:
+          "Cardiovascular conditioning involves moderate to vigorous physical activity that results in an elevated heart rate for a sustained period of time. Regular cardiovascular exercise improves the efficiency of the functioning of the heart, lungs, and circulatory system. For adults, aerobic exercise within a target heart rate range calculated based on a maximum heart rate by age is recommended. For healthy children, cardiovascular exercise that elevates the heart rate to no greater than a maximum heart rate of 200 beats per minute is recommended.",
         level: userInputValues.exercise,
         round_rest: 20,
         set_rest: 60,
@@ -126,30 +127,32 @@ const CreateWorkout = ({history}) => {
       ) : null}
 
       <Row className="title__create-workout">
-          <Col span={24}>
-            <Typography.Title level={1}>
-              CREATE A <span>NEW WORKOUT</span>
-            </Typography.Title>
+        <Col span={24}>
+          <Typography.Title level={1}>
+            CREATE A <span>NEW WORKOUT</span>
+          </Typography.Title>
           <br />
 
-            <Typography.Paragraph>
-              <p>
-                Start by clicking the + button of the exercise you want to add. You can type in the searchbar any exercise name or even a muscle group to start getting results
-                i.e., "Lower Body", "Upper Body", "Tricep", "Leg".
-                <br />
-                <br />
-                Don't forget to name your workout and select a difficulty level according to exercise selection.
-              </p>
-            </Typography.Paragraph>
-          </Col>
-        </Row>
+          <Typography.Paragraph>
+            <p>
+              Start by clicking the + button of the exercise you want to add.
+              You can type in the searchbar any exercise name or even a muscle
+              group to start getting results i.e., "Lower Body", "Upper Body",
+              "Tricep", "Leg".
+              <br />
+              <br />
+              Don't forget to name your workout and select a difficulty level
+              according to exercise selection.
+            </p>
+          </Typography.Paragraph>
+        </Col>
+      </Row>
 
       <div id="create-workout">
         <div className="left">
-          {/* <WorkoutForm exerciseArr={exerciseArr}></WorkoutForm> */}
           <div className="workout-form">
             <div className="site-card-wrapper">
-            <p className="your-workout">YOUR WORKOUT</p>
+              <p className="your-workout">YOUR WORKOUT</p>
               <Row gutter={16}>
                 {exerciseArr.map((ex) => (
                   <Col xs={24} sm={24} md={24} lg={24} key={ex._id}>
@@ -177,7 +180,6 @@ const CreateWorkout = ({history}) => {
           <>
             <Col span={24}>
               <Form form={form} layout="vertical" onFinish={handleSubmit}>
-                
                 <Form.Item
                   rules={[{ required: true }]}
                   name="name"

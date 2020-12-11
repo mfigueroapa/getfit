@@ -27,9 +27,7 @@ function DisplayWorkout({ match }) {
   useEffect(() => {
     async function getWorkout() {
       const { data } = await MY_SERVICE.getWorkout(match.params.id)
-      console.log(data, "📡")
       const videosCopy = data.exercises.map((elm) => false)
-
       setVideos(videosCopy)
       setWorkout(data)
 
@@ -56,19 +54,16 @@ function DisplayWorkout({ match }) {
       setWorkoutExc(listData)
       setCount(listData.length)
     }
-
     getWorkout()
   }, [])
 
   function handleVideo(id) {
     const copy = [...videos]
-
     if (copy[id]) {
       copy[id] = false
     } else {
       copy[id] = true
     }
-
     setVideos(copy)
   }
 
@@ -102,14 +97,15 @@ function DisplayWorkout({ match }) {
   }
 
   async function handleAddToFav(workout) {
-    console.log("triggered")
-    console.log(workout)
     await MY_SERVICE.addWorkoutToFavorites({ workout })
-    .then(response => {
-      if (response) toast.success("Workout added to favorites")
-    }).catch(error => {
-      toast.error("You have already added this workout! Why don't you try another one?")
-    })
+      .then((response) => {
+        if (response) toast.success("Workout added to favorites")
+      })
+      .catch((error) => {
+        toast.error(
+          "You have already added this workout! Why don't you try another one?"
+        )
+      })
   }
 
   return (
@@ -135,7 +131,6 @@ function DisplayWorkout({ match }) {
             <Col span={24} className="display-workout__description">
               {workout.description}
             </Col>
-
             <div className="text-block">
               <p>Created By:</p>
               <span>{workout.created_by}</span>

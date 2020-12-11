@@ -12,15 +12,12 @@ import Workouts from "./pages/Workouts"
 import CreateWorkout from "./pages/CreateWorkout"
 import Recipes from "./pages/Recipes"
 import { useContextInfo } from "./hooks/context"
-// import MY_SERVICE from "./services"
 import DisplayWorkout from "./pages/WorkoutDisplay"
 import FavWorkouts from "./pages/FavWorkouts"
 
 const Router = () => {
-
   const { user } = useContextInfo()
-
-
+  
   return (
     <BrowserRouter>
       <LayoutApp>
@@ -29,7 +26,6 @@ const Router = () => {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/new-user-form" component={NewUserInfoForm} />
-          {/* <Route path='/profile' component={Profile}/> */}
           {user ? (
             <>
               <Route path="/dashboard" component={Dashboard} />

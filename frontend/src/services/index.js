@@ -26,19 +26,15 @@ const MY_SERVICE = {
   },
   updateUser: async (id, user) => {
     return await service.put(`/user/update/${id}`, user)
-    // return await service.post(`user/update/${id}`, user)
   },
   editInfo: async (userData) => {
     return await service.put("/user/edit-info", userData)
-    // return await service.post("/user/edit-info", userData)
   },
   deleteUser: async (id) => {
     return await service.delete(`/user/delete/${id}`)
-    // return await service.post(`user/delete/${id}`)
   },
   updatePic: async (id, image) => {
     return await service.put(`/user/update-pic/${id}`, image)
-    // return await service.post(`user/update-pic/${id}`, image)
   },
   addWorkoutToFavorites: async (workout) => {
     return await service.post(`/user/save-workout-to-favorites`, workout)

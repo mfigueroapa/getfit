@@ -33,7 +33,6 @@ const Info = ({ closeProfile }) => {
   }, [user])
 
   const handleUploadFile = async (file) => {
-    console.log(file, "💾")
     let data = new FormData()
 
     data.append("file", file)
@@ -52,7 +51,6 @@ const Info = ({ closeProfile }) => {
 
   function onChange(info) {
     if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList)
     }
     if (info.file.status === "done") {
       message.success(`${info.file.name} file uploaded successfully`)
@@ -62,7 +60,6 @@ const Info = ({ closeProfile }) => {
   }
 
   async function confirm(e) {
-    console.log(e)
     message.success("Is sad to see you leave")
     await MY_SERVICE.deleteUser(user._id)
     closeProfile()
@@ -70,7 +67,6 @@ const Info = ({ closeProfile }) => {
   }
 
   function cancel(e) {
-    console.log(e)
     message.info("Thanks for sticking with us")
   }
 

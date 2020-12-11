@@ -28,13 +28,13 @@ const Router = () => {
           <Route path="/new-user-form" component={NewUserInfoForm} />
           {user ? (
             <>
-              <Route path="/dashboard" component={Dashboard} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/workouts" component={Workouts} />
               <Route exact path="/workouts/:id" component={DisplayWorkout} />
-              <Route path="/exercises" component={Exercises} />
-              <Route path="/workouts" component={Workouts} />
-              <Route path="/fav-workouts" component={FavWorkouts} />
-              <Route path="/create-workout" component={CreateWorkout} />
-              <Route path="/recipes" component={Recipes} />
+              <Route exact path="/fav-workouts" component={FavWorkouts} />
+              <Route exact path="/exercises" component={Exercises} />
+              <Route exact path="/create-workout" component={CreateWorkout} />
+              <Route exact path="/recipes" component={Recipes} />
             </>
           ) : (
             <Route component={Home} />

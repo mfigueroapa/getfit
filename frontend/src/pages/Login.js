@@ -3,6 +3,7 @@ import { Row, Col, Form, Input, Button, Typography, Divider } from "antd"
 import MY_SERVICE from "../services"
 import { useContextInfo } from "../hooks/context"
 import "./form.scss"
+import { toast } from "react-toastify"
 
 const { Title } = Typography
 
@@ -17,12 +18,16 @@ const Login = ({ history }) => {
   const [form] = Form.useForm()
 
   async function handleSubmit(userInput) {
-    const { data } = await MY_SERVICE.login(userInput)
-    if (data.user.exercise === "") {
-      history.push("/new-user-form")
-    } else {
-      history.push("/dashboard")
-      login(data.user)
+    try {
+      const { data } = await MY_SERVICE.login(userInput)
+      if (data.user.exercise === "") {
+        history.push("/new-user-form")
+      } else {
+        history.push("/dashboard")
+        login(data.user)
+      }
+    } catch (error) {
+      toast.error("Something went wrong, email not registered.")
     }
   }
 

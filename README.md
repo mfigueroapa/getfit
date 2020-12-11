@@ -1,7 +1,7 @@
 
 # GetFit
 
-GetFit es una plataforma con la cual podrás acceder a un catálogo de workouts para hacer ejercicio en gimnasio o casa y así poder estar en forma mucho mas rápido de lo que te imaginas. Puedes crear tus propios workouts formándolos con los ejercicios que tú selecciones de una gran base de datos que está disponible.
+GetFit es una plataforma con la cual podrás acceder a un catálogo de workouts para hacer ejercicio en gimnasio o casa y así poder estar en forma mucho más rápido de lo que te imaginas. Puedes crear tus propios workouts formándolos con los ejercicios que tú selecciones de una gran base de datos que está disponible.
 No olvides checar la sección de Meals en donde encontrarás recetas saludables y orientación nutricional.
 
 GetFit with the best training.

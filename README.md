@@ -11,6 +11,7 @@ GetFit with the best training.
 Si no quieres registrarte creando una cuenta con tu correo o a través de Google, puedes utilizar los siguientes datos para ingresar a la aplicación:
 email: ironhacker@hotmail.com
 pwd: 123
+link: fast-citadel-80864.herokuapp.com/
 
 # Autores
 Desarrollado por Alberto Hernández y Mauricio Figueroa.
